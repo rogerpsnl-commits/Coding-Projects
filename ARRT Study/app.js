@@ -31,6 +31,10 @@ function filterQuestions() {
   filteredQ = category === 'all'
     ? [...QUESTIONS]
     : QUESTIONS.filter(q => q.cat === category);
+  for (let i = filteredQ.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [filteredQ[i], filteredQ[j]] = [filteredQ[j], filteredQ[i]];
+  }
 }
 
 // ================================================================
@@ -163,6 +167,7 @@ function answerQuiz(chosen, q) {
     catStats[q.cat].correct++;
     score += 10;
     showStreak();
+    burstPets();
   } else {
     streak = 0;
     hideBanner();
@@ -301,6 +306,27 @@ function showStreak() {
 
 function hideBanner() {
   document.getElementById('streak-banner').classList.remove('show');
+}
+
+// ================================================================
+//  PET CELEBRATION
+// ================================================================
+const PETS = ['🐶','🐱','🐾','🐕','🐈','🦴','🐩','😺','🐾','🐶'];
+
+function burstPets() {
+  const count = 6;
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const el = document.createElement('span');
+      el.className = 'pet-burst';
+      el.textContent = PETS[Math.floor(Math.random() * PETS.length)];
+      el.style.left = (15 + Math.random() * 70) + 'vw';
+      el.style.top  = (30 + Math.random() * 40) + 'vh';
+      el.style.animationDelay = (Math.random() * 0.2) + 's';
+      document.body.appendChild(el);
+      el.addEventListener('animationend', () => el.remove());
+    }, i * 80);
+  }
 }
 
 // ================================================================

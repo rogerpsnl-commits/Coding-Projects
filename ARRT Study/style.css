@@ -552,6 +552,21 @@
   .cat-stat-bar { height: 100%; border-radius: 5px; background: var(--pink); transition: width 0.5s; }
   .cat-stat-count { font-size: 0.8rem; color: var(--gray); min-width: 40px; text-align: right; }
 
+  /* ── PET CELEBRATION ── */
+  .pet-burst {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2.4rem;
+    z-index: 9999;
+    animation: petFloat 1.4s ease-out forwards;
+    user-select: none;
+  }
+  @keyframes petFloat {
+    0%   { opacity: 1; transform: translateY(0)   scale(1)   rotate(0deg); }
+    40%  { opacity: 1; transform: translateY(-60px) scale(1.3) rotate(-12deg); }
+    100% { opacity: 0; transform: translateY(-140px) scale(0.6) rotate(20deg); }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 580px) {
     .card-face { padding: 22px 20px; }
