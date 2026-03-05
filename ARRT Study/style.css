@@ -297,6 +297,24 @@
     margin-bottom: 20px;
     border: 1px solid var(--border);
   }
+  .quiz-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .quiz-timer {
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--pink);
+    background: var(--pink-light);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 12px;
+    letter-spacing: 0.5px;
+  }
+  .quiz-timer.slow { color: #c62828; background: #ffebee; border-color: #f48fb1; }
   .quiz-cat-badge {
     display: inline-block;
     font-size: 0.7rem;
@@ -371,6 +389,12 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .drill-time {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-left: auto;
   }
   .drill-verdict {
     font-size: 1rem;

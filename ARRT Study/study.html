@@ -82,7 +82,10 @@
   <!-- ═══ QUIZ MODE ═══ -->
   <div id="quiz-mode" style="display:none">
     <div class="quiz-card" id="quiz-card">
-      <span class="quiz-cat-badge" id="quiz-cat-badge"></span>
+      <div class="quiz-top-row">
+        <span class="quiz-cat-badge" id="quiz-cat-badge"></span>
+        <div class="quiz-timer" id="quiz-timer">0:00</div>
+      </div>
       <div class="quiz-question" id="quiz-question"></div>
       <div class="options-grid" id="options-grid"></div>
 
@@ -90,6 +93,7 @@
       <div class="drill-panel" id="drill-panel">
         <div class="drill-header">
           <div class="drill-verdict" id="drill-verdict"></div>
+          <div class="drill-time" id="drill-time"></div>
         </div>
         <!-- Correct answer explanation -->
         <div class="drill-correct-box" id="drill-correct-box">

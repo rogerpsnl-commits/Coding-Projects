@@ -16,6 +16,38 @@ let totalCorrect  = 0;
 let catStats = {};
 
 // ================================================================
+//  TIMER
+// ================================================================
+let timerInterval = null;
+let timerStart    = 0;
+
+function startTimer() {
+  stopTimer();
+  timerStart = Date.now();
+  const el = document.getElementById('quiz-timer');
+  el.classList.remove('slow');
+  timerInterval = setInterval(() => {
+    const secs = Math.floor((Date.now() - timerStart) / 1000);
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    el.textContent = m + ':' + String(s).padStart(2, '0');
+    el.classList.toggle('slow', secs >= 30);
+  }, 500);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+}
+
+function elapsedLabel() {
+  const secs = Math.floor((Date.now() - timerStart) / 1000);
+  const m = Math.floor(secs / 60);
+  const s = secs % 60;
+  return m > 0 ? `${m}m ${s}s` : `${s}s`;
+}
+
+// ================================================================
 //  PERSISTENCE
 // ================================================================
 const STORAGE_KEY = 'arrt_stats';
