@@ -127,9 +127,9 @@ function init() {
   }
   const name = loadName();
   if (name) {
-    document.getElementById('name-modal').classList.add('hidden');
     document.getElementById('header-name').textContent = '👤 ' + name;
   } else {
+    document.getElementById('name-modal').classList.remove('hidden');
     setTimeout(() => document.getElementById('name-input').focus(), 100);
   }
   filterQuestions();
