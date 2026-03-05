@@ -16,12 +16,57 @@ let totalCorrect  = 0;
 let catStats = {};
 
 // ================================================================
+//  PERSISTENCE
+// ================================================================
+const STORAGE_KEY = 'arrt_stats';
+
+function loadSaved() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+function saveStats() {
+  const data = {
+    totalAnswered, totalCorrect, score,
+    bestStreak: Math.max(bestStreak, streak),
+    catStats,
+    savedAt: new Date().toLocaleDateString()
+  };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function resetSaved() {
+  localStorage.removeItem(STORAGE_KEY);
+  totalAnswered = 0; totalCorrect = 0; score = 0; bestStreak = 0; streak = 0;
+  ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
+    catStats[c] = { answered:0, correct:0 };
+  });
+  document.getElementById('hdr-score').textContent  = 0;
+  document.getElementById('hdr-streak').textContent = 0;
+  renderStats();
+}
+
+// ================================================================
 //  INIT
 // ================================================================
 function init() {
   ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
     catStats[c] = { answered:0, correct:0 };
   });
+  const saved = loadSaved();
+  if (saved) {
+    totalAnswered = saved.totalAnswered || 0;
+    totalCorrect  = saved.totalCorrect  || 0;
+    score         = saved.score         || 0;
+    bestStreak    = saved.bestStreak    || 0;
+    ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
+      if (saved.catStats && saved.catStats[c]) catStats[c] = saved.catStats[c];
+    });
+    document.getElementById('hdr-score').textContent  = score;
+    document.getElementById('hdr-streak').textContent = bestStreak;
+  }
   filterQuestions();
   renderFlashcard();
   renderStats();
@@ -215,6 +260,7 @@ function answerQuiz(chosen, q) {
   document.getElementById('quiz-next-btn').classList.add('show');
   document.getElementById('hdr-score').textContent  = score;
   document.getElementById('hdr-streak').textContent = streak;
+  saveStats();
 }
 
 function nextQuizQuestion() {
@@ -274,12 +320,16 @@ function renderStats() {
     </div>`;
   }).join('');
 
+  const saved = loadSaved();
+  const since = saved && saved.savedAt ? `<div style="color:var(--rose);margin-top:6px;font-size:0.8rem">Last saved: ${saved.savedAt}</div>` : '';
   document.getElementById('session-stats').innerHTML = `
     <div>Questions attempted: <strong>${totalAnswered}</strong></div>
     <div>Correct answers: <strong>${totalCorrect}</strong></div>
     <div>Overall accuracy: <strong>${totalAnswered > 0 ? Math.round(totalCorrect/totalAnswered*100) : 0}%</strong></div>
     <div>Best streak: <strong>${bestStreak} 🔥</strong></div>
     <div>Total score: <strong>${score} pts</strong></div>
+    ${since}
+    <button onclick="resetSaved()" style="margin-top:14px;padding:7px 18px;background:var(--pink-light);color:var(--pink-dark);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;">Reset All Stats</button>
   `;
 }
 
