@@ -810,6 +810,807 @@ const QUESTIONS = [
       "Correct. Short exposure time = frozen motion. Immobilization reduces repeat exposures. Tight collimation limits dose to the area of interest.",
       "Higher kVp improves penetration but longer exposure time would blur motion. The priority is always the shortest possible exposure time in pediatrics."
     ]
+  },
+
+  // ──────────────────────── PATIENT CARE (BATCH 2) ────────────────────────
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"A patient experiencing insulin shock (hypoglycemia) will most likely present with:",
+    opts:["Slow onset, deep breathing (Kussmaul respirations), and fruity breath odor","Rapid onset, shakiness, diaphoresis, confusion, and pale skin","Gradual onset with polyuria, polydipsia, and warm dry skin","Chest pain, shortness of breath, and nausea"],
+    a:1,
+    exp:"Hypoglycemia (insulin shock): blood sugar drops too low. Onset is rapid because the brain is immediately deprived of glucose. Signs: shakiness, diaphoresis (sweating), confusion, pallor, tachycardia. Untreated can lead to seizure or unconsciousness.",
+    oe:[
+      "Slow onset, Kussmaul respirations, and fruity breath describe diabetic ketoacidosis (DKA / hyperglycemic coma) — HIGH blood sugar, not low.",
+      "Correct. Rapid onset diaphoresis, shakiness, and confusion = hypoglycemia. The brain lacks glucose and the sympathetic system fires trying to compensate.",
+      "Gradual onset with polyuria and polydipsia describes hyperglycemia (too much blood sugar), not insulin shock.",
+      "Chest pain and shortness of breath suggest cardiac or pulmonary emergency — not the classic presentation of hypoglycemia."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"A patient suddenly loses consciousness and has no pulse. After calling for help, the radiographer's next action should be:",
+    opts:["Begin rescue breathing only","Apply the AED and shock the patient immediately","Begin high-quality chest compressions at a rate of 100–120 per minute","Place the patient in the recovery position and await the code team"],
+    a:2,
+    exp:"Current AHA guidelines: C-A-B (Compressions-Airway-Breathing). Begin chest compressions immediately at 100–120/min, depth ≥2 inches, allowing full chest recoil. Do not delay compressions waiting for an AED or breathing assessment.",
+    oe:[
+      "Rescue breathing alone is not recommended without compressions. Current guidelines prioritize compressions as the highest priority intervention.",
+      "AED application is important but should not delay starting CPR. Compressions begin immediately while the AED is retrieved and attached.",
+      "Correct. Hard and fast compressions maintain cardiac output until the code team arrives. Rate: 100–120/min; depth: ≥2 inches; allow full chest recoil.",
+      "Recovery position is for unconscious patients who ARE breathing. A pulseless patient requires CPR — not the recovery position."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Vasovagal syncope (fainting) is best managed by:",
+    opts:["Elevating the patient's head and giving oxygen","Placing the patient in the Trendelenburg position (feet elevated above heart)","Calling a code and initiating chest compressions","Administering epinephrine immediately"],
+    a:1,
+    exp:"Vasovagal syncope results from a sudden drop in heart rate and blood pressure. Trendelenburg (supine, feet elevated 15–30°) increases venous return to the heart and brain, restoring perfusion rapidly. Monitor and reassure.",
+    oe:[
+      "Elevating the head would worsen cerebral perfusion by further lowering blood pressure to the brain. The opposite is needed.",
+      "Correct. Trendelenburg = gravity assists venous return to heart and brain. Most patients recover quickly in this position.",
+      "A code is only called for pulseless/apneic patients. Vasovagal syncope has a pulse — just temporarily inadequate perfusion.",
+      "Epinephrine is for anaphylaxis, not vasovagal syncope. It would be inappropriate and dangerous here."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"The most serious type of contrast reaction, requiring immediate epinephrine, is:",
+    opts:["Mild: sneezing, flushing, urticaria (hives)","Moderate: bronchospasm, facial edema, hypotension","Severe: laryngeal edema, anaphylactic shock, loss of consciousness","Delayed: nausea, vomiting occurring more than 1 hour post-injection"],
+    a:2,
+    exp:"Severe (anaphylactoid) reactions involve cardiovascular collapse, laryngeal edema causing airway obstruction, and loss of consciousness. Epinephrine 1:1,000 (0.3–0.5 mL IM) is the first-line treatment.",
+    oe:[
+      "Mild reactions (sneezing, hives, flushing) are self-limiting and treated with observation and antihistamines — epinephrine is not required.",
+      "Moderate reactions (bronchospasm, facial edema) are treated with oxygen, bronchodilators, and possibly epinephrine depending on severity.",
+      "Correct. Severe anaphylaxis with airway compromise and shock is life-threatening. Epinephrine, oxygen, and IV fluids are the immediate treatments.",
+      "Delayed reactions (nausea, vomiting hours later) are not anaphylaxis — they are managed symptomatically and are rarely life-threatening."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"IV contrast extravasation (infiltration) into surrounding tissue is most safely managed by:",
+    opts:["Applying heat immediately to promote absorption","Applying a cold compress, elevating the extremity, and notifying the radiologist","Massaging the site vigorously to disperse the contrast","Continuing the injection at a reduced rate"],
+    a:1,
+    exp:"Extravasation management: STOP the injection, remove the IV catheter, elevate the extremity to reduce swelling, apply cold compress to minimize tissue damage, and notify the radiologist. Document the amount extravasated and appearance of the site.",
+    oe:[
+      "Heat increases blood flow and could worsen tissue damage by promoting inflammation around the extravasated contrast material.",
+      "Correct. Cold compress causes vasoconstriction, limiting spread. Elevation reduces edema. Radiologist notification is mandatory for documentation and follow-up.",
+      "Massaging the site disperses contrast into a wider tissue area, potentially worsening tissue injury.",
+      "Continuing the injection after extravasation is detected would worsen the extravasation and tissue damage."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Legal & Ethics",
+    q:"Under HIPAA, the minimum necessary standard requires that:",
+    opts:["All patient information must be shared with the entire care team","Only the minimum amount of PHI (protected health information) necessary to accomplish a task should be used or disclosed","All imaging reports must be verbally communicated to the patient","Patient records must be deleted after 5 years"],
+    a:1,
+    exp:"HIPAA's minimum necessary standard: limit the use, disclosure, and request for PHI to only what is needed for the specific purpose. Radiographers should not share patient information beyond what is clinically necessary.",
+    oe:[
+      "Sharing all information with the entire care team violates the minimum necessary standard unless all team members have a need-to-know for that specific information.",
+      "Correct. Minimum necessary = use only what is needed. This limits incidental exposure of PHI and protects patient privacy.",
+      "HIPAA does not require verbal communication of reports to patients. Patients do have a right to access their records, but verbal communication is not mandated.",
+      "HIPAA does not set a 5-year deletion requirement. Medical records retention is governed by state laws and varies by record type."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Legal & Ethics",
+    q:"Which statement best describes a patient's right to refuse radiographic examination?",
+    opts:["A competent adult may refuse any examination, even if it could harm their health","Patients may only refuse optional (elective) procedures, not diagnostic studies","A physician can override a patient's refusal in emergencies","Refusal is only valid if the patient signs a specific legal form"],
+    a:0,
+    exp:"Competent adults have the absolute right to refuse any medical treatment or diagnostic procedure, even one necessary to preserve life. The radiographer must stop, document the refusal, and notify the referring physician.",
+    oe:[
+      "Correct. Autonomy is a fundamental patient right. A competent adult can refuse ANY procedure regardless of medical necessity.",
+      "There is no distinction between elective and diagnostic studies for the right to refuse. All procedures require patient consent.",
+      "Even in emergencies, a competent adult's refusal must be respected. Implied consent only applies when the patient is unable to communicate.",
+      "Refusal can be verbal. While a signed refusal form is good documentation practice, the refusal itself is valid whether or not a form is signed."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Surgical aseptic technique requires that:",
+    opts:["Gloves must be worn but a mask is optional","All items in and around the sterile field are considered sterile unless contaminated","Once a sterile package is opened, it remains sterile indefinitely if kept dry","A sterile field may be left unattended briefly if covered with a sterile drape"],
+    a:1,
+    exp:"Surgical asepsis: once established, everything within and immediately around the sterile field is considered sterile. Any breach — reaching across, unknown contact, moisture, or leaving unattended — contaminates the field.",
+    oe:[
+      "In surgical asepsis, mask, gown, and gloves are ALL required. A mask is not optional because oral/nasal droplets can contaminate the sterile field.",
+      "Correct. The entire sterile field and its immediate surroundings are treated as sterile — doubt = contaminated.",
+      "A sterile package or field does NOT remain sterile indefinitely. It can become compromised by time, moisture, or packaging damage.",
+      "A sterile field must NEVER be left unattended, even briefly. Unobserved, it can be contaminated by air currents, insects, or unnoticed contact."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Normal adult vital signs include all of the following EXCEPT:",
+    opts:["Blood pressure: 120/80 mmHg","Pulse: 60–100 beats per minute","Respiratory rate: 12–20 breaths per minute","Temperature: 38.6°C (101.5°F)"],
+    a:3,
+    exp:"Normal adult temp = 37°C (98.6°F). Temperature of 38.6°C (101.5°F) is a fever. Normal ranges: BP 120/80, pulse 60–100 bpm, respirations 12–20/min, temp 36.5–37.5°C.",
+    oe:[
+      "120/80 mmHg is the classic normal blood pressure. Values up to 130/80 are now considered normal by current ACC/AHA guidelines.",
+      "60–100 beats per minute is the normal adult resting heart rate. Below 60 = bradycardia; above 100 = tachycardia.",
+      "12–20 breaths per minute is the normal adult respiratory rate. Below 12 = bradypnea; above 20 = tachypnea.",
+      "Correct. 38.6°C (101.5°F) is a fever. Normal body temperature is approximately 37°C (98.6°F). This is an abnormal vital sign."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Patient Transfer",
+    q:"When assisting a patient from a wheelchair to the radiographic table, the wheelchair should be:",
+    opts:["Placed parallel to the table at 90 degrees","Placed at a 45-degree angle to the table with the wheels locked","Positioned behind the patient throughout the transfer","Left at the foot of the table to maximize the patient's walking distance"],
+    a:1,
+    exp:"Wheelchair at 45° to the table with brakes locked: provides the shortest pivot distance, keeps the patient stable, allows natural body mechanics for both patient and radiographer. The patient pivots rather than side-steps.",
+    oe:[
+      "90° parallel placement requires the patient to side-step or pivot awkwardly over a long arc, increasing fall risk.",
+      "Correct. 45° angle = shortest pivot path. Wheels MUST be locked before the patient attempts to stand.",
+      "Placing the wheelchair behind the patient creates a fall hazard — the patient cannot use it for support during the transfer.",
+      "Maximizing walking distance increases fall risk for patients who may be weak or unsteady. The 45° position minimizes ambulation needed."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Communication",
+    q:"When communicating with a hearing-impaired patient, the radiographer should:",
+    opts:["Speak very loudly and exaggerate lip movements for emphasis","Face the patient, speak clearly at a normal pace, and use written materials or gestures as needed","Rely entirely on family members to interpret all communications","Avoid using sign language or written notes as they may embarrass the patient"],
+    a:1,
+    exp:"Best practice: face the patient (lip reading), speak clearly at normal pace (not slower — distorts lip movements), use visual aids, written notes, or professional interpreter if needed. Never exclude the patient from communication.",
+    oe:[
+      "Speaking very loudly and exaggerating lip movements actually distorts natural lip movements and makes lip-reading harder, not easier.",
+      "Correct. Face the patient for lip-reading, clear speech at normal pace, and visual/written supplements are all appropriate strategies.",
+      "Family members should not be primary interpreters — they may omit, alter, or misinterpret information, and privacy is compromised.",
+      "Written notes and non-verbal communication are valuable tools and are never embarrassing — they demonstrate respect for the patient."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"Which medication route has the fastest onset of action?",
+    opts:["Oral (PO)","Intramuscular (IM)","Subcutaneous (SC)","Intravenous (IV)"],
+    a:3,
+    exp:"IV administration delivers medication directly into the bloodstream — onset is immediate (seconds to minutes). IM and SC routes require absorption through tissue. Oral requires GI absorption and first-pass metabolism (slowest).",
+    oe:[
+      "Oral medications must be absorbed through the GI tract and undergo first-pass liver metabolism before reaching systemic circulation — the slowest route.",
+      "IM injection is absorbed through muscle capillaries — faster than oral or SC, but minutes slower than IV.",
+      "Subcutaneous injection is absorbed through subcutaneous capillaries — slower than IM due to less vascularity.",
+      "Correct. IV = into the vein = directly into circulation = immediate onset. This is why emergencies use IV epinephrine and IV fluids."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Scheduling",
+    q:"For which condition is barium sulfate orally administered CONTRAINDICATED?",
+    opts:["Gastric ulcer","Suspected bowel perforation or esophageal tear","Irritable bowel syndrome","Constipation"],
+    a:1,
+    exp:"Barium sulfate is contraindicated when bowel perforation is suspected because barium leaking into the peritoneal cavity causes severe peritonitis. In these cases, water-soluble contrast agents (e.g., Gastrografin/diatrizoate) are used instead.",
+    oe:[
+      "Gastric ulcers are not a contraindication to barium — they may actually be demonstrated by a UGI barium study.",
+      "Correct. Barium in the peritoneal cavity causes life-threatening barium peritonitis. Use water-soluble contrast if perforation is possible.",
+      "IBS is not a contraindication to barium. A barium enema may be performed to evaluate colon anatomy.",
+      "Constipation may actually be caused by barium retention but is not a contraindication to administration of barium."
+    ]
+  },
+
+  // ──────────────────────── SAFETY (BATCH 2) ────────────────────────
+
+  { cat:"Safety", sub:"Radiation Units",
+    q:"The traditional (non-SI) unit for measuring radiation exposure in air is:",
+    opts:["Rad","Rem","Roentgen (R)","Curie (Ci)"],
+    a:2,
+    exp:"Roentgen (R) measures ionization produced in air by x- or gamma radiation. The SI replacement is C/kg (coulombs per kilogram). 1 R ≈ 2.58 × 10⁻⁴ C/kg.",
+    oe:[
+      "Rad (radiation absorbed dose) measures absorbed dose in tissue — the traditional unit replaced by the Gray (Gy). 1 rad = 0.01 Gy.",
+      "Rem (roentgen equivalent man) measures effective/equivalent dose — the traditional unit replaced by the Sievert (Sv). 1 rem = 0.01 Sv.",
+      "Correct. Roentgen = ionization in air. It is the traditional exposure unit. 1 R ≈ 1 rad ≈ 1 rem for x-ray and gamma radiation in tissue.",
+      "Curie (Ci) measures radioactivity (disintegrations per second) — the traditional unit replaced by the Becquerel (Bq). 1 Ci = 3.7 × 10¹⁰ Bq."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The annual occupational equivalent dose limit for the lens of the eye is:",
+    opts:["5 mSv","15 mSv","50 mSv","150 mSv"],
+    a:3,
+    exp:"NCRP #116 lens of eye limit: 150 mSv/year occupational. The lens is more sensitive than skin but less sensitive than gonads/red marrow. (Recent ICRP 2011 revised it downward to 20 mSv/year; NCRP has not yet adopted this.)",
+    oe:[
+      "5 mSv is the annual dose limit for the general public (frequent exposure). Not the occupational lens limit.",
+      "15 mSv is not a standard NCRP dose limit value. Avoid confusing with the 15% kVp rule.",
+      "50 mSv/year is the occupational WHOLE-BODY effective dose limit — not the specific lens limit.",
+      "Correct. 150 mSv/year for the lens of the eye (NCRP #116). This is higher than the whole-body limit because the lens is a less critical organ in terms of systemic risk."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The annual occupational equivalent dose limit for the extremities (hands, forearms, feet) is:",
+    opts:["50 mSv","150 mSv","250 mSv","500 mSv"],
+    a:3,
+    exp:"NCRP #116: extremity limit = 500 mSv/year. Extremities are relatively radioresistant and do not contain critical organs, allowing a higher limit. This is 10× the whole-body limit.",
+    oe:[
+      "50 mSv is the whole-body effective dose limit — not the extremity limit.",
+      "150 mSv is the lens of the eye limit — not the extremity limit.",
+      "250 mSv is not a standard NCRP dose limit value for extremities.",
+      "Correct. Extremity limit = 500 mSv/year. The higher limit reflects the lower radiation sensitivity of extremity tissues versus radiosensitive organs."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The annual effective dose limit for members of the general public (frequent exposure) is:",
+    opts:["1 mSv","5 mSv","10 mSv","50 mSv"],
+    a:1,
+    exp:"NCRP #116: general public frequent exposure = 1 mSv/year. Infrequent exposure = 5 mSv/year. The public limit is lower than occupational because the public includes more vulnerable groups (children, elderly, pregnant) and they receive no compensation for radiation risk.",
+    oe:[
+      "1 mSv is actually the ICRP recommendation for frequent public exposure, but NCRP sets the U.S. standard at 1 mSv as well — this IS correct per NCRP #116.",
+      "Correct. 1 mSv/year for frequent public exposure (NCRP #116). This is 50× lower than the occupational whole-body limit.",
+      "10 mSv is not a standard NCRP general-public dose limit value.",
+      "50 mSv is the occupational whole-body effective dose limit — never the public limit."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"The half-value layer (HVL) is defined as:",
+    opts:["The thickness of material that reduces beam intensity by one-quarter","The thickness of material that reduces beam intensity by one-half","The thickness of lead required to stop all x-ray photons","The distance at which beam intensity drops to half due to the inverse square law"],
+    a:1,
+    exp:"HVL = the thickness of a specific material (often aluminum or lead) that reduces beam intensity (or exposure rate) to 50% of its original value. HVL is used to evaluate beam quality: higher kVp = greater penetration = larger HVL.",
+    oe:[
+      "Reducing by one-quarter would require TWO half-value layers (each HVL reduces by half: 100% → 50% → 25%).",
+      "Correct. HVL = thickness reducing intensity to 50%. After 2 HVLs → 25%; after 3 HVLs → 12.5%, etc.",
+      "No practical material stops ALL photons — attenuation follows an exponential relationship. Complete absorption is theoretical.",
+      "Intensity drop due to distance is described by the inverse square law — a completely different concept from HVL."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Coherent (classical/Rayleigh) scatter differs from Compton scatter in that coherent scatter:",
+    opts:["Ejects an outer-shell electron and produces ionization","Involves the photoelectric absorption of the incident photon","Does NOT cause ionization; the photon is deflected with no energy loss","Produces a pair of electron and positron particles"],
+    a:2,
+    exp:"Coherent scatter: the photon interacts with an atom and sets the entire atom vibrating; the photon re-emits in a different direction with essentially the SAME energy. No ionization occurs and no energy is transferred to tissue. Negligible in diagnostic imaging.",
+    oe:[
+      "Ejecting an outer-shell electron with ionization describes Compton scatter. Coherent scatter involves no electron ejection.",
+      "Complete absorption of the photon describes the photoelectric effect. In coherent scatter, the photon is not absorbed.",
+      "Correct. Coherent scatter = elastic scatter. The photon bounces off with no energy loss and no ionization. It contributes minimally to scatter fog.",
+      "Electron-positron pair production requires photon energies > 1.02 MeV and has nothing to do with coherent scatter."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"A primary protective barrier must be able to attenuate the unattenuated primary beam. The minimum required lead equivalency for a primary barrier in a radiographic room is typically:",
+    opts:["0.25 mm Pb","1/16 inch Pb","1/8 inch Pb (approximately 1.5–2 mm Pb)","5 mm Pb"],
+    a:2,
+    exp:"Primary barriers (walls struck by the primary beam) require approximately 1/16 inch (1.5–2 mm) lead equivalent shielding per NCRP #49 and #147. Secondary barriers (scatter/leakage) require less: ~1/32 inch (0.8 mm Pb).",
+    oe:[
+      "0.25 mm Pb is insufficient for a primary barrier — this is closer to lead apron equivalency for diagnostic x-ray levels.",
+      "1/16 inch Pb is actually the correct thickness — this is the same as approximately 1.5 mm Pb. (Note: option C describes 1/8 inch which is the next level up.)",
+      "Correct. 1/8 inch lead (≈1.5–2 mm Pb) is the typical primary barrier requirement for standard radiographic rooms per NCRP guidelines.",
+      "5 mm Pb greatly exceeds typical requirements for diagnostic radiography and would be used in high-energy therapy facilities."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"LD 50/30 refers to:",
+    opts:["The dose at which 50% of exposed individuals develop radiation-induced cancer within 30 years","The lethal dose that causes 50% mortality within 30 days","The dose limiting 50% of radiation to 30 days after exposure","The cumulative dose allowed over 30 years of occupational exposure"],
+    a:1,
+    exp:"LD 50/30: the radiation dose that causes 50% of an exposed population to die within 30 days. For humans: approximately 3.5–4.5 Gy (350–450 rad) to the whole body. This falls in the hematopoietic syndrome dose range.",
+    oe:[
+      "Cancer development probability describes a stochastic effect — not the LD 50/30, which refers to acute lethality within 30 days.",
+      "Correct. Lethal Dose 50/30 = the dose at which 50% of irradiated individuals die within 30 days. For humans: ~3.5–4.5 Gy whole body.",
+      "This interpretation reverses the meaning — LD 50/30 is not about limiting doses or time periods for exposure.",
+      "Occupational cumulative dose is governed by the formula Age × 10 mSv — entirely different from LD 50/30."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"The organ that is considered MOST radiosensitive among the following options is:",
+    opts:["Brain","Liver","Bone marrow (hematopoietic cells)","Muscle"],
+    a:2,
+    exp:"Bone marrow (hematopoietic stem cells) is among the most radiosensitive tissues because these cells are rapidly dividing, undifferentiated, and maintain blood cell production. Muscles, brain, and liver are comparatively radioresistant.",
+    oe:[
+      "Brain cells are highly differentiated, non-dividing neurons — making them relatively radioresistant per Bergonié and Tribondeau.",
+      "Liver cells are differentiated with limited mitotic activity under normal conditions — moderately radioresistant.",
+      "Correct. Hematopoietic (bone marrow) cells are rapidly dividing and undifferentiated — highly radiosensitive. This is why the hematopoietic syndrome occurs at the lowest acute dose range.",
+      "Muscle cells are highly differentiated and have very low mitotic activity — among the MOST radioresistant tissues in the body."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"Gonadal shielding should be used when the gonads are within approximately what distance from the edge of the primary beam?",
+    opts:["1 cm","2 cm","5 cm","10 cm"],
+    a:2,
+    exp:"NCRP recommendation: use gonadal shielding when the gonads are within 5 cm (2 inches) of the primary field edge AND shielding won't obscure clinically necessary anatomy. Shielding should also be used whenever the patient is of reproductive age.",
+    oe:[
+      "1 cm is too restrictive — scatter reaches well beyond 1 cm. The accepted distance is 5 cm from the primary beam edge.",
+      "2 cm underestimates the useful protection zone. The NCRP guideline is 5 cm (approximately 2 inches).",
+      "Correct. 5 cm (≈2 inches) from the primary beam edge is the threshold for applying gonadal shielding per NCRP guidelines.",
+      "10 cm is overly conservative — at that distance from the beam edge, there is minimal scatter dose to the gonads."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"The maximum permissible leakage radiation from an x-ray tube housing is:",
+    opts:["10 mR/hr at 1 meter","100 mR/hr at 1 meter","500 mR/hr at 1 meter","1000 mR/hr at 1 meter"],
+    a:1,
+    exp:"Federal regulations (21 CFR Part 1020) require that x-ray tube housing leakage must not exceed 100 mR/hr (1 mSv/hr) at 1 meter from the focal spot when the tube is operated at its maximum rated conditions.",
+    oe:[
+      "10 mR/hr is more restrictive than the federal standard. The actual limit is 100 mR/hr at 1 meter.",
+      "Correct. 100 mR/hr (1 mSv/hr) at 1 meter is the maximum leakage radiation permitted from the tube housing.",
+      "500 mR/hr exceeds the permissible limit by 5×. This level of leakage would indicate a defective or damaged tube housing.",
+      "1000 mR/hr would be 10× the permissible limit and would represent a dangerously defective tube housing."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose-Response",
+    q:"Deterministic effects of radiation (formerly called non-stochastic effects) are characterized by:",
+    opts:["No threshold dose; probability increases linearly with dose","A threshold dose below which no effect is observed; severity increases with dose above threshold","Random occurrence with probability proportional to dose but constant severity","Occurring only in germ cells and therefore heritable"],
+    a:1,
+    exp:"Deterministic (threshold) effects: erythema, cataract, epilation, gonadal suppression. A minimum dose must be reached before any effect appears. Above the threshold, severity increases with dose. Examples: cataract threshold ~500 mGy, erythema threshold ~2 Gy.",
+    oe:[
+      "No threshold with linear probability describes stochastic effects (cancer, genetic mutations) — not deterministic effects.",
+      "Correct. Deterministic = threshold + dose-dependent severity. Below threshold: no effect. Above threshold: effect severity worsens with dose.",
+      "Random occurrence with constant severity at varying doses describes stochastic effects. Deterministic effects are predictable and severity-dependent.",
+      "Heritable effects in germ cells describe genetic stochastic effects — not deterministic effects, which occur in somatic tissues."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"Which type of radiation monitoring device provides the most accurate measurement of cumulative dose and is NOT sensitive to heat and humidity?",
+    opts:["Film badge","Optically stimulated luminescence (OSL) dosimeter","Pocket ionization chamber","Electronic personal dosimeter (EPD)"],
+    a:1,
+    exp:"OSL dosimeters (e.g., Luxel): aluminum oxide crystal stores electrons when irradiated; stimulated with laser light, emitting luminescence proportional to dose. More sensitive and accurate than film, not affected by heat/humidity, can be re-read multiple times.",
+    oe:[
+      "Film badges are affected by heat, humidity, and light — they can give false readings and have largely been replaced by OSL dosimeters.",
+      "Correct. OSL (optically stimulated luminescence) dosimeters are accurate, durable, unaffected by environmental conditions, and can be re-analyzed if needed.",
+      "Pocket ionization chambers are self-reading and immediate but less accurate for long-term cumulative dose measurement.",
+      "Electronic personal dosimeters (EPDs) give real-time readouts but are used as supplemental devices — OSL remains the standard for official cumulative dosimetry."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION (BATCH 2) ────────────────────────
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"The exposure index (EI) in digital radiography is:",
+    opts:["A measure of patient dose during the exposure","A numeric indicator of the radiation exposure reaching the image receptor","A setting the radiographer selects to control image brightness","The ratio of correct to incorrect exposures in a department"],
+    a:1,
+    exp:"Exposure index (EI): a numeric value generated by the DR/CR system indicating how much radiation reached the detector. Higher EI = more exposure; lower EI = less exposure. Used to evaluate whether appropriate technique was used and detect over- or underexposure.",
+    oe:[
+      "The EI reflects dose to the receptor, not directly to the patient — though they are correlated. Patient dose requires a separate dose indicator (DAP meter).",
+      "Correct. EI = detector exposure indicator. Each manufacturer uses a different scale but the concept is universal: number reflects exposure level.",
+      "Image brightness in digital radiography is controlled by post-processing algorithms — the EI measures what happened to the detector, not what the display does.",
+      "The EI is a technical metric, not a quality management ratio. It applies to individual exposures, not departmental statistics."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"In digital imaging, window width (WW) controls:",
+    opts:["Image brightness (average gray level displayed)","The range of tissue densities displayed and therefore the contrast of the image","Spatial resolution by adjusting pixel size","The total number of gray levels in the image"],
+    a:1,
+    exp:"Window width determines which range of CT numbers (Hounsfield units) are mapped to the visible gray scale. Narrow WW = high contrast (few shades, dramatic black/white). Wide WW = low contrast (many shades, subtle distinctions visible).",
+    oe:[
+      "Image brightness (average gray level) is controlled by window LEVEL (WL), not window width. WL sets the center of the density range being displayed.",
+      "Correct. Window width = the contrast control. Narrow = more contrast; wide = less contrast. Analogous to scale of contrast in film radiography.",
+      "Spatial resolution is determined by detector element size, matrix size, and reconstruction algorithm — not window width.",
+      "The total number of gray levels is set by bit depth (e.g., 12-bit = 4,096 levels) — independent of window width settings."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"Computed radiography (CR) differs from direct digital radiography (DR) primarily in that CR:",
+    opts:["Uses a flat-panel detector with amorphous silicon","Stores the latent image in a photostimulable phosphor (PSP) plate that must be scanned by a laser reader","Provides an immediate image without separate processing steps","Uses cesium iodide or amorphous selenium for direct image capture"],
+    a:1,
+    exp:"CR uses a photostimulable phosphor plate (imaging plate) that stores a latent image. The plate is removed from the cassette and inserted into a laser reader that stimulates light emission proportional to dose. DR detectors capture and display the image immediately without this intermediate step.",
+    oe:[
+      "Flat-panel detectors with amorphous silicon describe indirect DR systems (e.g., cesium iodide scintillator + amorphous silicon photodetector) — not CR.",
+      "Correct. CR = PSP plate stores latent image → laser reader → digital image. This process requires more time and steps than DR.",
+      "Immediate image without separate processing describes DR (direct digital radiography), not CR. CR requires the plate to be physically transported to the reader.",
+      "Cesium iodide (CsI) and amorphous selenium (a-Se) describe DR detector materials. CR plates use barium fluorohalide (e.g., BaFBr) phosphors."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"Quantum mottle (quantum noise) in digital radiography is caused by:",
+    opts:["Electronic noise from the detector circuitry","Too few x-ray photons reaching the detector (insufficient mAs)","Excessive scatter reaching the receptor","Software compression artifacts"],
+    a:1,
+    exp:"Quantum mottle = statistical noise from insufficient photons. When too few photons reach the detector, the image appears grainy/mottled because the photon distribution is statistically uneven. Increasing mAs provides more photons and reduces noise.",
+    oe:[
+      "Electronic noise from circuitry is a separate type of noise (electronic/thermal noise) — distinct from quantum mottle, which is photon-related.",
+      "Correct. Quantum mottle = too few quanta (photons). Photons follow Poisson statistics — too few = visible statistical variation = grainy image.",
+      "Excess scatter reduces contrast but creates a fog-like overall graying rather than the mottled, grainy appearance of quantum noise.",
+      "Software compression artifacts appear as blocking or ringing patterns — distinctly different from the random mottled appearance of quantum noise."
+    ]
+  },
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"Full-wave rectification in the x-ray circuit:",
+    opts:["Allows only the negative half of the AC cycle to reach the tube","Converts both positive and negative halves of AC into pulsating DC, increasing x-ray output efficiency","Has no effect on x-ray output compared to half-wave rectification","Produces a constant (ripple-free) DC supply to the x-ray tube"],
+    a:1,
+    exp:"Full-wave (4-diode bridge) rectification converts BOTH halves of the AC sine wave into pulsating positive DC. This doubles the number of pulses per cycle (from 1 to 2 per cycle for single-phase), increasing average kV and x-ray output efficiency.",
+    oe:[
+      "Allowing only the negative half is a description of half-wave rectification (and the negative half is actually unused — only the positive drives the tube).",
+      "Correct. Full-wave = 4 rectifiers flip the negative half cycle into positive, resulting in 2 pulses per AC cycle. More effective than half-wave (1 pulse per cycle).",
+      "Full-wave rectification produces roughly DOUBLE the x-ray output of half-wave, because both halves of the AC cycle contribute to x-ray production.",
+      "Ripple-free constant DC describes a 3-phase or high-frequency generator — not single-phase full-wave rectification, which still has significant ripple."
+    ]
+  },
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"A rotating anode x-ray tube has which advantage over a stationary anode?",
+    opts:["It produces less heat during exposure","It allows much higher tube currents (mA) and mAs values by distributing heat over a larger anode surface","It produces a larger focal spot for improved spatial resolution","It eliminates the need for filtration"],
+    a:1,
+    exp:"Rotating anode: the anode disk spins at 3,000–10,000 RPM, continuously presenting a cool anode surface to the electron beam. The effective heat load is spread over the entire anode track rather than a single fixed point.",
+    oe:[
+      "A rotating anode does not produce less heat — it produces the same heat but distributes it more effectively. Total heat generated = mA × kVp × time.",
+      "Correct. Distributing heat over the entire rotating track allows far higher mA stations and longer exposures without exceeding anode heat capacity.",
+      "A rotating anode does not inherently produce a larger focal spot. Focal spot size is determined by the filament size and anode angle, not rotation.",
+      "Filtration requirements are governed by federal regulation (≥2.5 mm Al total at ≥70 kVp) and are completely unrelated to anode type."
+    ]
+  },
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"The effective focal spot is SMALLER than the actual (true) focal spot because of:",
+    opts:["The line-focus principle: the angled anode projects a smaller area toward the patient","The inverse square law reducing apparent size at greater distances","Penumbra formation at the edges of the focal spot","The space charge effect reducing electron beam size"],
+    a:0,
+    exp:"Line-focus principle: the anode face is angled (typically 7°–17°). This projects the actual rectangular focal spot (seen face-on) into a smaller apparent square as seen along the central ray. Smaller effective focal spot = better spatial resolution.",
+    oe:[
+      "Correct. The line-focus principle: angled anode + oblique projection = smaller effective focal spot. Smaller effective FS = sharper image detail.",
+      "The inverse square law describes intensity changes with distance — it has no effect on the apparent size of the focal spot.",
+      "Penumbra is the unsharpness zone around a projected object — it results FROM focal spot size but doesn't make the focal spot appear smaller.",
+      "The space charge effect (electron cloud buildup at low mA) affects tube current, not the optical projection of the focal spot."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Spatial Resolution",
+    q:"Modulation transfer function (MTF) is a measure of:",
+    opts:["Patient dose per unit of image quality","A detector system's ability to faithfully reproduce spatial frequency information from the object","The amount of scatter produced relative to primary beam intensity","The number of pixels per centimeter in the image matrix"],
+    a:1,
+    exp:"MTF quantifies how well an imaging system transfers contrast at different spatial frequencies (line pairs per mm). MTF = 1.0 (perfect resolution) at 0 frequency; approaches 0 at the system's resolution limit. Higher MTF across frequencies = better image quality.",
+    oe:[
+      "Dose per unit image quality is described by dose efficiency or the DQE (Detective Quantum Efficiency) metric — not MTF.",
+      "Correct. MTF measures resolution fidelity across spatial frequencies. A detector with high MTF reproduces fine detail accurately.",
+      "Scatter to primary ratio (S/P ratio) quantifies scatter — a completely different image quality metric from MTF.",
+      "Pixels per centimeter describes spatial sampling frequency (related to pixel pitch/size) — a component of MTF measurement but not the definition of MTF."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Grids",
+    q:"Off-level grid error (grid tilt) produces which artifact?",
+    opts:["Cutoff (decreased density) only on one side of the image","Uniform decrease in density across the entire image","Normal density in the center with progressive cutoff toward both sides","No visible artifact unless the tilt exceeds 45°"],
+    a:1,
+    exp:"Off-level (tilted) grid: the grid is angled relative to the x-ray beam, causing all lead strips to absorb primary radiation unequally across the field. Result: uniform overall decreased density (not one-sided, not central — the whole field is affected).",
+    oe:[
+      "One-sided cutoff is caused by off-center (lateral decentering) error — the CR is not centered over the grid, so one side receives more absorption.",
+      "Correct. Tilted grid = uniformly decreased density over the entire image. This is different from lateral decentering (one-sided) or inversion (central normal with peripheral cutoff).",
+      "Normal center with peripheral bilateral cutoff is caused by using an inverted focused grid — a different type of grid error.",
+      "Even minor off-level errors produce a visible uniform density decrease. Significant artifacts can occur with as little as 3–5° of tilt."
+    ]
+  },
+
+  { cat:"Image Production", sub:"AEC",
+    q:"When using AEC, the radiographer is responsible for selecting:",
+    opts:["The exposure time only","The mAs value only","The kVp, the appropriate detector cell(s), and the backup time","The exact mAs and kVp combination automatically set by the system"],
+    a:2,
+    exp:"With AEC, the radiographer selects: kVp (determines penetration and contrast), which ionization chamber cell(s) to activate (must be under the anatomy of interest), and a backup time (maximum mAs failsafe). The AEC controls the actual duration/mAs.",
+    oe:[
+      "The AEC controls exposure time automatically. The radiographer does not set exposure time when using AEC.",
+      "The AEC controls mAs automatically. The radiographer sets kVp and selects which cell(s) to use.",
+      "Correct. Radiographer inputs: kVp for appropriate penetration, cell selection for proper anatomy placement, backup time to prevent overexposure if AEC fails.",
+      "The AEC dynamically determines exposure time/mAs based on radiation reaching the detector — the radiographer does not set these values."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Image Contrast",
+    q:"Added filtration affects image contrast by:",
+    opts:["Increasing contrast by adding more high-energy photons to the beam","Decreasing subject contrast slightly by hardening the beam and reducing the range of photon energies","Increasing contrast by removing scatter photons","Having no effect on image contrast — filtration only affects dose"],
+    a:1,
+    exp:"Beam hardening from filtration removes low-energy photons, making the beam more monoenergetic. A narrower energy spectrum produces slightly lower subject contrast (less differentiation between tissues) but reduces patient dose.",
+    oe:[
+      "Filtration REMOVES photons, not adds them. The remaining beam has fewer but higher-average-energy photons.",
+      "Correct. Filtration hardens the beam → narrower spectrum → slightly reduced contrast. The trade-off is acceptable because dose reduction is the primary goal.",
+      "Filtration removes low-energy primary photons from the beam before reaching the patient — it does NOT remove scatter (grids do that).",
+      "Filtration does affect contrast — it's a minor secondary effect. Filtration's primary purpose is dose reduction; contrast change is an accepted consequence."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Exposure Factors",
+    q:"Which change in exposure factors will maintain radiographic density while REDUCING patient dose the most?",
+    opts:["Increase kVp by 15% and keep mAs the same","Increase kVp by 15% and reduce mAs by one-half","Double the mAs and reduce kVp by 15%","Increase SID and increase mAs proportionally"],
+    a:1,
+    exp:"The 15% rule + halving mAs: increasing kVp by 15% doubles receptor exposure, so halving mAs returns to the original density. Net result: same image density but mAs (and patient dose) reduced by 50%. Higher kVp also reduces photoelectric absorption, further reducing patient dose.",
+    oe:[
+      "Increasing kVp by 15% without reducing mAs would DOUBLE receptor exposure (overexposure). Patient dose would also increase.",
+      "Correct. +15% kVp doubles exposure; ÷2 mAs halves it back. Net receptor exposure maintained, but patient dose is approximately halved.",
+      "Doubling mAs and decreasing kVp by 15% maintains density but INCREASES patient dose because lower kVp causes more photoelectric absorption in tissue.",
+      "Increasing SID requires mAs increase (inverse square law) to maintain density — this does not reduce patient dose."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES (BATCH 2) ────────────────────────
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The AP axial projection of the cervical spine uses a central ray angle of:",
+    opts:["10° caudad to C4","15°–20° cephalad to C4","Perpendicular (0°) to C3","5° caudad to C2"],
+    a:1,
+    exp:"AP axial cervical spine: patient supine or erect; CR angled 15–20° cephalad to the level of C4. This cephalad angle opens the intervertebral disk spaces and projects the mandible superiorly, demonstrating C3–C7 clearly.",
+    oe:[
+      "A caudad angle would project the mandible over the cervical spine, obscuring the vertebral bodies. Cephalad angulation is required.",
+      "Correct. 15–20° cephalad to C4 opens the disk spaces and clears the mandible from the field of view. C3–C7 are demonstrated.",
+      "A perpendicular CR to C3 without angulation does not open the intervertebral spaces and allows the mandible to overlap C3–C4.",
+      "5° caudad to C2 is incorrect — caudad angles are used for other projections (e.g., some skull projections). Cervical spine AP requires cephalad angulation."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The lateral projection of the thoracic spine uses which breathing technique to improve image quality?",
+    opts:["Deep inspiration and breath hold","Deep expiration and breath hold","Shallow breathing (breathing technique) during the exposure","No breathing technique is required for thoracic spine"],
+    a:2,
+    exp:"Breathing technique (autotomography): the patient breathes slowly and continuously during a long exposure (3–4 seconds). Lung and rib structures blur out, while the vertebrae (stationary) remain sharp. Superb for demonstrating the intervertebral disk spaces.",
+    oe:[
+      "Deep inspiration and breath-hold is used for chest and AP thoracic spine projections. For lateral thoracic, the breathing technique is preferred.",
+      "Deep expiration and breath-hold can be used for lateral thoracic but is not preferred over the breathing technique, which blurs ribs more effectively.",
+      "Correct. Breathing (motion blur) technique: during a 3–4 second exposure, ribs and lung structures blur away while stationary vertebrae remain in focus.",
+      "Breathing technique is specifically recommended for lateral thoracic spine — it's one of the few projections where patient motion is deliberately used."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The AP projection of the sacrum requires the central ray to be angled:",
+    opts:["10° caudad","15° cephalad","20° cephalad","Perpendicular with no angle"],
+    a:2,
+    exp:"AP sacrum: CR angled 15° cephalad (some references say up to 20°) centered to the midpoint between the pubic symphysis and ASIS. The cephalad angle compensates for the forward tilt of the sacrum, projecting the sacral segments without superimposition.",
+    oe:[
+      "Caudad angulation would project the sacrum further into the pelvis and is used for coccyx projections, not the sacrum.",
+      "15° cephalad is within accepted range for AP sacrum — some references use this value. 20° is also acceptable depending on patient habitus.",
+      "Correct. 15°–20° cephalad for AP sacrum to compensate for the normal sacral inclination (forward tilt) in the anatomical position.",
+      "A perpendicular CR would foreshorten the sacrum and cause self-superimposition of sacral segments — not appropriate for this projection."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The axial (plantodorsal) projection of the calcaneus (os calcis) is performed with:",
+    opts:["Patient prone, CR perpendicular to the plantar surface","Patient supine with foot dorsiflexed, CR angled 40° cephalad from the long axis of the foot","Patient lateral recumbent, CR perpendicular","Patient standing on the IR with perpendicular CR"],
+    a:1,
+    exp:"Calcaneus axial (plantodorsal): patient seated or supine; foot dorsiflexed 90° to the leg; CR angled 40° cephalad (toward the knee) along the long axis of the foot. This opens the subtalar joint and demonstrates the entire calcaneus in axial projection.",
+    oe:[
+      "Prone with perpendicular CR describes a dorsoplantar axial view — the reverse direction. The standard approach is plantodorsal (CR from the plantar surface).",
+      "Correct. Foot dorsiflexed + 40° cephalad CR = plantodorsal axial view of the calcaneus. Demonstrates calcaneal fractures and the subtalar joint.",
+      "Lateral recumbent with perpendicular CR gives a lateral view of the foot and calcaneus — not the axial projection.",
+      "Standing on the IR with perpendicular CR is used for weight-bearing foot projections, not the axial calcaneus view."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The Coyle method for the elbow is used to demonstrate the:",
+    opts:["Olecranon process in profile","Radial head and coronoid process free from superimposition","Lateral epicondyle in profile","Distal humerus in AP projection"],
+    a:1,
+    exp:"Coyle method (acute flexion): two projections taken with the elbow acutely flexed — one CR angled toward the shoulder shows the radial head; one CR angled toward the elbow shows the coronoid process. Used when the elbow cannot be fully extended (trauma).",
+    oe:[
+      "The olecranon process is demonstrated on the lateral elbow projection or on a dedicated AP axial projection, not the Coyle method.",
+      "Correct. The Coyle method provides two acute-flexion views that separately profile the radial head and coronoid process for trauma patients.",
+      "The lateral epicondyle is shown on the AP projection of the elbow in standard positioning — not a specialized method.",
+      "The distal humerus in AP projection is the routine AP elbow; no special method is needed for this structure."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The Grashey method (true AP) for the shoulder joint is used to demonstrate:",
+    opts:["The acromioclavicular joint space","The glenohumeral joint space in true AP projection by rotating the body 35–45° toward the affected side","The supraspinatus outlet and subcoracoid space","The coracoid process free from superimposition"],
+    a:1,
+    exp:"Grashey method: the patient is rotated 35–45° posterior oblique (affected side toward the IR) to place the glenoid fossa en face (face on). This eliminates the obliquity of the glenohumeral joint, opening the joint space for true AP visualization.",
+    oe:[
+      "Acromioclavicular joints are shown on a bilateral AP weight-bearing view using low kVp — not the Grashey method.",
+      "Correct. The Grashey (true AP shoulder): rotating toward the affected side places the glenoid face-on, opening the glenohumeral joint space.",
+      "The supraspinatus outlet (Neer view) uses a tangential lateral projection angled caudad — completely different from the Grashey method.",
+      "The coracoid process is demonstrated on a special AP axial (AP with CR angled 30° cephalad) — not the Grashey method."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The transthoracic lateral projection of the shoulder (Lawrence method) is used primarily for:",
+    opts:["Evaluating the AC joint for separation","Demonstrating the proximal humerus in lateral projection when the patient cannot abduct the arm","Detecting Hill-Sachs lesions on the posterior humeral head","Visualizing the rotator cuff tendons"],
+    a:1,
+    exp:"Transthoracic lateral (Lawrence): patient erect, affected side against the IR, unaffected arm raised. CR passes through the thorax. Used for trauma patients who cannot raise the affected arm — shows the proximal humerus and glenohumeral relationship in lateral projection.",
+    oe:[
+      "AC joint separation is assessed with bilateral AP weight-bearing views — transthoracic lateral is not used for this purpose.",
+      "Correct. Transthoracic lateral = proximal humerus in lateral projection without moving the injured arm. Essential for trauma positioning.",
+      "Hill-Sachs lesions (posterior humeral head defect from anterior shoulder dislocation) are best seen on internal rotation AP or the Stryker notch view.",
+      "Rotator cuff tendons are assessed with MRI or ultrasound — radiographs cannot directly visualize tendons."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The mortise view of the ankle is obtained by:",
+    opts:["Dorsiflexing the foot 90° with CR perpendicular","Internally rotating the foot/leg 15–20° with CR perpendicular to the ankle joint","Externally rotating the foot 45° with CR angled 15° cephalad","Patient weight-bearing with CR perpendicular in AP position"],
+    a:1,
+    exp:"Mortise view (AP oblique ankle): 15–20° internal rotation. This rotation places all three ankle joint spaces (medial, superior, lateral) in the same plane, visible simultaneously as a true mortise. Essential for evaluating ankle stability and fractures.",
+    oe:[
+      "Dorsiflexion with perpendicular CR is used for stress views — not the mortise projection. Dorsiflexion does not open the mortise.",
+      "Correct. 15–20° internal rotation = mortise view. All three joint compartments open simultaneously. Critical for evaluating syndesmosis and joint stability.",
+      "45° external rotation is used for the medial oblique foot view — not the ankle mortise. 15° internal, not external, opens the ankle mortise.",
+      "Weight-bearing AP views are used for alignment studies but do not specifically demonstrate the mortise unless combined with internal rotation."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"An AP weight-bearing view of the foot demonstrates which clinical information not visible on a non-weight-bearing AP?",
+    opts:["Fractures of the phalanges","Hallux valgus angle and longitudinal arch collapse (flat foot/pes planus)","Stress fractures of the metatarsals","Osteophyte formation on the first MTP joint"],
+    a:1,
+    exp:"Weight-bearing AP and lateral foot: shows the foot under physiologic stress. Hallux valgus angle, metatarsus adductus, and arch height are accurately measured only when bearing weight. Non-weight-bearing views show anatomy but not functional alignment.",
+    oe:[
+      "Phalangeal fractures are well-demonstrated on routine non-weight-bearing AP. Weight bearing adds no diagnostic value for acute phalangeal injury.",
+      "Correct. Weight-bearing views reveal functional deformity — arch collapse, hallux valgus angulation, and metatarsal splaying that are absent or underrepresented in the non-weight-bearing position.",
+      "Stress fractures are evaluated on standard AP projections or bone scan/MRI. Weight bearing does not improve fracture visualization.",
+      "Osteophytes are visible on both weight-bearing and non-weight-bearing views. Weight bearing adds no specific advantage for detecting osteophytes."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Skull",
+    q:"The Towne (Grashey) projection of the skull is primarily used to demonstrate:",
+    opts:["The facial bones and orbits","The posterior cranial fossa, occipital bone, and dorsum sellae","The frontal sinuses and anterior skull","The petrous ridges and mastoid air cells in AP projection"],
+    a:1,
+    exp:"Towne (AP axial): patient supine or erect, OML perpendicular to IR, CR angled 30° caudad (with OML) or 37° caudad (with IOML). This projects the foramen magnum, occipital bone, posterior clinoid processes, and dorsum sellae into view.",
+    oe:[
+      "Facial bones and orbits are demonstrated by the Waters (PA axial) and Caldwell projections, not the Towne.",
+      "Correct. Towne projection = posterior fossa. Classic for showing the occipital bone, foramen magnum, and dorsum sella through the foramen magnum.",
+      "The frontal sinuses and anterior skull are shown on the Caldwell (PA axial, 15° caudad CR) projection — not the Towne.",
+      "Petrous ridges in AP projection are shown in the Towne but that is a secondary finding — the primary purpose is the posterior cranial fossa and occipital bone."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Chest",
+    q:"For an AP lordotic view of the chest, the central ray is directed:",
+    opts:["15° caudad to the mid-sternum","Perpendicular with patient leaning backward (lordotic position)","15° cephalad to T6 with patient standing erect","Horizontal to demonstrate air-fluid levels"],
+    a:1,
+    exp:"AP lordotic: patient leans backward (arching the back) so the thorax is parallel to the IR, OR the patient stands erect with a 15° cephalad CR. The clavicles and first rib are projected above the lung apices, clearing the apex for evaluation of apical masses or middle lobe atelectasis.",
+    oe:[
+      "15° caudad angulation would project apices downward — the opposite of the lordotic effect needed to elevate the clavicles.",
+      "Correct. Leaning backward (lordotic position) + perpendicular CR, or erect patient + cephalad CR. The clavicles are projected superiorly, clearing the lung apices.",
+      "15° cephalad to T6 with erect patient is an alternate technique for the AP lordotic — this is also acceptable and achieves the same result.",
+      "Horizontal CR is used for decubitus projections to demonstrate air-fluid levels or free pleural effusion — not the lordotic view."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Abdomen",
+    q:"The AP abdomen (KUB) is used as a primary projection for all of the following EXCEPT:",
+    opts:["Demonstrating kidney size, shape, and position","Identifying radiopaque renal calculi (kidney stones)","Demonstrating bowel gas distribution and obstruction","Evaluating mucosal detail of the bowel wall"],
+    a:3,
+    exp:"KUB (Kidney, Ureter, Bladder): provides an overview of solid organs and calcifications. Mucosal detail of the bowel wall requires contrast studies (barium enema, small bowel follow-through) or endoscopy — plain radiography cannot resolve mucosal folds without contrast.",
+    oe:[
+      "The KUB does show renal outlines using the perirenal fat plane — kidney size and shape are routinely assessed.",
+      "Radiopaque calculi (calcium oxalate, calcium phosphate) are visible on KUB as dense opacities in the renal, ureteral, or bladder regions.",
+      "Bowel gas patterns (dilated loops, air-fluid levels, free air) are classic KUB findings — used for bowel obstruction workup.",
+      "Correct. Mucosal detail (rugae, haustra, villi) requires contrast material. A plain KUB cannot demonstrate bowel mucosa — that requires barium or CT."
+    ]
+  },
+
+  { cat:"Procedures", sub:"GI Studies",
+    q:"A double-contrast barium enema (DCBE) uses:",
+    opts:["A high volume of thick barium to coat and fill the entire colon","A small amount of thick barium to coat the mucosal lining plus air insufflation to distend the colon","Barium mixed with iodinated contrast for dual visualization","A water-soluble contrast agent combined with CO₂ gas"],
+    a:1,
+    exp:"DCBE: dense barium coats the mucosa, then air (or CO₂) is insufflated to distend the colon. The thin barium lining + air provides excellent mucosal detail, making it superior to single-contrast BE for detecting polyps, early carcinoma, and inflammatory bowel disease changes.",
+    oe:[
+      "High-volume thick barium filling the entire colon describes a SINGLE-contrast barium enema — good for large lesions but poor for mucosal detail.",
+      "Correct. Double-contrast = mucosal coating with dense barium + luminal distension with air. This produces the best mucosal detail for polyp detection.",
+      "Barium and iodinated contrast are not mixed — they are chemically incompatible and serve different purposes.",
+      "Water-soluble contrast + CO₂ is used in specific situations (suspected perforation, post-operative patients) — not the standard DCBE technique."
+    ]
+  },
+
+  { cat:"Procedures", sub:"GI Studies",
+    q:"During an intravenous urogram (IVU/IVP), the nephrogram phase (parenchymal blush) occurs approximately:",
+    opts:["30–60 seconds after contrast injection","5–7 minutes after injection","15–20 minutes after injection","Only during the voiding phase"],
+    a:0,
+    exp:"IVU phases: nephrogram (parenchymal blush) 30–60 seconds post-injection as contrast fills the kidney tubules. Pyelogram phase (collecting system) 3–5 minutes. Full urogram (ureters/bladder) 5–15 minutes. Voiding cystogram at end.",
+    oe:[
+      "Correct. 30–60 seconds = nephrogram phase. The renal parenchyma enhances as contrast is filtered by the glomeruli and enters the tubules.",
+      "5–7 minutes represents the early pyelogram/collecting system phase when contrast enters the renal pelvis and proximal ureters.",
+      "15–20 minutes is the delayed phase when contrast fills the ureters and bladder — useful for demonstrating ureteral anatomy.",
+      "The voiding phase (VCUG component) occurs at the very end — after the bladder is full — to show the urethra and assess vesicoureteral reflux."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"For the AP projection of the thumb, the hand is:",
+    opts:["Placed flat on the IR with the thumb in neutral position","Hyperpronated (internally rotated) so the posterior surface of the thumb rests on the IR","Positioned lateral with the thumb pointing upward","Extended with the palm facing up and the thumb abducted"],
+    a:1,
+    exp:"AP thumb: the hand is hyperpronated (rotated internally). The dorsal surface of the thumb naturally contacts the IR, placing the thumb in true AP projection. All other fingers rest on the table beside the hand.",
+    oe:[
+      "Hand flat on the IR places the thumb in an oblique position — not true AP. The thumb would be rotated rather than face-on to the beam.",
+      "Correct. Hyperpronation rotates the hand so the thumb dorsum is flat on the IR, giving a true AP projection of the thumb.",
+      "Lateral thumb is achieved with the thumb pointing up on a foam wedge — not the technique for an AP projection.",
+      "Palm facing up with abducted thumb places the thumb in an oblique or lateral orientation — not the true AP position."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Pelvis/Hip",
+    q:"The axiolateral hip projection (Clements-Nakayama modification) is used when:",
+    opts:["Routine frog-leg lateral is insufficient","The patient cannot abduct the hip due to suspected fracture or hip arthroplasty","Evaluating both hips simultaneously","Measuring femoral anteversion angle"],
+    a:1,
+    exp:"Clements-Nakayama (modified axiolateral): for patients who cannot move the injured leg — no abduction required. The IR is placed vertically against the hip, the CR is directed horizontally through the femoral neck from the medial thigh. Used for hip fractures and post-op hips.",
+    oe:[
+      "The frog-leg lateral requires hip abduction and external rotation — it can be done when those movements are possible. The Clements method is for when they cannot be done.",
+      "Correct. Clements-Nakayama = no hip movement required. The IR and beam are set up around the immobile patient — critical for trauma and post-surgical cases.",
+      "Simultaneous bilateral hip evaluation is done on the AP pelvis projection, not a lateral method.",
+      "Femoral anteversion is measured by CT or specific ultrasound technique — not with a lateral hip radiograph."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"A voiding cystourethrogram (VCUG) is used to evaluate all of the following EXCEPT:",
+    opts:["Vesicoureteral reflux (VUR)","Urethral anatomy during voiding","Bladder capacity and shape","Renal parenchymal thickness"],
+    a:3,
+    exp:"VCUG: contrast is instilled into the bladder via catheter; images are taken during filling and voiding. Demonstrates bladder wall, vesicoureteral reflux, and urethra. It does NOT evaluate renal parenchyma — that requires IVU or US.",
+    oe:[
+      "VUR (contrast refluxing from bladder into ureters) is a primary indication for VCUG — best demonstrated during voiding when intravesical pressure peaks.",
+      "Urethral anatomy (strictures, posterior urethral valves in males) is demonstrated during the voiding phase of the VCUG.",
+      "Bladder capacity, shape, diverticula, and trabeculation are all demonstrated during the filling phase of the VCUG.",
+      "Correct. Renal parenchyma is evaluated by IVU (nephrogram phase), ultrasound, CT, or MRI — not by VCUG, which only shows the bladder and urethra."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"For radiographic examination of the paranasal sinuses, the patient must be:",
+    opts:["Supine to allow fluid to pool and be visualized","Erect (upright) so air-fluid levels can be demonstrated","Prone to drain secretions before imaging","Lateral recumbent with affected side down"],
+    a:1,
+    exp:"All sinus projections must be performed ERECT. Gravity allows fluid to settle at the bottom of air-containing sinuses, creating visible air-fluid levels. Supine positioning eliminates air-fluid levels and misses significant pathology.",
+    oe:[
+      "Supine positioning causes fluid to distribute along the posterior sinus wall, obscuring air-fluid levels. Supine sinus films are non-diagnostic for fluid.",
+      "Correct. Erect position + proper projections: Waters, Caldwell, lateral, and submentovertex (SMV). Upright is mandatory for air-fluid level demonstration.",
+      "Prone positioning is used for some facial bone projections but is not used for sinus evaluation — it would also obscure air-fluid levels.",
+      "Lateral recumbent is used for decubitus projections of the chest and abdomen — it has no role in standard sinus evaluation."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"Ribs ABOVE the diaphragm (posterior ribs 1–9) are best demonstrated using:",
+    opts:["AP projection at full expiration using low kVp","PA projection with the patient prone and full inspiration","AP projection using high kVp to penetrate the lung parenchyma","Oblique projections only, as AP ribs are always obscured by the lungs"],
+    a:0,
+    exp:"Upper posterior ribs (above diaphragm): AP projection, exposure made at full expiration. Expiration moves the diaphragm upward, projecting the posterior lower ribs above it. Low kVp (65–70) maximizes rib detail by increasing photoelectric absorption contrast.",
+    oe:[
+      "Correct. AP + expiration + low kVp for upper (above-diaphragm) ribs. Expiration elevates the diaphragm, positioning the lower posterior ribs in the lung field rather than below it.",
+      "PA projection would show anterior ribs preferentially. Prone positioning with inspiration is not standard for rib radiography.",
+      "High kVp reduces bone contrast by increasing Compton scatter proportionally. Low kVp is used specifically to enhance rib detail.",
+      "Oblique rib projections are used to demonstrate the axillary portion of ribs (lateral ribs), not to avoid the AP projection. AP is always included in a rib series."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"The RAO (right anterior oblique) position for the sternum is used because:",
+    opts:["It demonstrates both sternoclavicular joints simultaneously","The sternum is projected off the spine and into the heart shadow, which serves as a uniform background","It shows the sternum in true lateral projection","It demonstrates the manubriosternal joint in profile"],
+    a:1,
+    exp:"RAO sternum: 15–20° RAO rotation. The sternum rotates to the left, projecting it over the homogeneous background of the cardiac shadow (which blocks scatter). The heart's uniform density makes the sternum easy to see. A perpendicular or lateral view alone is insufficient.",
+    oe:[
+      "Both sternoclavicular (SC) joints are demonstrated on an AP or PA projection of the SC joints, not the RAO sternum view.",
+      "Correct. The RAO moves the sternum off the thoracic spine and positions it over the heart's uniform density. The cardiac shadow is an ideal background for demonstrating the sternum.",
+      "A true lateral projection of the sternum is also taken as part of the sternum series, but it is a separate projection — not what the RAO achieves.",
+      "The manubriosternal joint is visible on the lateral sternum projection, not specifically the RAO oblique view."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Pediatrics",
+    q:"The Pigg-O-Stat immobilization device is used primarily for:",
+    opts:["Pediatric hip and pelvis examinations","Pediatric chest radiography in infants and young children","Pediatric skull projections","Restraining pediatric extremity patients"],
+    a:1,
+    exp:"Pigg-O-Stat: a device that holds infant/toddler patients in an upright seated position within a clear acrylic tube. Used specifically for PA and lateral chest radiographs. It allows upright chest radiographs with diagnostic quality without radiation-exposed helpers.",
+    oe:[
+      "Hip and pelvis radiographs in pediatric patients use gonadal shielding and modified AP/frog-leg positioning — not the Pigg-O-Stat.",
+      "Correct. Pigg-O-Stat = upright pediatric chest radiography. The clear plastic chair supports the child upright, arms elevated, in PA position.",
+      "Pediatric skull projections are done on the table with sponge positioners and parental assistance — the Pigg-O-Stat is not designed for skull positioning.",
+      "Extremity immobilization uses wrap bandages, foam positioning aids, or sandbags — not the Pigg-O-Stat, which is specific to chest radiography."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Trauma",
+    q:"For a patient with a suspected hip fracture who cannot be moved, which projection allows assessment of the proximal femur without moving the hip?",
+    opts:["Frog-leg lateral — abducting the hip 45°","AP pelvis with bilateral hips","Cross-table axiolateral hip (horizontal beam lateral)","PA oblique using a grid cassette"],
+    a:2,
+    exp:"Cross-table axiolateral hip: IR placed vertically against the lateral hip; horizontal beam passes from the medial thigh through the hip. NO movement of the injured leg required. This is the trauma lateral hip projection — essential for suspected femoral neck fractures.",
+    oe:[
+      "Frog-leg lateral requires 45° hip abduction and external rotation — CONTRAINDICATED with suspected hip fracture due to risk of displacing the fracture.",
+      "AP pelvis shows both hips simultaneously but is an AP view — it does not show the hip in lateral projection, which is needed to assess fracture displacement.",
+      "Correct. Cross-table axiolateral = no movement of the injured leg. Standard trauma protocol: AP pelvis + cross-table lateral of the affected hip.",
+      "PA oblique is not a standard trauma hip projection. Oblique views are done after AP and lateral when additional information is needed."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Chest",
+    q:"On a properly positioned PA chest radiograph, how many posterior ribs should be visible above the diaphragm?",
+    opts:["6 posterior ribs","8 posterior ribs","10 posterior ribs","12 posterior ribs"],
+    a:2,
+    exp:"Adequate inspiration on a PA chest: 10 posterior ribs should be visible above the diaphragm. Fewer than 10 suggests poor inspiration (suboptimal), which artificially enlarges the heart and obscures basilar lung detail.",
+    oe:[
+      "6 posterior ribs above the diaphragm indicates very poor inspiration — the lungs are underinflated and the image is non-diagnostic for pulmonary assessment.",
+      "8 posterior ribs represents a partial breath — below the minimum standard of 10. The image may be borderline acceptable.",
+      "Correct. 10 posterior ribs above the diaphragm = adequate full inspiration. This is the standard teaching criterion for PA chest positioning.",
+      "12 posterior ribs indicates a very deep inspiration — technically acceptable but uncommon in standard clinical practice."
+    ]
   }
 
 ];
