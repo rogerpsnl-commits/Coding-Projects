@@ -16,6 +16,32 @@ let totalCorrect  = 0;
 let catStats = {};
 
 // ================================================================
+//  USER NAME
+// ================================================================
+const NAME_KEY = 'arrt_username';
+
+function loadName() {
+  return localStorage.getItem(NAME_KEY) || '';
+}
+
+function saveName() {
+  const input = document.getElementById('name-input');
+  const name = input.value.trim();
+  if (!name) { input.focus(); return; }
+  localStorage.setItem(NAME_KEY, name);
+  document.getElementById('name-modal').classList.add('hidden');
+  document.getElementById('header-name').textContent = '👤 ' + name;
+  renderStats();
+}
+
+function changeName() {
+  const current = loadName();
+  document.getElementById('name-input').value = current;
+  document.getElementById('name-modal').classList.remove('hidden');
+  setTimeout(() => document.getElementById('name-input').focus(), 50);
+}
+
+// ================================================================
 //  TIMER
 // ================================================================
 let timerInterval = null;
@@ -98,6 +124,13 @@ function init() {
     });
     document.getElementById('hdr-score').textContent  = score;
     document.getElementById('hdr-streak').textContent = bestStreak;
+  }
+  const name = loadName();
+  if (name) {
+    document.getElementById('name-modal').classList.add('hidden');
+    document.getElementById('header-name').textContent = '👤 ' + name;
+  } else {
+    setTimeout(() => document.getElementById('name-input').focus(), 100);
   }
   filterQuestions();
   renderFlashcard();
@@ -357,8 +390,10 @@ function renderStats() {
   }).join('');
 
   const saved = loadSaved();
+  const name  = loadName();
   const since = saved && saved.savedAt ? `<div style="color:var(--rose);margin-top:6px;font-size:0.8rem">Last saved: ${saved.savedAt}</div>` : '';
   document.getElementById('session-stats').innerHTML = `
+    <div>Studying as: <strong>${name || '—'}</strong> <button onclick="changeName()" style="margin-left:8px;padding:2px 10px;background:var(--pink-light);color:var(--pink-dark);border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:0.78rem;">Change</button></div>
     <div>Questions attempted: <strong>${totalAnswered}</strong></div>
     <div>Correct answers: <strong>${totalCorrect}</strong></div>
     <div>Overall accuracy: <strong>${totalAnswered > 0 ? Math.round(totalCorrect/totalAnswered*100) : 0}%</strong></div>

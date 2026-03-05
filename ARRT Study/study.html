@@ -8,8 +8,22 @@
 </head>
 <body>
 
+<!-- Name Modal -->
+<div class="name-modal-overlay" id="name-modal">
+  <div class="name-modal">
+    <div class="name-modal-icon">🐾</div>
+    <h2>Welcome to ARRT Study!</h2>
+    <p>What's your name? We'll use it to track your progress.</p>
+    <input id="name-input" type="text" placeholder="Your name…" maxlength="30" autocomplete="off" onkeydown="if(event.key==='Enter') saveName()">
+    <button onclick="saveName()">Let's Study!</button>
+  </div>
+</div>
+
 <header>
-  <h1>ARRT Radiography <span>Study App</span></h1>
+  <div class="header-left">
+    <h1>ARRT Radiography <span>Study App</span></h1>
+    <div class="header-name" id="header-name"></div>
+  </div>
   <div class="header-stats">
     <div class="stat-pill">Score <strong id="hdr-score">0</strong></div>
     <div class="stat-pill">Streak <strong id="hdr-streak">0</strong> 🔥</div>

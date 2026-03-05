@@ -29,7 +29,44 @@
     min-height: 100vh;
   }
 
+  /* ── NAME MODAL ── */
+  .name-modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(136,14,79,0.45);
+    backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9000;
+  }
+  .name-modal-overlay.hidden { display: none; }
+  .name-modal {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    max-width: 360px; width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .name-modal-icon { font-size: 2.8rem; margin-bottom: 10px; }
+  .name-modal h2 { font-size: 1.2rem; color: var(--pink-dark); margin-bottom: 8px; }
+  .name-modal p { font-size: 0.88rem; color: var(--gray); margin-bottom: 20px; }
+  .name-modal input {
+    width: 100%; padding: 10px 14px;
+    border: 2px solid var(--border); border-radius: 10px;
+    font-size: 1rem; margin-bottom: 14px;
+    outline: none; color: var(--text);
+  }
+  .name-modal input:focus { border-color: var(--pink); }
+  .name-modal button {
+    width: 100%; padding: 11px;
+    background: linear-gradient(135deg, var(--pink-dark), var(--pink-mid));
+    color: var(--white); border: none; border-radius: 10px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+  }
+  .name-modal button:hover { opacity: 0.9; }
+
   /* ── HEADER ── */
+  .header-left { display: flex; flex-direction: column; gap: 2px; }
+  .header-name { font-size: 0.75rem; opacity: 0.8; font-weight: 400; letter-spacing: 0.2px; }
   header {
     background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-mid) 100%);
     color: var(--white);
