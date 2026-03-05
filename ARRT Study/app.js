@@ -226,11 +226,14 @@ function renderQuizQuestion() {
   document.getElementById('drill-panel').classList.remove('show');
   document.getElementById('quiz-next-btn').classList.remove('show');
   updateProgress(quizIndex + 1, filteredQ.length);
+  startTimer();
 }
 
 function answerQuiz(chosen, q) {
   if (quizAnswered) return;
   quizAnswered = true;
+  const elapsed = elapsedLabel();
+  stopTimer();
   totalAnswered++;
 
   const btns = document.querySelectorAll('.option-btn');
@@ -266,6 +269,7 @@ function answerQuiz(chosen, q) {
   const verdict = document.getElementById('drill-verdict');
   verdict.textContent = correct ? '✓ Correct!' : '✗ Incorrect';
   verdict.className   = 'drill-verdict ' + (correct ? 'correct' : 'incorrect');
+  document.getElementById('drill-time').textContent = '⏱ ' + elapsed;
 
   document.getElementById('drill-correct-exp').textContent = q.exp;
 
