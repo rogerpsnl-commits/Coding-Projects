@@ -16,29 +16,150 @@ let totalCorrect  = 0;
 let catStats = {};
 
 // ================================================================
-//  USER NAME
+//  AUTH / PROFILES
 // ================================================================
-const NAME_KEY = 'arrt_username';
+const PROFILES_KEY = 'arrt_profiles';
+const CURRENT_KEY  = 'arrt_current';
+let currentUser = null;  // key into profiles
 
-function loadName() {
-  return localStorage.getItem(NAME_KEY) || '';
+function loadProfiles() {
+  try { return JSON.parse(localStorage.getItem(PROFILES_KEY)) || {}; }
+  catch { return {}; }
 }
 
-function saveName() {
-  const input = document.getElementById('name-input');
-  const name = input.value.trim();
-  if (!name) { input.focus(); return; }
-  localStorage.setItem(NAME_KEY, name);
-  document.getElementById('name-modal').classList.add('hidden');
-  document.getElementById('header-name').textContent = '👤 ' + name;
+function saveProfiles(profiles) {
+  localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
+}
+
+function nameToKey(name) {
+  return name.toLowerCase().replace(/\s+/g, '_');
+}
+
+function showAuthModal() {
+  const profiles = loadProfiles();
+  if (Object.keys(profiles).length === 0) {
+    showCreateView();
+  } else {
+    showSignInView();
+  }
+  document.getElementById('auth-modal').classList.remove('hidden');
+}
+
+function showSignInView() {
+  document.getElementById('signin-view').classList.remove('hidden');
+  document.getElementById('create-view').classList.add('hidden');
+  document.getElementById('auth-error').textContent = '';
+  document.getElementById('signin-name').value = '';
+  document.getElementById('signin-pin').value = '';
+
+  const profiles = loadProfiles();
+  const list = document.getElementById('user-list');
+  list.innerHTML = '';
+  Object.values(profiles).forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'user-btn';
+    btn.textContent = p.name;
+    btn.onclick = () => {
+      document.getElementById('signin-name').value = p.name;
+      document.getElementById('signin-pin').value = '';
+      document.getElementById('signin-pin').focus();
+    };
+    list.appendChild(btn);
+  });
+  setTimeout(() => document.getElementById('signin-name').focus(), 50);
+}
+
+function showCreateView() {
+  document.getElementById('create-view').classList.remove('hidden');
+  document.getElementById('signin-view').classList.add('hidden');
+  document.getElementById('create-error').textContent = '';
+  document.getElementById('create-name').value = '';
+  document.getElementById('create-pin').value = '';
+  document.getElementById('create-pin2').value = '';
+  setTimeout(() => document.getElementById('create-name').focus(), 50);
+}
+
+function signIn() {
+  const name = document.getElementById('signin-name').value.trim();
+  const pin  = document.getElementById('signin-pin').value.trim();
+  const err  = document.getElementById('auth-error');
+
+  if (!name) { err.textContent = 'Please enter your name.'; return; }
+  if (!pin)  { err.textContent = 'Please enter your PIN.'; return; }
+
+  const profiles = loadProfiles();
+  const key = nameToKey(name);
+  const profile = profiles[key];
+
+  if (!profile) { err.textContent = 'No account found. Create one below.'; return; }
+  if (profile.pin !== pin) { err.textContent = 'Incorrect PIN. Try again.'; return; }
+
+  currentUser = key;
+  localStorage.setItem(CURRENT_KEY, key);
+  loadUserStats(profile);
+  document.getElementById('auth-modal').classList.add('hidden');
+  document.getElementById('header-name-text').textContent = '👤 ' + profile.name;
+  document.getElementById('signout-btn').style.display = '';
   renderStats();
 }
 
-function changeName() {
-  const current = loadName();
-  document.getElementById('name-input').value = current;
-  document.getElementById('name-modal').classList.remove('hidden');
-  setTimeout(() => document.getElementById('name-input').focus(), 50);
+function createAccount() {
+  const name = document.getElementById('create-name').value.trim();
+  const pin  = document.getElementById('create-pin').value.trim();
+  const pin2 = document.getElementById('create-pin2').value.trim();
+  const err  = document.getElementById('create-error');
+
+  if (!name) { err.textContent = 'Please enter your name.'; return; }
+  if (!/^\d{4}$/.test(pin)) { err.textContent = 'PIN must be exactly 4 digits.'; return; }
+  if (pin !== pin2) { err.textContent = 'PINs do not match.'; return; }
+
+  const profiles = loadProfiles();
+  const key = nameToKey(name);
+  if (profiles[key]) { err.textContent = 'That name is taken. Choose another.'; return; }
+
+  const cats = ['Patient Care','Safety','Image Production','Procedures'];
+  profiles[key] = {
+    name, pin,
+    totalAnswered: 0, totalCorrect: 0, score: 0, bestStreak: 0,
+    catStats: Object.fromEntries(cats.map(c => [c, { answered:0, correct:0 }])),
+    savedAt: null
+  };
+  saveProfiles(profiles);
+
+  currentUser = key;
+  localStorage.setItem(CURRENT_KEY, key);
+  loadUserStats(profiles[key]);
+  document.getElementById('auth-modal').classList.add('hidden');
+  document.getElementById('header-name-text').textContent = '👤 ' + name;
+  document.getElementById('signout-btn').style.display = '';
+  renderStats();
+}
+
+function signOut() {
+  currentUser = null;
+  localStorage.removeItem(CURRENT_KEY);
+  totalAnswered = 0; totalCorrect = 0; score = 0; bestStreak = 0; streak = 0;
+  ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
+    catStats[c] = { answered:0, correct:0 };
+  });
+  document.getElementById('hdr-score').textContent  = 0;
+  document.getElementById('hdr-streak').textContent = 0;
+  document.getElementById('header-name-text').textContent = '';
+  document.getElementById('signout-btn').style.display = 'none';
+  showAuthModal();
+}
+
+function loadUserStats(profile) {
+  totalAnswered = profile.totalAnswered || 0;
+  totalCorrect  = profile.totalCorrect  || 0;
+  score         = profile.score         || 0;
+  bestStreak    = profile.bestStreak    || 0;
+  ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
+    catStats[c] = (profile.catStats && profile.catStats[c])
+      ? profile.catStats[c] : { answered:0, correct:0 };
+  });
+  document.getElementById('hdr-score').textContent  = score;
+  document.getElementById('hdr-streak').textContent = bestStreak;
 }
 
 // ================================================================
@@ -76,33 +197,28 @@ function elapsedLabel() {
 // ================================================================
 //  PERSISTENCE
 // ================================================================
-const STORAGE_KEY = 'arrt_stats';
-
-function loadSaved() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch { return null; }
-}
-
 function saveStats() {
-  const data = {
+  if (!currentUser) return;
+  const profiles = loadProfiles();
+  if (!profiles[currentUser]) return;
+  Object.assign(profiles[currentUser], {
     totalAnswered, totalCorrect, score,
     bestStreak: Math.max(bestStreak, streak),
     catStats,
     savedAt: new Date().toLocaleDateString()
-  };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  });
+  saveProfiles(profiles);
 }
 
 function resetSaved() {
-  localStorage.removeItem(STORAGE_KEY);
+  if (!currentUser) return;
   totalAnswered = 0; totalCorrect = 0; score = 0; bestStreak = 0; streak = 0;
   ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
     catStats[c] = { answered:0, correct:0 };
   });
   document.getElementById('hdr-score').textContent  = 0;
   document.getElementById('hdr-streak').textContent = 0;
+  saveStats();
   renderStats();
 }
 
@@ -113,25 +229,22 @@ function init() {
   ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
     catStats[c] = { answered:0, correct:0 };
   });
-  const saved = loadSaved();
-  if (saved) {
-    totalAnswered = saved.totalAnswered || 0;
-    totalCorrect  = saved.totalCorrect  || 0;
-    score         = saved.score         || 0;
-    bestStreak    = saved.bestStreak    || 0;
-    ['Patient Care','Safety','Image Production','Procedures'].forEach(c => {
-      if (saved.catStats && saved.catStats[c]) catStats[c] = saved.catStats[c];
-    });
-    document.getElementById('hdr-score').textContent  = score;
-    document.getElementById('hdr-streak').textContent = bestStreak;
-  }
-  const name = loadName();
-  if (name) {
-    document.getElementById('header-name').textContent = '👤 ' + name;
+
+  const savedKey = localStorage.getItem(CURRENT_KEY);
+  if (savedKey) {
+    const profiles = loadProfiles();
+    if (profiles[savedKey]) {
+      currentUser = savedKey;
+      loadUserStats(profiles[savedKey]);
+      document.getElementById('header-name-text').textContent = '👤 ' + profiles[savedKey].name;
+      document.getElementById('signout-btn').style.display = '';
+    } else {
+      showAuthModal();
+    }
   } else {
-    document.getElementById('name-modal').classList.remove('hidden');
-    setTimeout(() => document.getElementById('name-input').focus(), 100);
+    showAuthModal();
   }
+
   filterQuestions();
   renderFlashcard();
   renderStats();
@@ -389,11 +502,10 @@ function renderStats() {
     </div>`;
   }).join('');
 
-  const saved = loadSaved();
-  const name  = loadName();
-  const since = saved && saved.savedAt ? `<div style="color:var(--rose);margin-top:6px;font-size:0.8rem">Last saved: ${saved.savedAt}</div>` : '';
+  const profile = currentUser ? loadProfiles()[currentUser] : null;
+  const since = profile && profile.savedAt ? `<div style="color:var(--rose);margin-top:6px;font-size:0.8rem">Last saved: ${profile.savedAt}</div>` : '';
   document.getElementById('session-stats').innerHTML = `
-    <div>Studying as: <strong>${name || '—'}</strong> <button onclick="changeName()" style="margin-left:8px;padding:2px 10px;background:var(--pink-light);color:var(--pink-dark);border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:0.78rem;">Change</button></div>
+    <div>Studying as: <strong>${profile ? profile.name : '—'}</strong></div>
     <div>Questions attempted: <strong>${totalAnswered}</strong></div>
     <div>Correct answers: <strong>${totalCorrect}</strong></div>
     <div>Overall accuracy: <strong>${totalAnswered > 0 ? Math.round(totalCorrect/totalAnswered*100) : 0}%</strong></div>

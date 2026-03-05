@@ -63,10 +63,42 @@
     font-size: 1rem; font-weight: 700; cursor: pointer;
   }
   .name-modal button:hover { opacity: 0.9; }
+  .name-modal.hidden { display: none; }
+
+  /* auth extras */
+  .user-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+  .user-btn {
+    padding: 6px 16px;
+    background: var(--pink-light); color: var(--pink-dark);
+    border: 1px solid var(--border); border-radius: 20px;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  }
+  .user-btn:hover { background: var(--rose); color: var(--white); }
+  .auth-error {
+    font-size: 0.82rem; color: var(--wrong);
+    min-height: 18px; margin: -8px 0 10px;
+    text-align: center;
+  }
+  .auth-switch {
+    margin-top: 14px; font-size: 0.82rem; color: var(--gray);
+  }
+  .auth-switch a {
+    color: var(--pink); font-weight: 600; cursor: pointer; text-decoration: underline;
+  }
 
   /* ── HEADER ── */
   .header-left { display: flex; flex-direction: column; gap: 2px; }
-  .header-name { font-size: 0.75rem; opacity: 0.8; font-weight: 400; letter-spacing: 0.2px; }
+  .header-name {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; opacity: 0.9; font-weight: 400; letter-spacing: 0.2px;
+  }
+  .signout-btn {
+    padding: 2px 9px; font-size: 0.7rem; font-weight: 600;
+    background: rgba(255,255,255,0.2); color: var(--white);
+    border: 1px solid rgba(255,255,255,0.35); border-radius: 10px;
+    cursor: pointer;
+  }
+  .signout-btn:hover { background: rgba(255,255,255,0.35); }
   header {
     background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-mid) 100%);
     color: var(--white);
