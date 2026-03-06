@@ -186,21 +186,14 @@ export function AppProvider({ children }) {
 
   // Drive auth state from Supabase
   useEffect(() => {
-    // Check current session immediately
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      if (session?.user) {
-        const { tasks, categories, categoryColors } = await loadUserData(session.user.id)
-        dispatch({ type: 'BOOT', user: session.user, tasks, categories, categoryColors })
-      } else {
-        dispatch({ type: 'SET_LOADING', payload: false })
-      }
-    })
-
-    // Listen for future auth changes (login, logout, token refresh)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'SIGNED_IN' && session?.user) {
-        const { tasks, categories, categoryColors } = await loadUserData(session.user.id)
-        dispatch({ type: 'BOOT', user: session.user, tasks, categories, categoryColors })
+      if (event === 'INITIAL_SESSION' || event === 'SIGNED_IN') {
+        if (session?.user) {
+          const { tasks, categories, categoryColors } = await loadUserData(session.user.id)
+          dispatch({ type: 'BOOT', user: session.user, tasks, categories, categoryColors })
+        } else if (event === 'INITIAL_SESSION') {
+          dispatch({ type: 'SET_LOADING', payload: false })
+        }
       } else if (event === 'SIGNED_OUT') {
         dispatch({ type: 'LOGOUT' })
       } else if (event === 'USER_UPDATED' && session?.user) {
