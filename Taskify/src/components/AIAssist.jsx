@@ -73,10 +73,6 @@ export default function AIAssist() {
   const [rawText, setRawText] = useState('')
 
   async function fetchSuggestions() {
-    if (!apiKey) {
-      setError('Add your Claude API key in Settings to use AI suggestions.')
-      return
-    }
     if (tasks.filter(t => !t.completed).length === 0) {
       setError('Add some tasks first so AI can analyze them.')
       return
@@ -174,23 +170,9 @@ export default function AIAssist() {
                   Claude will analyze your tasks and suggest what to focus on for efficiency and wellbeing.
                 </p>
               </div>
-              {!apiKey && (
-                <div className="flex items-start gap-2 bg-amber-50 border border-amber-100 rounded-2xl p-3 text-left w-full">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5">
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-                  </svg>
-                  <p className="text-xs text-amber-700">
-                    You need a Claude API key. Add it in{' '}
-                    <button onClick={() => { actions.closeAIAssist(); actions.openSettings() }} className="underline font-semibold">
-                      Settings
-                    </button>.
-                  </p>
-                </div>
-              )}
               <button
                 onClick={fetchSuggestions}
-                disabled={!apiKey}
-                className="px-6 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white font-semibold rounded-2xl shadow-lg shadow-indigo-200 transition-all duration-150 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="px-6 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white font-semibold rounded-2xl shadow-lg shadow-indigo-200 transition-all duration-150 active:scale-95"
               >
                 Analyze My Tasks
               </button>
