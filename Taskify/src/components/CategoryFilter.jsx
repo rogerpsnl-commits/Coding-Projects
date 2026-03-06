@@ -26,7 +26,7 @@ export default function CategoryFilter() {
 
   return (
     <div className="px-5 pb-2">
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
         {all.map(cat => {
           const active = activeCategory === cat
           const count = countFor(cat)
