@@ -1,34 +1,15 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import { DEFAULT_CATEGORY_COLORS, nextAutoColor } from '../utils/categoryColors'
+import { supabase } from '../lib/supabase'
 
 const AppContext = createContext(null)
 
 const DEFAULT_CATEGORIES = ['Family', 'Work', 'Wellbeing']
 
-function generateInviteCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase()
-}
-
-function loadUsers() {
-  try { return JSON.parse(localStorage.getItem('taskify_users') || '[]') } catch { return [] }
-}
-function loadCurrentUser() {
-  try { return JSON.parse(localStorage.getItem('taskify_current_user') || 'null') } catch { return null }
-}
-function loadTasks(userId) {
-  try { return JSON.parse(localStorage.getItem(`taskify_tasks_${userId}`) || '[]') } catch { return [] }
-}
-function loadCategories(userId) {
-  try {
-    const saved = localStorage.getItem(`taskify_categories_${userId}`)
-    return saved ? JSON.parse(saved) : DEFAULT_CATEGORIES
-  } catch { return DEFAULT_CATEGORIES }
-}
 function loadApiKey() {
   try {
-    const stored = localStorage.getItem('taskify_api_key')
-    return stored || import.meta.env.VITE_ANTHROPIC_API_KEY || ''
+    return localStorage.getItem('taskify_api_key') || import.meta.env.VITE_ANTHROPIC_API_KEY || ''
   } catch { return '' }
 }
 
@@ -43,24 +24,84 @@ function nextDeadline(deadline, recurrence) {
   }
   return d.toISOString().split('T')[0]
 }
-function loadCategoryColors(userId) {
-  try {
-    const saved = localStorage.getItem(`taskify_cat_colors_${userId}`)
-    return saved ? JSON.parse(saved) : { ...DEFAULT_CATEGORY_COLORS }
-  } catch { return { ...DEFAULT_CATEGORY_COLORS } }
+
+// ── DB shape converters ──────────────────────────────────────────────────────
+
+function rowToTask(row) {
+  return {
+    id: row.id,
+    name: row.name,
+    description: row.description || '',
+    priority: row.priority || 'medium',
+    category: row.category || '',
+    deadline: row.deadline || '',
+    recurrence: row.recurrence || null,
+    completed: row.completed || false,
+    createdAt: row.created_at,
+    sortOrder: row.sort_order,
+  }
 }
-function saveUsers(users) { localStorage.setItem('taskify_users', JSON.stringify(users)) }
-function saveTasks(userId, tasks) { localStorage.setItem(`taskify_tasks_${userId}`, JSON.stringify(tasks)) }
-function saveCategories(userId, categories) { localStorage.setItem(`taskify_categories_${userId}`, JSON.stringify(categories)) }
-function saveCategoryColors(userId, colors) { localStorage.setItem(`taskify_cat_colors_${userId}`, JSON.stringify(colors)) }
+
+function taskToRow(task, userId) {
+  return {
+    id: task.id,
+    user_id: userId,
+    name: task.name,
+    description: task.description || '',
+    priority: task.priority || 'medium',
+    category: task.category || '',
+    deadline: task.deadline || '',
+    recurrence: task.recurrence || null,
+    completed: task.completed || false,
+    sort_order: task.sortOrder ?? 0,
+    created_at: task.createdAt ?? Date.now(),
+  }
+}
+
+// ── Load user data from Supabase ─────────────────────────────────────────────
+
+async function loadUserData(userId) {
+  const [{ data: taskRows, error: taskErr }, { data: catRows, error: catErr }] = await Promise.all([
+    supabase.from('tasks').select('*').eq('user_id', userId).order('sort_order'),
+    supabase.from('categories').select('*').eq('user_id', userId).order('sort_order'),
+  ])
+
+  if (taskErr) console.error('tasks load error:', taskErr)
+  if (catErr) console.error('categories load error:', catErr)
+
+  const tasks = (taskRows || []).map(rowToTask)
+
+  let categories = DEFAULT_CATEGORIES
+  let categoryColors = { ...DEFAULT_CATEGORY_COLORS }
+
+  if (catRows && catRows.length > 0) {
+    categories = catRows.map(r => r.name)
+    categoryColors = {}
+    for (const r of catRows) categoryColors[r.name] = r.color || 'blue'
+  } else {
+    // First sign-in: seed default categories
+    const seedRows = DEFAULT_CATEGORIES.map((name, i) => ({
+      user_id: userId,
+      name,
+      color: DEFAULT_CATEGORY_COLORS[name] || 'blue',
+      sort_order: i,
+    }))
+    await supabase.from('categories').upsert(seedRows, { onConflict: 'user_id,name', ignoreDuplicates: true })
+  }
+
+  return { tasks, categories, categoryColors }
+}
+
+// ── Reducer ──────────────────────────────────────────────────────────────────
 
 const initialState = {
-  user: loadCurrentUser(),
+  user: null,
   tasks: [],
   categories: DEFAULT_CATEGORIES,
   categoryColors: { ...DEFAULT_CATEGORY_COLORS },
   activeCategory: 'All',
   apiKey: loadApiKey(),
+  loading: true,
   showAddModal: false,
   showInviteModal: false,
   showAIAssist: false,
@@ -69,14 +110,19 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'BOOT': {
-      const tasks = loadTasks(action.user.id)
-      const categories = loadCategories(action.user.id)
-      const categoryColors = loadCategoryColors(action.user.id)
-      return { ...state, user: action.user, tasks, categories, categoryColors }
-    }
+    case 'BOOT':
+      return {
+        ...state,
+        user: action.user,
+        tasks: action.tasks,
+        categories: action.categories,
+        categoryColors: action.categoryColors,
+        loading: false,
+      }
+    case 'SET_LOADING':
+      return { ...state, loading: action.payload }
     case 'LOGOUT':
-      return { ...initialState, user: null, tasks: [], categories: DEFAULT_CATEGORIES, categoryColors: { ...DEFAULT_CATEGORY_COLORS }, apiKey: state.apiKey }
+      return { ...initialState, loading: false, apiKey: state.apiKey }
 
     case 'ADD_TASK':
       return { ...state, tasks: [...state.tasks, action.payload] }
@@ -91,12 +137,12 @@ function reducer(state, action) {
       return { ...state, activeCategory: action.payload }
 
     case 'ADD_CATEGORY': {
-      if (state.categories.includes(action.payload)) return state
-      const autoColor = nextAutoColor(state.categoryColors)
+      const { name, color } = action.payload
+      if (state.categories.includes(name)) return state
       return {
         ...state,
-        categories: [...state.categories, action.payload],
-        categoryColors: { ...state.categoryColors, [action.payload]: autoColor },
+        categories: [...state.categories, name],
+        categoryColors: { ...state.categoryColors, [name]: color },
       }
     }
     case 'REMOVE_CATEGORY': {
@@ -133,52 +179,77 @@ function reducer(state, action) {
   }
 }
 
+// ── Provider ─────────────────────────────────────────────────────────────────
+
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  // Drive auth state from Supabase
   useEffect(() => {
-    if (state.user) dispatch({ type: 'BOOT', user: state.user })
-  }, [])
+    // Check current session immediately
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      if (session?.user) {
+        const { tasks, categories, categoryColors } = await loadUserData(session.user.id)
+        dispatch({ type: 'BOOT', user: session.user, tasks, categories, categoryColors })
+      } else {
+        dispatch({ type: 'SET_LOADING', payload: false })
+      }
+    })
 
-  useEffect(() => {
-    if (state.user) saveTasks(state.user.id, state.tasks)
-  }, [state.tasks, state.user])
+    // Listen for future auth changes (login, logout, token refresh)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN' && session?.user) {
+        const { tasks, categories, categoryColors } = await loadUserData(session.user.id)
+        dispatch({ type: 'BOOT', user: session.user, tasks, categories, categoryColors })
+      } else if (event === 'SIGNED_OUT') {
+        dispatch({ type: 'LOGOUT' })
+      } else if (event === 'USER_UPDATED' && session?.user) {
+        dispatch({ type: 'BOOT', user: session.user, tasks: state.tasks, categories: state.categories, categoryColors: state.categoryColors })
+      }
+    })
 
-  useEffect(() => {
-    if (state.user) saveCategories(state.user.id, state.categories)
-  }, [state.categories, state.user])
-
-  useEffect(() => {
-    if (state.user) saveCategoryColors(state.user.id, state.categoryColors)
-  }, [state.categoryColors, state.user])
+    return () => subscription.unsubscribe()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const actions = {
-    login(username, password) {
-      const users = loadUsers()
-      const user = users.find(u => u.username.toLowerCase() === username.toLowerCase())
-      if (!user) return { error: 'No account found with that username.' }
-      if (user.password !== password) return { error: 'Incorrect password.' }
-      localStorage.setItem('taskify_current_user', JSON.stringify(user))
-      dispatch({ type: 'BOOT', user })
-      return {}
+    // ── Auth ──────────────────────────────────────────────────────────────────
+
+    async login(email, password) {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      return error ? { error: error.message } : {}
     },
 
-    register(username, email, password) {
-      const users = loadUsers()
-      if (users.find(u => u.username.toLowerCase() === username.toLowerCase())) {
-        return { error: 'Username already taken.' }
-      }
-      const user = { id: uuid(), username, email, password, inviteCode: generateInviteCode() }
-      saveUsers([...users, user])
-      localStorage.setItem('taskify_current_user', JSON.stringify(user))
-      dispatch({ type: 'BOOT', user })
-      return {}
+    async register(email, password, username) {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { username } },
+      })
+      return error ? { error: error.message } : {}
     },
 
-    logout() {
-      localStorage.removeItem('taskify_current_user')
-      dispatch({ type: 'LOGOUT' })
+    async loginWithGoogle() {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.origin },
+      })
+      return error ? { error: error.message } : {}
     },
+
+    async loginWithMicrosoft() {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'azure',
+        options: { redirectTo: window.location.origin },
+      })
+      return error ? { error: error.message } : {}
+    },
+
+    async logout() {
+      await supabase.auth.signOut()
+      // LOGOUT dispatched by onAuthStateChange
+    },
+
+    // ── Tasks ─────────────────────────────────────────────────────────────────
 
     addTask(fields) {
       const task = {
@@ -194,15 +265,19 @@ export function AppProvider({ children }) {
         sortOrder: Date.now(),
       }
       dispatch({ type: 'ADD_TASK', payload: task })
+      supabase.from('tasks').insert(taskToRow(task, state.user.id))
     },
 
     updateTask(task) {
       dispatch({ type: 'UPDATE_TASK', payload: task })
+      supabase.from('tasks').update(taskToRow(task, state.user.id)).eq('id', task.id)
     },
 
-    // Mark complete; if recurring + has deadline, auto-create the next occurrence
     completeTask(task) {
-      dispatch({ type: 'UPDATE_TASK', payload: { ...task, completed: true } })
+      const completed = { ...task, completed: true }
+      dispatch({ type: 'UPDATE_TASK', payload: completed })
+      supabase.from('tasks').update({ completed: true }).eq('id', task.id)
+
       if (task.recurrence && task.deadline) {
         const next = {
           id: uuid(),
@@ -217,41 +292,72 @@ export function AppProvider({ children }) {
           sortOrder: Date.now(),
         }
         dispatch({ type: 'ADD_TASK', payload: next })
+        supabase.from('tasks').insert(taskToRow(next, state.user.id))
       }
     },
 
     deleteTask(id) {
       dispatch({ type: 'DELETE_TASK', payload: id })
+      supabase.from('tasks').delete().eq('id', id)
     },
 
     reorderTasks(tasks) {
       dispatch({ type: 'REORDER_TASKS', payload: tasks })
+      supabase.from('tasks').upsert(tasks.map(t => taskToRow(t, state.user.id)))
     },
+
+    // ── Categories ────────────────────────────────────────────────────────────
 
     setActiveCategory(cat) {
       dispatch({ type: 'SET_ACTIVE_CATEGORY', payload: cat })
     },
 
     addCategory(name) {
-      dispatch({ type: 'ADD_CATEGORY', payload: name })
+      if (state.categories.includes(name)) return
+      const color = nextAutoColor(state.categoryColors)
+      dispatch({ type: 'ADD_CATEGORY', payload: { name, color } })
+      supabase.from('categories').insert({
+        user_id: state.user.id,
+        name,
+        color,
+        sort_order: state.categories.length,
+      })
     },
 
     removeCategory(name) {
+      const newCategory = state.categories.filter(c => c !== name)[0] || ''
       dispatch({ type: 'REMOVE_CATEGORY', payload: name })
+      supabase.from('categories').delete().eq('user_id', state.user.id).eq('name', name)
+      if (newCategory) {
+        supabase.from('tasks').update({ category: newCategory })
+          .eq('user_id', state.user.id).eq('category', name)
+      }
     },
 
     renameCategory(oldName, newName) {
-      dispatch({ type: 'RENAME_CATEGORY', payload: { oldName, newName } })
+      const trimmed = newName.trim()
+      if (!trimmed || state.categories.includes(trimmed)) return
+      dispatch({ type: 'RENAME_CATEGORY', payload: { oldName, newName: trimmed } })
+      supabase.from('categories').update({ name: trimmed })
+        .eq('user_id', state.user.id).eq('name', oldName)
+      supabase.from('tasks').update({ category: trimmed })
+        .eq('user_id', state.user.id).eq('category', oldName)
     },
 
     setCategoryColor(name, color) {
       dispatch({ type: 'SET_CATEGORY_COLOR', payload: { name, color } })
+      supabase.from('categories').update({ color })
+        .eq('user_id', state.user.id).eq('name', name)
     },
+
+    // ── Settings ──────────────────────────────────────────────────────────────
 
     setApiKey(key) {
       localStorage.setItem('taskify_api_key', key)
       dispatch({ type: 'SET_API_KEY', payload: key })
     },
+
+    // ── Modals ────────────────────────────────────────────────────────────────
 
     openAddModal()    { dispatch({ type: 'TOGGLE_ADD_MODAL',    payload: true }) },
     closeAddModal()   { dispatch({ type: 'TOGGLE_ADD_MODAL',    payload: false }) },

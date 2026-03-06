@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useApp } from '../context/AppContext'
+import { getInviteCode } from '../lib/supabase'
 
 export default function InviteModal() {
   const { state, actions } = useApp()
   const { user } = state
   const [copied, setCopied] = useState(false)
 
-  const inviteCode = user?.inviteCode || '------'
+  const inviteCode = user ? getInviteCode(user.id) : '------'
   // Placeholder invite link — real implementation will use a backend URL
   const inviteLink = `https://taskify.app/join/${inviteCode}`
 

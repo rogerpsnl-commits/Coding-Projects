@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useApp } from '../context/AppContext'
 import { COLOR_PALETTE, COLOR_NAMES, getCategoryColor } from '../utils/categoryColors'
+import { getUserDisplayName } from '../lib/supabase'
 
 function CategoryRow({ cat, taskCount, categoryColors, onRename, onDelete, onColorChange }) {
   const [editing, setEditing]     = useState(false)
@@ -264,7 +265,7 @@ export default function SettingsModal() {
             <h3 className="text-sm font-semibold text-gray-700 mb-2">Account</h3>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-800 font-medium">{state.user?.username}</p>
+                <p className="text-sm text-gray-800 font-medium">{getUserDisplayName(state.user)}</p>
                 <p className="text-xs text-gray-400">{state.user?.email}</p>
               </div>
               <button
@@ -276,7 +277,7 @@ export default function SettingsModal() {
             </div>
           </div>
 
-          <p className="text-center text-xs text-gray-400">All data is stored locally on this device.</p>
+          <p className="text-center text-xs text-gray-400">Your data syncs across all your devices.</p>
         </div>
       </div>
     </div>

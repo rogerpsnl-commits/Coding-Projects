@@ -1,18 +1,18 @@
 import { useApp } from '../context/AppContext'
+import { getUserDisplayName } from '../lib/supabase'
 
 export default function Header() {
   const { state, actions } = useApp()
   const { user } = state
 
-  const initials = user?.username
-    ? user.username.slice(0, 2).toUpperCase()
-    : '??'
+  const displayName = getUserDisplayName(user)
+  const initials = displayName.slice(0, 2).toUpperCase()
 
   return (
     <div className="flex items-center justify-between px-5 pt-5 pb-3">
       <div>
         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Taskify</h1>
-        <p className="text-sm text-gray-400 mt-0.5">Hi, {user?.username}</p>
+        <p className="text-sm text-gray-400 mt-0.5">Hi, {displayName}</p>
       </div>
 
       <div className="flex items-center gap-2">

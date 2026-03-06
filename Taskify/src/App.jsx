@@ -10,7 +10,20 @@ import SettingsModal from './components/SettingsModal'
 
 function AppShell() {
   const { state, actions } = useApp()
-  const { user, showAddModal, showInviteModal, showAIAssist, showSettings } = state
+  const { user, loading, showAddModal, showInviteModal, showAIAssist, showSettings } = state
+
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center animate-pulse">
+          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+            <path d="M5 12.5 L9.5 17 L19 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <p className="text-sm text-gray-400 font-medium">Loading…</p>
+      </div>
+    </div>
+  )
 
   if (!user) return <Login />
 
