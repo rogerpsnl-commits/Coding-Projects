@@ -15,12 +15,14 @@ import MarketingForm from './pages/marketing/MarketingForm.jsx';
 import Reports from './pages/reports/Reports.jsx';
 import FirmInfo from './pages/firm/FirmInfo.jsx';
 import Documents from './pages/documents/Documents.jsx';
+import Dashboard from './pages/dashboard/Dashboard.jsx';
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/matters" replace />} />
+        <Route index element={<Navigate to="/dashboard" replace />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="clients" element={<ClientList />} />
         <Route path="clients/new" element={<ClientForm />} />
         <Route path="clients/:id" element={<ClientDetail />} />
