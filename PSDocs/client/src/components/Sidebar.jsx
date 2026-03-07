@@ -14,14 +14,14 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`${collapsed ? 'w-14' : 'w-56'} bg-brand-900 text-brand-200 flex flex-col shrink-0 transition-all duration-200`}
+      className={`${collapsed ? 'w-14' : 'w-56'} bg-brand-800 text-brand-200 flex flex-col shrink-0 transition-all duration-200`}
     >
       {/* Logo */}
-      <div className={`flex items-center border-b border-brand-700 h-16 ${collapsed ? 'justify-center px-0' : 'px-5'}`}>
+      <div className={`flex items-center border-b border-brand-700 h-16 ${collapsed ? 'justify-center px-0' : 'px-4'}`}>
         {collapsed ? (
-          <span className="text-white text-lg font-bold">P</span>
+          <img src="/logo-white.png" alt="PSDocs" className="h-7 w-7 object-cover object-left" />
         ) : (
-          <span className="text-white text-xl font-semibold tracking-tight">PSDocs</span>
+          <img src="/logo-white.png" alt="PSDocs" className="h-8 object-contain" />
         )}
       </div>
 
@@ -53,8 +53,8 @@ export default function Sidebar() {
               className={({ isActive }) =>
                 `${baseClass} ${
                   isActive
-                    ? 'bg-brand-700 text-white'
-                    : 'text-brand-300 hover:bg-brand-800 hover:text-white'
+                    ? 'bg-brand-600 text-white'
+                    : 'text-brand-300 hover:bg-brand-700 hover:text-white'
                 }`
               }
             >

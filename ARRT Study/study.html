@@ -124,7 +124,46 @@
 
   <!-- ═══ QUIZ MODE ═══ -->
   <div id="quiz-mode" style="display:none">
-    <div class="quiz-card" id="quiz-card">
+
+    <!-- Quiz Mode Selector -->
+    <div class="quiz-mode-selector" id="quiz-mode-selector">
+      <h3>Choose Your Quiz Mode</h3>
+      <p>Questions drawn randomly from your selected category</p>
+      <div class="quiz-modes-grid">
+        <button class="quiz-mode-btn" onclick="startQuizMode(25)">
+          <span class="qm-icon">⚡</span>
+          <span class="qm-label">Quick</span>
+          <span class="qm-count">25 Questions</span>
+          <span class="qm-desc">Fast warm-up</span>
+        </button>
+        <button class="quiz-mode-btn" onclick="startQuizMode(50)">
+          <span class="qm-icon">🏃</span>
+          <span class="qm-label">Sprint</span>
+          <span class="qm-count">50 Questions</span>
+          <span class="qm-desc">Focused session</span>
+        </button>
+        <button class="quiz-mode-btn" onclick="startQuizMode(100)">
+          <span class="qm-icon">🏋️</span>
+          <span class="qm-label">Marathon</span>
+          <span class="qm-count">100 Questions</span>
+          <span class="qm-desc">Deep practice</span>
+        </button>
+        <button class="quiz-mode-btn qm-highlight" onclick="startQuizMode(200)">
+          <span class="qm-icon">🎓</span>
+          <span class="qm-label">Simulator</span>
+          <span class="qm-count">200 Questions</span>
+          <span class="qm-desc">Full exam simulation</span>
+        </button>
+        <button class="quiz-mode-btn qm-all" onclick="startQuizMode(null)">
+          <span class="qm-icon">📚</span>
+          <span class="qm-label">All Questions</span>
+          <span class="qm-count" id="qm-all-count">— Questions</span>
+          <span class="qm-desc">Complete bank</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="quiz-card" id="quiz-card" style="display:none">
       <div class="quiz-top-row">
         <span class="quiz-cat-badge" id="quiz-cat-badge"></span>
         <div class="quiz-timer" id="quiz-timer">0:00</div>
@@ -149,7 +188,10 @@
         <div id="drill-options-list"></div>
       </div>
 
-      <button class="quiz-next-btn" id="quiz-next-btn" onclick="nextQuizQuestion()">Next Question &rarr;</button>
+      <div class="quiz-action-row">
+        <button class="quiz-skip-btn" id="quiz-skip-btn" onclick="skipQuestion()">Skip &rarr;</button>
+        <button class="quiz-next-btn" id="quiz-next-btn" onclick="nextQuizQuestion()">Next Question &rarr;</button>
+      </div>
     </div>
 
     <!-- Score summary -->
@@ -161,7 +203,7 @@
       <h2 id="score-title">Quiz Complete!</h2>
       <p id="score-message"></p>
       <div class="score-breakdown" id="score-breakdown"></div>
-      <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
+      <button class="restart-btn" onclick="restartQuiz()">&#8592; Choose Mode</button>
     </div>
   </div>
 

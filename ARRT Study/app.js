@@ -8,6 +8,8 @@ let cardIndex  = 0;
 let isFlipped  = false;
 let quizIndex  = 0;
 let quizAnswered = false;
+let quizLimit    = null;   // null = all questions
+let skippedCount = 0;
 let score      = 0;
 let streak     = 0;
 let bestStreak = 0;
@@ -271,7 +273,7 @@ function setMode(m) {
   document.getElementById('flashcard-mode').style.display = m==='flashcard' ? '' : 'none';
   document.getElementById('quiz-mode').style.display      = m==='quiz'      ? '' : 'none';
   document.getElementById('stats-mode').style.display     = m==='stats'     ? '' : 'none';
-  if (m==='quiz')  startQuiz();
+  if (m==='quiz')  showQuizSelector();
   if (m==='stats') renderStats();
 }
 
@@ -339,13 +341,29 @@ function shuffleCards() {
 // ================================================================
 //  QUIZ
 // ================================================================
+function showQuizSelector() {
+  const count = category === 'all'
+    ? QUESTIONS.length
+    : QUESTIONS.filter(q => q.cat === category).length;
+  document.getElementById('qm-all-count').textContent = count + ' Questions';
+  document.getElementById('quiz-mode-selector').style.display = '';
+  document.getElementById('quiz-card').style.display = 'none';
+  document.getElementById('score-summary').classList.remove('show');
+}
+
+function startQuizMode(limit) {
+  quizLimit = limit;
+  document.getElementById('quiz-mode-selector').style.display = 'none';
+  startQuiz();
+}
+
 function startQuiz() {
   filterQuestions();
-  for (let i = filteredQ.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [filteredQ[i], filteredQ[j]] = [filteredQ[j], filteredQ[i]];
+  if (quizLimit !== null && filteredQ.length > quizLimit) {
+    filteredQ = filteredQ.slice(0, quizLimit);
   }
   quizIndex = 0;
+  skippedCount = 0;
   score = 0; streak = 0; totalAnswered = 0; totalCorrect = 0;
   document.getElementById('score-summary').classList.remove('show');
   document.getElementById('quiz-card').style.display = '';
@@ -379,6 +397,7 @@ function renderQuizQuestion() {
   // Reset drill panel
   document.getElementById('drill-panel').classList.remove('show');
   document.getElementById('quiz-next-btn').classList.remove('show');
+  document.getElementById('quiz-skip-btn').style.display = '';
   updateProgress(quizIndex + 1, filteredQ.length);
   startTimer();
 }
@@ -448,6 +467,7 @@ function answerQuiz(chosen, q) {
 
   document.getElementById('drill-panel').classList.add('show');
   document.getElementById('quiz-next-btn').classList.add('show');
+  document.getElementById('quiz-skip-btn').style.display = 'none';
   document.getElementById('hdr-score').textContent  = score;
   document.getElementById('hdr-streak').textContent = streak;
   saveStats();
@@ -458,10 +478,16 @@ function nextQuizQuestion() {
   renderQuizQuestion();
 }
 
+function skipQuestion() {
+  if (quizAnswered) return;
+  skippedCount++;
+  stopTimer();
+  quizIndex++;
+  renderQuizQuestion();
+}
+
 function restartQuiz() {
-  document.getElementById('score-summary').classList.remove('show');
-  document.getElementById('quiz-card').style.display = '';
-  startQuiz();
+  showQuizSelector();
 }
 
 function showSummary() {
@@ -489,6 +515,7 @@ function showSummary() {
     <div class="breakdown-item"><div class="label">Best Streak</div><div class="value">${bestStreak} 🔥</div></div>
     <div class="breakdown-item"><div class="label">Correct</div><div class="value" style="color:var(--correct)">${totalCorrect}</div></div>
     <div class="breakdown-item"><div class="label">Incorrect</div><div class="value" style="color:var(--wrong)">${totalAnswered - totalCorrect}</div></div>
+    ${skippedCount > 0 ? `<div class="breakdown-item"><div class="label">Skipped</div><div class="value" style="color:var(--gray)">${skippedCount}</div></div>` : ''}
   `;
 }
 
