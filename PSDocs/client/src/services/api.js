@@ -16,3 +16,11 @@ export const clientsApi = {
   removeContact: (clientId, contactId) =>
     api.delete(`/clients/${clientId}/contacts/${contactId}`),
 };
+
+export const mattersApi = {
+  list: (params) => api.get('/matters', { params }).then((r) => r.data),
+  get: (id) => api.get(`/matters/${id}`).then((r) => r.data),
+  create: (data) => api.post('/matters', data).then((r) => r.data),
+  update: (id, data) => api.put(`/matters/${id}`, data).then((r) => r.data),
+  remove: (id) => api.delete(`/matters/${id}`),
+};
