@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
 const navItems = [
+  { to: '/matters', label: 'Matters', icon: FolderIcon },
   { to: '/clients', label: 'Clients', icon: BuildingIcon },
-  { to: '/matters', label: 'Matters', icon: FolderIcon, disabled: true },
   { to: '/staff', label: 'Staff', icon: UsersIcon, disabled: true },
   { to: '/reports', label: 'Reports', icon: ChartIcon, disabled: true },
   { to: '/marketing', label: 'Marketing', icon: MegaphoneIcon, disabled: true },
