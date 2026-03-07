@@ -88,8 +88,24 @@ export default function StaffDetail() {
         <div className="grid grid-cols-2 gap-x-8 gap-y-4">
           <Field label="Role" value={ROLE_LABELS[member.role]} />
           <Field label="Status" value={member.status} />
+          <div>
+            <dt className="text-xs font-medium text-brand-400 uppercase tracking-wide">Billable</dt>
+            <dd className="mt-1">
+              <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${
+                member.billable !== false ? 'bg-green-100 text-green-700' : 'bg-brand-100 text-brand-500'
+              }`}>
+                {member.billable !== false ? 'Billable' : 'Non-billable'}
+              </span>
+            </dd>
+          </div>
           <Field label="Email" value={member.email} />
           <Field label="Phone" value={member.phone} />
+          <Field label="Bar / License #" value={member.license_number} noCapitalize />
+          <Field
+            label="Hourly Rate"
+            value={member.hourly_rate != null ? `$${Number(member.hourly_rate).toFixed(2)}/hr` : 'Uses role default'}
+            noCapitalize
+          />
         </div>
         {member.notes && (
           <div className="mt-4 pt-4 border-t border-brand-50">
@@ -101,11 +117,11 @@ export default function StaffDetail() {
   );
 }
 
-function Field({ label, value }) {
+function Field({ label, value, noCapitalize }) {
   return (
     <div>
       <dt className="text-xs font-medium text-brand-400 uppercase tracking-wide">{label}</dt>
-      <dd className="mt-1 text-sm text-brand-800 capitalize">{value ?? '—'}</dd>
+      <dd className={`mt-1 text-sm text-brand-800 ${noCapitalize ? '' : 'capitalize'}`}>{value ?? '—'}</dd>
     </div>
   );
 }

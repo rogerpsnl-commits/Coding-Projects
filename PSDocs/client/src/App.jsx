@@ -9,6 +9,12 @@ import MatterForm from './pages/matters/MatterForm.jsx';
 import StaffList from './pages/staff/StaffList.jsx';
 import StaffDetail from './pages/staff/StaffDetail.jsx';
 import StaffForm from './pages/staff/StaffForm.jsx';
+import MarketingList from './pages/marketing/MarketingList.jsx';
+import MarketingDetail from './pages/marketing/MarketingDetail.jsx';
+import MarketingForm from './pages/marketing/MarketingForm.jsx';
+import Reports from './pages/reports/Reports.jsx';
+import FirmInfo from './pages/firm/FirmInfo.jsx';
+import Documents from './pages/documents/Documents.jsx';
 
 export default function App() {
   return (
@@ -27,6 +33,13 @@ export default function App() {
         <Route path="staff/new" element={<StaffForm />} />
         <Route path="staff/:id" element={<StaffDetail />} />
         <Route path="staff/:id/edit" element={<StaffForm />} />
+        <Route path="marketing" element={<MarketingList />} />
+        <Route path="marketing/new" element={<MarketingForm />} />
+        <Route path="marketing/:id" element={<MarketingDetail />} />
+        <Route path="marketing/:id/edit" element={<MarketingForm />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="documents" element={<Documents />} />
+        <Route path="firm" element={<FirmInfo />} />
       </Route>
     </Routes>
   );

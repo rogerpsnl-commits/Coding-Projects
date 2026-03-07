@@ -231,16 +231,14 @@
   }
   .flashcard {
     width: 100%;
-    min-height: 280px;
-    position: relative;
+    display: grid;
     transform-style: preserve-3d;
     transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
     cursor: pointer;
   }
   .flashcard.flipped { transform: rotateY(180deg); }
   .card-face {
-    position: absolute;
-    width: 100%;
+    grid-area: 1 / 1;
     min-height: 280px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;

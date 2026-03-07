@@ -3,13 +3,26 @@ import { NavLink, Link } from 'react-router-dom';
 import { applyTheme } from '../themes.js';
 import SettingsModal from './SettingsModal.jsx';
 
-const navItems = [
+const firmItems = [
+  { to: '/firm', label: 'Firm Info', icon: BriefcaseIcon },
+  { to: '/staff', label: 'Staff', icon: UsersIcon },
+];
+
+const practiceItems = [
   { to: '/matters', label: 'Matters', icon: FolderIcon },
   { to: '/clients', label: 'Clients', icon: BuildingIcon },
-  { to: '/staff', label: 'Staff', icon: UsersIcon },
-  { to: '/reports', label: 'Reports', icon: ChartIcon, disabled: true },
-  { to: '/marketing', label: 'Marketing', icon: MegaphoneIcon, disabled: true },
+  { to: '/documents', label: 'Documents', icon: DocumentIcon },
 ];
+
+const reportsItems = [
+  { to: '/reports', label: 'Reports', icon: ChartIcon },
+];
+
+function getSectionOpen(key, defaultVal) {
+  const stored = localStorage.getItem(`psdocs-section-${key}`);
+  if (stored === null) return defaultVal;
+  return stored === 'true';
+}
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
@@ -17,10 +30,87 @@ export default function Sidebar() {
   const [currentTheme, setCurrentTheme] = useState(
     () => localStorage.getItem('psdocs-theme') ?? 'navy'
   );
+  const [logoFull, setLogoFull] = useState(
+    () => localStorage.getItem('psdocs-logo-full') ?? null
+  );
+  const [logoCollapsed, setLogoCollapsed] = useState(
+    () => localStorage.getItem('psdocs-logo-collapsed') ?? null
+  );
+
+  const [firmOpen, setFirmOpen] = useState(() => getSectionOpen('firm', true));
+  const [practiceOpen, setPracticeOpen] = useState(() => getSectionOpen('practice', true));
+  const [reportsOpen, setReportsOpen] = useState(() => getSectionOpen('reports', true));
+
+  function toggleSection(key, current, setter) {
+    const next = !current;
+    localStorage.setItem(`psdocs-section-${key}`, String(next));
+    setter(next);
+  }
 
   function handleThemeChange(themeId) {
     applyTheme(themeId);
     setCurrentTheme(themeId);
+  }
+
+  function handleLogoChange(key, dataUrl) {
+    if (key === 'full') {
+      localStorage.setItem('psdocs-logo-full', dataUrl);
+      setLogoFull(dataUrl);
+    } else {
+      localStorage.setItem('psdocs-logo-collapsed', dataUrl);
+      setLogoCollapsed(dataUrl);
+    }
+  }
+
+  function handleLogoRemove(key) {
+    if (key === 'full') {
+      localStorage.removeItem('psdocs-logo-full');
+      setLogoFull(null);
+    } else {
+      localStorage.removeItem('psdocs-logo-collapsed');
+      setLogoCollapsed(null);
+    }
+  }
+
+  function NavItems({ items }) {
+    return (
+      <div className="space-y-0.5">
+        {items.map(({ to, label, icon: Icon }) => (
+          <NavLink
+            key={to}
+            to={to}
+            title={collapsed ? label : undefined}
+            className={({ isActive }) =>
+              `flex items-center rounded-md text-sm transition-colors ${
+                collapsed ? 'justify-center px-0 py-2.5' : 'gap-3 px-3 py-2'
+              } ${
+                isActive
+                  ? 'bg-brand-600 text-white'
+                  : 'text-brand-300 hover:bg-brand-700 hover:text-white'
+              }`
+            }
+          >
+            <Icon className="w-4 h-4 shrink-0" />
+            {!collapsed && label}
+          </NavLink>
+        ))}
+      </div>
+    );
+  }
+
+  function SectionHeader({ label, isOpen, onToggle }) {
+    if (collapsed) return null;
+    return (
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between px-3 mb-1 group"
+      >
+        <span className="text-xs font-semibold text-brand-500 uppercase tracking-wider">{label}</span>
+        <ChevronDownIcon
+          className={`w-3 h-3 text-brand-500 group-hover:text-brand-300 transition-transform ${isOpen ? '' : '-rotate-90'}`}
+        />
+      </button>
+    );
   }
 
   return (
@@ -34,50 +124,51 @@ export default function Sidebar() {
           className={`flex items-center border-b border-brand-700 h-16 ${collapsed ? 'justify-center px-0' : 'px-4'}`}
         >
           {collapsed ? (
-            <img src="/logo-white.png" alt="PSDocs" className="h-7 w-7 object-cover object-left" />
+            <img
+              src={logoCollapsed ?? '/logo-collapsed.png'}
+              alt="PSDocs"
+              className="h-7 w-7 object-contain"
+            />
           ) : (
-            <img src="/logo-white.png" alt="PSDocs" className="h-8 object-contain" />
+            <img
+              src={logoFull ?? '/logo-white.png'}
+              alt="PSDocs"
+              className="h-8 object-contain"
+            />
           )}
         </Link>
 
         {/* Nav */}
-        <nav className="flex-1 px-2 py-4 space-y-1">
-          {navItems.map(({ to, label, icon: Icon, disabled }) => {
-            const baseClass = `flex items-center rounded-md text-sm transition-colors ${
-              collapsed ? 'justify-center px-0 py-2.5' : 'gap-3 px-3 py-2'
-            }`;
+        <nav className="flex-1 px-2 py-4 overflow-y-auto space-y-1">
+          {/* Firm section */}
+          <div className="mb-1">
+            <SectionHeader
+              label="Firm"
+              isOpen={firmOpen}
+              onToggle={() => toggleSection('firm', firmOpen, setFirmOpen)}
+            />
+            {(firmOpen || collapsed) && <NavItems items={firmItems} />}
+          </div>
 
-            if (disabled) {
-              return (
-                <div
-                  key={to}
-                  title={collapsed ? label : undefined}
-                  className={`${baseClass} text-brand-500 cursor-not-allowed select-none`}
-                >
-                  <Icon className="w-4 h-4 shrink-0" />
-                  {!collapsed && label}
-                </div>
-              );
-            }
+          {/* Practice section */}
+          <div className="pt-2 border-t border-brand-700">
+            <SectionHeader
+              label="Practice"
+              isOpen={practiceOpen}
+              onToggle={() => toggleSection('practice', practiceOpen, setPracticeOpen)}
+            />
+            {(practiceOpen || collapsed) && <NavItems items={practiceItems} />}
+          </div>
 
-            return (
-              <NavLink
-                key={to}
-                to={to}
-                title={collapsed ? label : undefined}
-                className={({ isActive }) =>
-                  `${baseClass} ${
-                    isActive
-                      ? 'bg-brand-600 text-white'
-                      : 'text-brand-300 hover:bg-brand-700 hover:text-white'
-                  }`
-                }
-              >
-                <Icon className="w-4 h-4 shrink-0" />
-                {!collapsed && label}
-              </NavLink>
-            );
-          })}
+          {/* Reports section */}
+          <div className="pt-2 border-t border-brand-700">
+            <SectionHeader
+              label="Reports"
+              isOpen={reportsOpen}
+              onToggle={() => toggleSection('reports', reportsOpen, setReportsOpen)}
+            />
+            {(reportsOpen || collapsed) && <NavItems items={reportsItems} />}
+          </div>
         </nav>
 
         {/* Bottom: settings + collapse */}
@@ -103,6 +194,10 @@ export default function Sidebar() {
         <SettingsModal
           currentTheme={currentTheme}
           onThemeChange={handleThemeChange}
+          logoFull={logoFull}
+          logoCollapsed={logoCollapsed}
+          onLogoChange={handleLogoChange}
+          onLogoRemove={handleLogoRemove}
           onClose={() => setShowSettings(false)}
         />
       )}
@@ -142,10 +237,10 @@ function ChartIcon({ className }) {
   );
 }
 
-function MegaphoneIcon({ className }) {
+function DocumentIcon({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
     </svg>
   );
 }
@@ -171,6 +266,22 @@ function ChevronRightIcon({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
+
+function BriefcaseIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   );
 }

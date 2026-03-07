@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { mattersApi, clientsApi, staffApi } from '../../services/api.js';
+import { mattersApi, clientsApi, staffApi, ratesApi } from '../../services/api.js';
 
 const STATUS_OPTIONS = [
   { value: 'open', label: 'Open' },
@@ -49,7 +49,10 @@ export default function MatterForm() {
   const isEdit = Boolean(id);
 
   const [form, setForm] = useState(EMPTY_FORM);
-  const [staffIds, setStaffIds] = useState([]);
+  // staffAssignments: { [staff_id]: { checked: bool, hourly_rate: string } }
+  const [staffAssignments, setStaffAssignments] = useState({});
+  const [clientRates, setClientRates] = useState({});
+  const [roleRates, setRoleRates] = useState({});
   const [clients, setClients] = useState([]);
   const [contacts, setContacts] = useState([]);
   const [allStaff, setAllStaff] = useState([]);
@@ -70,13 +73,24 @@ export default function MatterForm() {
   useEffect(() => {
     clientsApi.list({ status: 'active' }).then(setClients).catch(() => {});
     staffApi.list({ status: 'active' }).then(setAllStaff).catch(() => {});
+    ratesApi.list().then((data) => {
+      const map = {};
+      data.forEach((r) => { map[r.role] = r.hourly_rate; });
+      setRoleRates(map);
+    }).catch(() => {});
   }, []);
 
   useEffect(() => {
-    if (!form.client_id) { setContacts([]); return; }
+    if (!form.client_id) { setContacts([]); setClientRates({}); return; }
     clientsApi.get(form.client_id)
       .then((c) => setContacts(c.client_contacts ?? []))
       .catch(() => setContacts([]));
+    clientsApi.getRates(form.client_id)
+      .then((data) => {
+        const map = {};
+        data.forEach((r) => { map[r.role] = r.hourly_rate; });
+        setClientRates(map);
+      }).catch(() => setClientRates({}));
   }, [form.client_id]);
 
   useEffect(() => {
@@ -103,7 +117,11 @@ export default function MatterForm() {
         conflict_parties: m.conflict_parties ?? '',
         notes: m.notes ?? '',
       });
-      setStaffIds((m.matter_staff ?? []).map((ms) => ms.staff_id));
+      const assignments = {};
+      (m.matter_staff ?? []).forEach((ms) => {
+        assignments[ms.staff_id] = { checked: true, hourly_rate: ms.hourly_rate ?? '' };
+      });
+      setStaffAssignments(assignments);
     }).catch(() => {}).finally(() => setLoading(false));
   }, [id, isEdit]);
 
@@ -112,9 +130,22 @@ export default function MatterForm() {
   }
 
   function toggleStaff(staffId) {
-    setStaffIds((prev) =>
-      prev.includes(staffId) ? prev.filter((s) => s !== staffId) : [...prev, staffId]
-    );
+    setStaffAssignments((prev) => {
+      const current = prev[staffId];
+      if (current?.checked) {
+        const next = { ...prev };
+        delete next[staffId];
+        return next;
+      }
+      return { ...prev, [staffId]: { checked: true, hourly_rate: '' } };
+    });
+  }
+
+  function setStaffRate(staffId, rate) {
+    setStaffAssignments((prev) => ({
+      ...prev,
+      [staffId]: { ...prev[staffId], hourly_rate: rate },
+    }));
   }
 
   async function handleSubmit(e) {
@@ -125,7 +156,12 @@ export default function MatterForm() {
       Object.entries(form).map(([k, v]) => [k, v === '' ? null : v])
     );
     if (payload.deductible) payload.deductible = Number(payload.deductible);
-    payload.staff_ids = staffIds;
+    payload.staff_assignments = Object.entries(staffAssignments)
+      .filter(([, v]) => v.checked)
+      .map(([staff_id, v]) => ({
+        staff_id,
+        hourly_rate: v.hourly_rate !== '' ? Number(v.hourly_rate) : null,
+      }));
     try {
       if (isEdit) {
         await mattersApi.update(id, payload);
@@ -291,19 +327,51 @@ export default function MatterForm() {
               {allStaff.length === 0 ? (
                 <p className="text-xs text-brand-400">No active staff members found.</p>
               ) : (
-                <div className="grid grid-cols-2 gap-2">
-                  {allStaff.map((s) => (
-                    <label key={s.id} className="flex items-center gap-2 text-sm text-brand-700 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={staffIds.includes(s.id)}
-                        onChange={() => toggleStaff(s.id)}
-                        className="rounded border-brand-300 text-brand-600 focus:ring-brand-500"
-                      />
-                      <span>{s.first_name} {s.last_name}</span>
-                      {s.role && <span className="text-xs text-brand-400 capitalize">({s.role})</span>}
-                    </label>
-                  ))}
+                <div className="space-y-2">
+                  {allStaff.map((s) => {
+                    const assignment = staffAssignments[s.id];
+                    const isChecked = Boolean(assignment?.checked);
+                    // Priority: matter-staff override → staff override → client rate → global role rate
+                    const effectiveRate = assignment?.hourly_rate !== '' && assignment?.hourly_rate != null
+                      ? assignment.hourly_rate
+                      : (s.hourly_rate ?? clientRates[s.role] ?? roleRates[s.role] ?? null);
+                    const rateHint = isChecked
+                      ? (effectiveRate != null ? `Effective: $${Number(effectiveRate).toFixed(2)}/hr` : 'No rate set')
+                      : null;
+                    return (
+                      <div key={s.id} className="flex items-center gap-3">
+                        <label className="flex items-center gap-2 text-sm text-brand-700 cursor-pointer w-48 shrink-0">
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => toggleStaff(s.id)}
+                            className="rounded border-brand-300 text-brand-600 focus:ring-brand-500"
+                          />
+                          <span>{s.first_name} {s.last_name}</span>
+                          {s.role && <span className="text-xs text-brand-400 capitalize">({s.role})</span>}
+                        </label>
+                        {isChecked && (
+                          <div className="flex items-center gap-2">
+                            <div className="relative">
+                              <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs text-brand-400">$</span>
+                              <input
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                value={assignment?.hourly_rate ?? ''}
+                                onChange={(e) => setStaffRate(s.id, e.target.value)}
+                                placeholder="Override rate"
+                                className="border border-brand-200 rounded-md pl-6 pr-2 py-1.5 text-xs w-32 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                              />
+                            </div>
+                            {rateHint && (
+                              <span className="text-xs text-brand-400">{rateHint}</span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

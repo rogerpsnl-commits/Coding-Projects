@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { clientsApi } from '../../services/api.js';
+import PrintButton from '../../components/PrintButton.jsx';
 
 const STATUS_OPTIONS = [
   { value: '', label: 'All Clients' },
@@ -51,18 +52,21 @@ export default function ClientList() {
           <h1 className="text-2xl font-semibold text-brand-800">Clients</h1>
           <p className="text-sm text-brand-500 mt-0.5">{clients.length} client{clients.length !== 1 ? 's' : ''} found</p>
         </div>
-        <Link
-          to="/clients/new"
-          className="flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          Add Client
-        </Link>
+        <div className="flex gap-2 no-print">
+          <PrintButton />
+          <Link
+            to="/clients/new"
+            className="flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add Client
+          </Link>
+        </div>
       </div>
 
-      <div className="flex gap-3 mb-5">
+      <div className="flex gap-3 mb-5 no-print">
         <input
           type="text"
           placeholder="Search by name..."

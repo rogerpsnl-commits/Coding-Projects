@@ -103,12 +103,20 @@ export default function MatterDetail() {
           {matter.matter_staff && matter.matter_staff.length > 0 && (
             <div className="mt-4 pt-4 border-t border-brand-50">
               <dt className="text-xs font-medium text-brand-400 uppercase tracking-wide mb-2">Assigned Staff</dt>
-              <div className="flex flex-wrap gap-1.5">
-                {matter.matter_staff.map((ms) => (
-                  <span key={ms.staff_id} className="inline-block px-2 py-0.5 bg-brand-100 text-brand-700 rounded-full text-xs font-medium">
-                    {ms.staff.first_name} {ms.staff.last_name}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-2">
+                {matter.matter_staff.map((ms) => {
+                  const effectiveRate = ms.hourly_rate ?? ms.staff?.hourly_rate ?? null;
+                  return (
+                    <div key={ms.staff_id} className="flex items-center gap-1.5 px-2.5 py-1 bg-brand-100 rounded-full">
+                      <span className="text-xs font-medium text-brand-700">
+                        {ms.staff.first_name} {ms.staff.last_name}
+                      </span>
+                      {effectiveRate != null && (
+                        <span className="text-xs text-brand-500">${Number(effectiveRate).toFixed(2)}/hr</span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

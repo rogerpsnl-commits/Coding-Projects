@@ -2,6 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@media print {
+  aside,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    overflow: visible !important;
+  }
+
+  body, html {
+    background: white !important;
+  }
+
+  .bg-white {
+    background: white !important;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+
+  th, td {
+    border: 1px solid #d1d5db;
+    padding: 5px 10px;
+    text-align: left;
+  }
+
+  thead tr {
+    background-color: #f3f4f6 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .rounded-xl, .rounded-md, .rounded-full {
+    border-radius: 0 !important;
+  }
+
+  .shadow-sm {
+    box-shadow: none !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 :root {
   --brand-50:  #f4f5fb;
   --brand-100: #e5e7f5;

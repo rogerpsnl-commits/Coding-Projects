@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { clientsApi } from '../../services/api.js';
 
+const ROLES = [
+  { value: 'partner', label: 'Partner' },
+  { value: 'associate', label: 'Associate' },
+  { value: 'paralegal', label: 'Paralegal' },
+  { value: 'admin', label: 'Admin' },
+  { value: 'other', label: 'Other' },
+];
+
 const FEE_LABELS = {
   hourly: 'Hourly',
   fixed: 'Fixed Fee',
@@ -39,9 +47,29 @@ export default function ClientDetail() {
   const [contactSaving, setContactSaving] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
 
+  const [clientRates, setClientRates] = useState({});
+  const [ratesSaving, setRatesSaving] = useState({});
+
   useEffect(() => {
     loadClient();
+    clientsApi.getRates(id).then((data) => {
+      const map = {};
+      data.forEach((r) => { map[r.role] = r.hourly_rate ?? ''; });
+      setClientRates(map);
+    }).catch(() => {});
   }, [id]);
+
+  async function handleRateBlur(role) {
+    const raw = clientRates[role];
+    const value = raw === '' ? null : Number(raw);
+    if (value !== null && isNaN(value)) return;
+    setRatesSaving((s) => ({ ...s, [role]: true }));
+    try {
+      await clientsApi.upsertRate(id, role, value);
+    } finally {
+      setRatesSaving((s) => ({ ...s, [role]: false }));
+    }
+  }
 
   function loadClient() {
     clientsApi
@@ -159,6 +187,37 @@ export default function ClientDetail() {
               <Field label="Notes" value={client.notes} />
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Billing Rates by Role */}
+      <div className="bg-white rounded-xl shadow-sm border border-brand-100 p-6 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-sm font-semibold text-brand-500 uppercase tracking-wide">Billing Rates by Role</h2>
+          <p className="text-xs text-brand-400">Overrides global defaults for this client. Auto-saves on blur.</p>
+        </div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+          {ROLES.map(({ value, label }) => (
+            <div key={value} className="flex items-center gap-2">
+              <span className="text-sm text-brand-700 w-24 shrink-0">{label}</span>
+              <div className="relative flex-1">
+                <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs text-brand-400">$</span>
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value={clientRates[value] ?? ''}
+                  onChange={(e) => setClientRates((r) => ({ ...r, [value]: e.target.value }))}
+                  onBlur={() => handleRateBlur(value)}
+                  placeholder="—"
+                  className="w-full border border-brand-200 rounded-md pl-6 pr-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              {ratesSaving[value] && (
+                <span className="text-xs text-brand-400 shrink-0">saving…</span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 

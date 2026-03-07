@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
   let query = supabase
     .from('matters')
-    .select('*, clients(id, name, abbreviation), matter_staff(staff_id, staff(id, first_name, last_name))')
+    .select('*, clients(id, name, abbreviation), matter_staff(staff_id, hourly_rate, staff(id, first_name, last_name))')
     .order('created_at', { ascending: false });
 
   if (status) query = query.eq('status', status);
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { data, error } = await supabase
     .from('matters')
-    .select('*, clients(id, name, abbreviation), client_contacts(id, first_name, last_name, title, email, phone), matter_staff(staff_id, staff(id, first_name, last_name))')
+    .select('*, clients(id, name, abbreviation), client_contacts(id, first_name, last_name, title, email, phone), matter_staff(staff_id, hourly_rate, staff(id, first_name, last_name, role, hourly_rate))')
     .eq('id', req.params.id)
     .single();
 
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 
 // POST create matter
 router.post('/', async (req, res) => {
-  const { staff_ids, ...matterData } = req.body;
+  const { staff_assignments, ...matterData } = req.body;
 
   const { data, error } = await supabase
     .from('matters')
@@ -45,9 +45,13 @@ router.post('/', async (req, res) => {
 
   if (error) return res.status(400).json({ error: error.message });
 
-  if (staff_ids && staff_ids.length > 0) {
+  if (staff_assignments && staff_assignments.length > 0) {
     await supabase.from('matter_staff').insert(
-      staff_ids.map((staff_id) => ({ matter_id: data.id, staff_id }))
+      staff_assignments.map(({ staff_id, hourly_rate }) => ({
+        matter_id: data.id,
+        staff_id,
+        hourly_rate: hourly_rate ?? null,
+      }))
     );
   }
 
@@ -56,7 +60,7 @@ router.post('/', async (req, res) => {
 
 // PUT update matter
 router.put('/:id', async (req, res) => {
-  const { staff_ids, ...matterData } = req.body;
+  const { staff_assignments, ...matterData } = req.body;
 
   const { data, error } = await supabase
     .from('matters')
@@ -69,9 +73,13 @@ router.put('/:id', async (req, res) => {
 
   // Replace staff assignments
   await supabase.from('matter_staff').delete().eq('matter_id', req.params.id);
-  if (staff_ids && staff_ids.length > 0) {
+  if (staff_assignments && staff_assignments.length > 0) {
     await supabase.from('matter_staff').insert(
-      staff_ids.map((staff_id) => ({ matter_id: req.params.id, staff_id }))
+      staff_assignments.map(({ staff_id, hourly_rate }) => ({
+        matter_id: req.params.id,
+        staff_id,
+        hourly_rate: hourly_rate ?? null,
+      }))
     );
   }
 

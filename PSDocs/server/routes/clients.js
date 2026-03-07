@@ -97,4 +97,37 @@ router.delete('/:id/contacts/:contactId', async (req, res) => {
   res.status(204).send();
 });
 
+// GET rates for a client
+router.get('/:id/rates', async (req, res) => {
+  const { data, error } = await supabase
+    .from('client_rates')
+    .select('*')
+    .eq('client_id', req.params.id)
+    .order('role');
+
+  if (error) return res.status(500).json({ error: error.message });
+  res.json(data);
+});
+
+// PUT upsert rate for a client+role
+router.put('/:id/rates/:role', async (req, res) => {
+  const { hourly_rate } = req.body;
+  const { data, error } = await supabase
+    .from('client_rates')
+    .upsert(
+      {
+        client_id: req.params.id,
+        role: req.params.role,
+        hourly_rate: hourly_rate ?? null,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: 'client_id,role' }
+    )
+    .select()
+    .single();
+
+  if (error) return res.status(400).json({ error: error.message });
+  res.json(data);
+});
+
 export default router;

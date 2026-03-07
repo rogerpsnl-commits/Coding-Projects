@@ -23,6 +23,9 @@ const EMPTY_FORM = {
   phone: '',
   role: '',
   status: 'active',
+  billable: true,
+  hourly_rate: '',
+  license_number: '',
   notes: '',
 };
 
@@ -48,6 +51,9 @@ export default function StaffForm() {
           phone: m.phone ?? '',
           role: m.role ?? '',
           status: m.status ?? 'active',
+          billable: m.billable ?? true,
+          hourly_rate: m.hourly_rate ?? '',
+          license_number: m.license_number ?? '',
           notes: m.notes ?? '',
         });
       })
@@ -69,6 +75,9 @@ export default function StaffForm() {
       email: form.email || null,
       phone: form.phone || null,
       role: form.role || null,
+      billable: form.billable,
+      hourly_rate: form.hourly_rate !== '' ? Number(form.hourly_rate) : null,
+      license_number: form.license_number || null,
       notes: form.notes || null,
     };
 
@@ -149,6 +158,27 @@ export default function StaffForm() {
             </select>
           </div>
 
+          <div className="col-span-2">
+            <label className="flex items-center gap-3 cursor-pointer">
+              <div
+                onClick={() => setForm((f) => ({ ...f, billable: !f.billable }))}
+                className={`relative inline-flex h-5 w-9 shrink-0 rounded-full border-2 border-transparent transition-colors cursor-pointer ${
+                  form.billable ? 'bg-brand-600' : 'bg-brand-200'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
+                    form.billable ? 'translate-x-4' : 'translate-x-0'
+                  }`}
+                />
+              </div>
+              <span className="text-sm font-medium text-brand-700">Billable</span>
+              <span className="text-xs text-brand-400">
+                {form.billable ? 'Time is tracked and billed to clients' : 'Non-billable staff (admin, support, etc.)'}
+              </span>
+            </label>
+          </div>
+
           <FormField
             label="Email"
             type="email"
@@ -159,6 +189,28 @@ export default function StaffForm() {
             label="Phone"
             value={form.phone}
             onChange={set('phone')}
+          />
+
+          <div>
+            <label className="block text-sm font-medium text-brand-700 mb-1">
+              Hourly Rate Override ($)
+            </label>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={form.hourly_rate}
+              onChange={set('hourly_rate')}
+              placeholder="Uses role default if blank"
+              className="w-full border border-brand-200 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+            />
+            <p className="mt-1 text-xs text-brand-400">Leave blank to inherit the role&rsquo;s default rate.</p>
+          </div>
+
+          <FormField
+            label="Bar / License #"
+            value={form.license_number}
+            onChange={set('license_number')}
           />
 
           <div className="col-span-2">
