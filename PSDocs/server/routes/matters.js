@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
   let query = supabase
     .from('matters')
-    .select('*, clients(id, name, abbreviation)')
+    .select('*, clients(id, name, abbreviation), matter_staff(staff_id, staff(id, first_name, last_name))')
     .order('created_at', { ascending: false });
 
   if (status) query = query.eq('status', status);
@@ -21,11 +21,11 @@ router.get('/', async (req, res) => {
   res.json(data);
 });
 
-// GET single matter with client and contact
+// GET single matter with client, contact, and staff
 router.get('/:id', async (req, res) => {
   const { data, error } = await supabase
     .from('matters')
-    .select('*, clients(id, name, abbreviation), client_contacts(id, first_name, last_name, title, email, phone)')
+    .select('*, clients(id, name, abbreviation), client_contacts(id, first_name, last_name, title, email, phone), matter_staff(staff_id, staff(id, first_name, last_name))')
     .eq('id', req.params.id)
     .single();
 
@@ -35,26 +35,46 @@ router.get('/:id', async (req, res) => {
 
 // POST create matter
 router.post('/', async (req, res) => {
+  const { staff_ids, ...matterData } = req.body;
+
   const { data, error } = await supabase
     .from('matters')
-    .insert(req.body)
+    .insert(matterData)
     .select()
     .single();
 
   if (error) return res.status(400).json({ error: error.message });
+
+  if (staff_ids && staff_ids.length > 0) {
+    await supabase.from('matter_staff').insert(
+      staff_ids.map((staff_id) => ({ matter_id: data.id, staff_id }))
+    );
+  }
+
   res.status(201).json(data);
 });
 
 // PUT update matter
 router.put('/:id', async (req, res) => {
+  const { staff_ids, ...matterData } = req.body;
+
   const { data, error } = await supabase
     .from('matters')
-    .update({ ...req.body, updated_at: new Date().toISOString() })
+    .update({ ...matterData, updated_at: new Date().toISOString() })
     .eq('id', req.params.id)
     .select()
     .single();
 
   if (error) return res.status(400).json({ error: error.message });
+
+  // Replace staff assignments
+  await supabase.from('matter_staff').delete().eq('matter_id', req.params.id);
+  if (staff_ids && staff_ids.length > 0) {
+    await supabase.from('matter_staff').insert(
+      staff_ids.map((staff_id) => ({ matter_id: req.params.id, staff_id }))
+    );
+  }
+
   res.json(data);
 });
 

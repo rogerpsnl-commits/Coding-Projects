@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { mattersApi, clientsApi } from '../../services/api.js';
+import { mattersApi, clientsApi, staffApi } from '../../services/api.js';
 
 const STATUS_OPTIONS = [
   { value: 'open', label: 'Open' },
@@ -27,7 +27,6 @@ const EMPTY_FORM = {
   nickname: '',
   reference_number: '',
   status: 'open',
-  assigned_to: '',
   billing_method: '',
   deductible: '',
   start_date: '',
@@ -50,8 +49,10 @@ export default function MatterForm() {
   const isEdit = Boolean(id);
 
   const [form, setForm] = useState(EMPTY_FORM);
+  const [staffIds, setStaffIds] = useState([]);
   const [clients, setClients] = useState([]);
   const [contacts, setContacts] = useState([]);
+  const [allStaff, setAllStaff] = useState([]);
   const [loading, setLoading] = useState(isEdit);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -68,6 +69,7 @@ export default function MatterForm() {
 
   useEffect(() => {
     clientsApi.list({ status: 'active' }).then(setClients).catch(() => {});
+    staffApi.list({ status: 'active' }).then(setAllStaff).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -89,7 +91,6 @@ export default function MatterForm() {
         nickname: m.nickname ?? '',
         reference_number: m.reference_number ?? '',
         status: m.status ?? 'open',
-        assigned_to: m.assigned_to ?? '',
         billing_method: m.billing_method ?? '',
         deductible: m.deductible ?? '',
         start_date: m.start_date ? m.start_date.split('T')[0] : '',
@@ -102,11 +103,18 @@ export default function MatterForm() {
         conflict_parties: m.conflict_parties ?? '',
         notes: m.notes ?? '',
       });
+      setStaffIds((m.matter_staff ?? []).map((ms) => ms.staff_id));
     }).catch(() => {}).finally(() => setLoading(false));
   }, [id, isEdit]);
 
   function set(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
+  }
+
+  function toggleStaff(staffId) {
+    setStaffIds((prev) =>
+      prev.includes(staffId) ? prev.filter((s) => s !== staffId) : [...prev, staffId]
+    );
   }
 
   async function handleSubmit(e) {
@@ -117,6 +125,7 @@ export default function MatterForm() {
       Object.entries(form).map(([k, v]) => [k, v === '' ? null : v])
     );
     if (payload.deductible) payload.deductible = Number(payload.deductible);
+    payload.staff_ids = staffIds;
     try {
       if (isEdit) {
         await mattersApi.update(id, payload);
@@ -270,12 +279,34 @@ export default function MatterForm() {
                 ))}
               </select>
             </div>
-            <FormField label="Assigned To" value={form.assigned_to} onChange={set('assigned_to')} placeholder="Staff member(s)" />
             <FormField label="Billing Method" value={form.billing_method} onChange={set('billing_method')} />
             <FormField label="Deductible ($)" type="number" value={form.deductible} onChange={set('deductible')} />
             <FormField label="Office" value={form.office} onChange={set('office')} />
             <FormField label="Court" value={form.court} onChange={set('court')} />
             <FormField label="Conflict Parties" value={form.conflict_parties} onChange={set('conflict_parties')} colSpan={2} />
+
+            {/* Staff assignment */}
+            <div className="col-span-2">
+              <label className="block text-sm font-medium text-brand-700 mb-2">Assigned Staff</label>
+              {allStaff.length === 0 ? (
+                <p className="text-xs text-brand-400">No active staff members found.</p>
+              ) : (
+                <div className="grid grid-cols-2 gap-2">
+                  {allStaff.map((s) => (
+                    <label key={s.id} className="flex items-center gap-2 text-sm text-brand-700 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={staffIds.includes(s.id)}
+                        onChange={() => toggleStaff(s.id)}
+                        className="rounded border-brand-300 text-brand-600 focus:ring-brand-500"
+                      />
+                      <span>{s.first_name} {s.last_name}</span>
+                      {s.role && <span className="text-xs text-brand-400 capitalize">({s.role})</span>}
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </Section>
 

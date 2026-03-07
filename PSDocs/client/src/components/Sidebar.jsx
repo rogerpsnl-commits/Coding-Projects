@@ -1,82 +1,112 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { applyTheme } from '../themes.js';
+import SettingsModal from './SettingsModal.jsx';
 
 const navItems = [
   { to: '/matters', label: 'Matters', icon: FolderIcon },
   { to: '/clients', label: 'Clients', icon: BuildingIcon },
-  { to: '/staff', label: 'Staff', icon: UsersIcon, disabled: true },
+  { to: '/staff', label: 'Staff', icon: UsersIcon },
   { to: '/reports', label: 'Reports', icon: ChartIcon, disabled: true },
   { to: '/marketing', label: 'Marketing', icon: MegaphoneIcon, disabled: true },
 ];
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(
+    () => localStorage.getItem('psdocs-theme') ?? 'navy'
+  );
+
+  function handleThemeChange(themeId) {
+    applyTheme(themeId);
+    setCurrentTheme(themeId);
+  }
 
   return (
-    <aside
-      className={`${collapsed ? 'w-14' : 'w-56'} bg-brand-800 text-brand-200 flex flex-col shrink-0 transition-all duration-200`}
-    >
-      {/* Logo */}
-      <div className={`flex items-center border-b border-brand-700 h-16 ${collapsed ? 'justify-center px-0' : 'px-4'}`}>
-        {collapsed ? (
-          <img src="/logo-white.png" alt="PSDocs" className="h-7 w-7 object-cover object-left" />
-        ) : (
-          <img src="/logo-white.png" alt="PSDocs" className="h-8 object-contain" />
-        )}
-      </div>
+    <>
+      <aside
+        className={`${collapsed ? 'w-14' : 'w-56'} bg-brand-800 text-brand-200 flex flex-col shrink-0 transition-all duration-200`}
+      >
+        {/* Logo */}
+        <Link
+          to="/matters"
+          className={`flex items-center border-b border-brand-700 h-16 ${collapsed ? 'justify-center px-0' : 'px-4'}`}
+        >
+          {collapsed ? (
+            <img src="/logo-white.png" alt="PSDocs" className="h-7 w-7 object-cover object-left" />
+          ) : (
+            <img src="/logo-white.png" alt="PSDocs" className="h-8 object-contain" />
+          )}
+        </Link>
 
-      {/* Nav */}
-      <nav className="flex-1 px-2 py-4 space-y-1">
-        {navItems.map(({ to, label, icon: Icon, disabled }) => {
-          const baseClass = `flex items-center rounded-md text-sm transition-colors ${
-            collapsed ? 'justify-center px-0 py-2.5' : 'gap-3 px-3 py-2'
-          }`;
+        {/* Nav */}
+        <nav className="flex-1 px-2 py-4 space-y-1">
+          {navItems.map(({ to, label, icon: Icon, disabled }) => {
+            const baseClass = `flex items-center rounded-md text-sm transition-colors ${
+              collapsed ? 'justify-center px-0 py-2.5' : 'gap-3 px-3 py-2'
+            }`;
 
-          if (disabled) {
+            if (disabled) {
+              return (
+                <div
+                  key={to}
+                  title={collapsed ? label : undefined}
+                  className={`${baseClass} text-brand-500 cursor-not-allowed select-none`}
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
+                  {!collapsed && label}
+                </div>
+              );
+            }
+
             return (
-              <div
+              <NavLink
                 key={to}
+                to={to}
                 title={collapsed ? label : undefined}
-                className={`${baseClass} text-brand-500 cursor-not-allowed select-none`}
+                className={({ isActive }) =>
+                  `${baseClass} ${
+                    isActive
+                      ? 'bg-brand-600 text-white'
+                      : 'text-brand-300 hover:bg-brand-700 hover:text-white'
+                  }`
+                }
               >
                 <Icon className="w-4 h-4 shrink-0" />
                 {!collapsed && label}
-              </div>
+              </NavLink>
             );
-          }
+          })}
+        </nav>
 
-          return (
-            <NavLink
-              key={to}
-              to={to}
-              title={collapsed ? label : undefined}
-              className={({ isActive }) =>
-                `${baseClass} ${
-                  isActive
-                    ? 'bg-brand-600 text-white'
-                    : 'text-brand-300 hover:bg-brand-700 hover:text-white'
-                }`
-              }
-            >
-              <Icon className="w-4 h-4 shrink-0" />
-              {!collapsed && label}
-            </NavLink>
-          );
-        })}
-      </nav>
+        {/* Bottom: settings + collapse */}
+        <div className={`border-t border-brand-700 flex items-center ${collapsed ? 'flex-col gap-3 py-4' : 'justify-between px-4 py-4'}`}>
+          <button
+            onClick={() => setShowSettings((s) => !s)}
+            className="text-brand-400 hover:text-white transition-colors"
+            title="Settings"
+          >
+            <GearIcon className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => setCollapsed((c) => !c)}
+            className="text-brand-400 hover:text-white transition-colors"
+            title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          >
+            {collapsed ? <ChevronRightIcon className="w-4 h-4" /> : <ChevronLeftIcon className="w-4 h-4" />}
+          </button>
+        </div>
+      </aside>
 
-      {/* Toggle + version */}
-      <div className={`border-t border-brand-700 flex items-center ${collapsed ? 'justify-center py-4' : 'justify-between px-4 py-4'}`}>
-        {!collapsed && <span className="text-xs text-brand-500">v0.1.0</span>}
-        <button
-          onClick={() => setCollapsed((c) => !c)}
-          className="text-brand-400 hover:text-white transition-colors"
-          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        >
-          {collapsed ? <ChevronRightIcon className="w-4 h-4" /> : <ChevronLeftIcon className="w-4 h-4" />}
-        </button>
-      </div>
-    </aside>
+      {showSettings && (
+        <SettingsModal
+          currentTheme={currentTheme}
+          onThemeChange={handleThemeChange}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
+    </>
   );
 }
 
@@ -116,6 +146,15 @@ function MegaphoneIcon({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+    </svg>
+  );
+}
+
+function GearIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
   );
 }

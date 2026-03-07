@@ -24,3 +24,11 @@ export const mattersApi = {
   update: (id, data) => api.put(`/matters/${id}`, data).then((r) => r.data),
   remove: (id) => api.delete(`/matters/${id}`),
 };
+
+export const staffApi = {
+  list: (params) => api.get('/staff', { params }).then((r) => r.data),
+  get: (id) => api.get(`/staff/${id}`).then((r) => r.data),
+  create: (data) => api.post('/staff', data).then((r) => r.data),
+  update: (id, data) => api.put(`/staff/${id}`, data).then((r) => r.data),
+  remove: (id) => api.delete(`/staff/${id}`),
+};

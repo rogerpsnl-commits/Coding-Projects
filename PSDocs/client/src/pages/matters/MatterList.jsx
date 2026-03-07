@@ -106,7 +106,7 @@ export default function MatterList() {
                 <th className="text-left px-5 py-3 font-medium text-brand-500">File #</th>
                 <th className="text-left px-5 py-3 font-medium text-brand-500">Title / Nickname</th>
                 <th className="text-left px-5 py-3 font-medium text-brand-500">Client</th>
-                <th className="text-left px-5 py-3 font-medium text-brand-500">Assigned To</th>
+                <th className="text-left px-5 py-3 font-medium text-brand-500">Assigned Staff</th>
                 <th className="text-left px-5 py-3 font-medium text-brand-500">Start Date</th>
                 <th className="text-left px-5 py-3 font-medium text-brand-500">Status</th>
               </tr>
@@ -133,7 +133,11 @@ export default function MatterList() {
                       </span>
                     ) : '—'}
                   </td>
-                  <td className="px-5 py-3 text-brand-600">{m.assigned_to ?? '—'}</td>
+                  <td className="px-5 py-3 text-brand-600">
+                    {m.matter_staff && m.matter_staff.length > 0
+                      ? m.matter_staff.map((ms) => `${ms.staff.first_name} ${ms.staff.last_name}`).join(', ')
+                      : '—'}
+                  </td>
                   <td className="px-5 py-3 text-brand-600">
                     {m.start_date ? new Date(m.start_date).toLocaleDateString() : '—'}
                   </td>

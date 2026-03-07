@@ -91,7 +91,6 @@ export default function MatterDetail() {
             <Field label="Reference / Claim #" value={matter.reference_number} />
             <Field label="Matter Number" value={matter.matter_number} />
             <Field label="Short Title" value={matter.short_title} />
-            <Field label="Assigned To" value={matter.assigned_to} />
             <Field label="Billing Method" value={matter.billing_method} />
             <Field
               label="Deductible"
@@ -101,6 +100,18 @@ export default function MatterDetail() {
             <Field label="Court" value={matter.court} />
             <Field label="Conflict Parties" value={matter.conflict_parties} />
           </div>
+          {matter.matter_staff && matter.matter_staff.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-brand-50">
+              <dt className="text-xs font-medium text-brand-400 uppercase tracking-wide mb-2">Assigned Staff</dt>
+              <div className="flex flex-wrap gap-1.5">
+                {matter.matter_staff.map((ms) => (
+                  <span key={ms.staff_id} className="inline-block px-2 py-0.5 bg-brand-100 text-brand-700 rounded-full text-xs font-medium">
+                    {ms.staff.first_name} {ms.staff.last_name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           {matter.notes && (
             <div className="mt-4 pt-4 border-t border-brand-50">
               <Field label="Notes" value={matter.notes} />
