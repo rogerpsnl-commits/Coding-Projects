@@ -660,6 +660,18 @@
     100% { opacity: 0; transform: translateY(-140px) scale(0.6) rotate(20deg); }
   }
 
+  /* ── QUESTION IMAGE ── */
+  .question-img {
+    width: 100%;
+    max-width: 340px;
+    margin: 12px auto 4px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .question-img svg { width: 100%; height: auto; display: block; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 580px) {
     .card-face { padding: 22px 20px; }

@@ -6,7 +6,8 @@
       "Bash(pdftotext \"/Users/rogerjimenez/Downloads/ARRT/Laura Nappi Book.pdf\" -)",
       "Bash(pdftotext \"/Users/rogerjimenez/Downloads/ARRT/Intro to Radiologic & Imaging Sciences & Patient Care \\(1\\).pdf\" -)",
       "Bash(grep -n \"^[A-Z][A-Z ]*$\\\\|^Chapter [0-9]\\\\|Radiation Protection\\\\|Radiobiology\\\\|RADIOBIOLOGY\\\\|PROTECTION\\\\|Infection Control\\\\|INFECTION\\\\|Vital Signs\\\\|VITAL\\\\|Emergency\\\\|EMERGENCY\\\\|Pharmacology\\\\|PHARMACOLOGY\\\\|Contrast\\\\|CONTRAST\\\\|Immobilization\\\\|IMMOBILIZATION\")",
-      "Bash(node --check \"/Users/rogerjimenez/Coding Projects/ARRT Study/questions.js\")"
+      "Bash(node --check \"/Users/rogerjimenez/Coding Projects/ARRT Study/questions.js\")",
+      "Bash(node -e \":*)"
     ]
   }
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const navItems = [
@@ -9,43 +10,71 @@ const navItems = [
 ];
 
 export default function Sidebar() {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <aside className="w-56 bg-slate-900 text-slate-300 flex flex-col shrink-0">
-      <div className="px-5 py-6 border-b border-slate-700">
-        <span className="text-white text-xl font-semibold tracking-tight">PSDocs</span>
+    <aside
+      className={`${collapsed ? 'w-14' : 'w-56'} bg-brand-900 text-brand-200 flex flex-col shrink-0 transition-all duration-200`}
+    >
+      {/* Logo */}
+      <div className={`flex items-center border-b border-brand-700 h-16 ${collapsed ? 'justify-center px-0' : 'px-5'}`}>
+        {collapsed ? (
+          <span className="text-white text-lg font-bold">P</span>
+        ) : (
+          <span className="text-white text-xl font-semibold tracking-tight">PSDocs</span>
+        )}
       </div>
 
-      <nav className="flex-1 px-3 py-4 space-y-1">
-        {navItems.map(({ to, label, icon: Icon, disabled }) =>
-          disabled ? (
-            <div
-              key={to}
-              className="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-slate-500 cursor-not-allowed select-none"
-            >
-              <Icon className="w-4 h-4" />
-              {label}
-            </div>
-          ) : (
+      {/* Nav */}
+      <nav className="flex-1 px-2 py-4 space-y-1">
+        {navItems.map(({ to, label, icon: Icon, disabled }) => {
+          const baseClass = `flex items-center rounded-md text-sm transition-colors ${
+            collapsed ? 'justify-center px-0 py-2.5' : 'gap-3 px-3 py-2'
+          }`;
+
+          if (disabled) {
+            return (
+              <div
+                key={to}
+                title={collapsed ? label : undefined}
+                className={`${baseClass} text-brand-500 cursor-not-allowed select-none`}
+              >
+                <Icon className="w-4 h-4 shrink-0" />
+                {!collapsed && label}
+              </div>
+            );
+          }
+
+          return (
             <NavLink
               key={to}
               to={to}
+              title={collapsed ? label : undefined}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
+                `${baseClass} ${
                   isActive
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                    ? 'bg-brand-700 text-white'
+                    : 'text-brand-300 hover:bg-brand-800 hover:text-white'
                 }`
               }
             >
-              <Icon className="w-4 h-4" />
-              {label}
+              <Icon className="w-4 h-4 shrink-0" />
+              {!collapsed && label}
             </NavLink>
-          )
-        )}
+          );
+        })}
       </nav>
 
-      <div className="px-5 py-4 border-t border-slate-700 text-xs text-slate-500">
-        v0.1.0
+      {/* Toggle + version */}
+      <div className={`border-t border-brand-700 flex items-center ${collapsed ? 'justify-center py-4' : 'justify-between px-4 py-4'}`}>
+        {!collapsed && <span className="text-xs text-brand-500">v0.1.0</span>}
+        <button
+          onClick={() => setCollapsed((c) => !c)}
+          className="text-brand-400 hover:text-white transition-colors"
+          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        >
+          {collapsed ? <ChevronRightIcon className="w-4 h-4" /> : <ChevronLeftIcon className="w-4 h-4" />}
+        </button>
       </div>
     </aside>
   );
@@ -87,6 +116,22 @@ function MegaphoneIcon({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+    </svg>
+  );
+}
+
+function ChevronLeftIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+    </svg>
+  );
+}
+
+function ChevronRightIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
   );
 }

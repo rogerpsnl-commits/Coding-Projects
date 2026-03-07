@@ -305,6 +305,10 @@ function renderFlashcard() {
   document.getElementById('card-explanation').textContent    = q.exp;
   document.getElementById('card-sub').textContent            = q.sub;
 
+  const cardImg = document.getElementById('card-img');
+  cardImg.innerHTML = q.img || '';
+  cardImg.style.display = q.img ? '' : 'none';
+
   updateProgress(cardIndex + 1, filteredQ.length);
 }
 
@@ -357,6 +361,10 @@ function renderQuizQuestion() {
   document.getElementById('quiz-cat-badge').textContent = q.cat + ' · ' + q.sub;
 
   document.getElementById('quiz-question').textContent = q.q;
+
+  const quizImg = document.getElementById('quiz-img');
+  quizImg.innerHTML = q.img || '';
+  quizImg.style.display = q.img ? '' : 'none';
 
   const grid = document.getElementById('options-grid');
   grid.innerHTML = '';
