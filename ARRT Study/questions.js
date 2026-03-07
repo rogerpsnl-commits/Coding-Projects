@@ -1611,6 +1611,2065 @@ const QUESTIONS = [
       "Correct. 10 posterior ribs above the diaphragm = adequate full inspiration. This is the standard teaching criterion for PA chest positioning.",
       "12 posterior ribs indicates a very deep inspiration — technically acceptable but uncommon in standard clinical practice."
     ]
-  }
+  },
+
+  // ──────────────────────── PATIENT CARE – VITAL SIGNS ────────────────────────
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"The normal average oral body temperature in adults is:",
+    opts:["96.8°F (36.0°C)","98.6°F (37.0°C)","100.4°F (38.0°C)","101.2°F (38.4°C)"],
+    a:1,
+    exp:"Normal mean oral temperature is 98.6°F (37°C) with a daily variation of 1–2°F. A reading above 99.5°F is considered febrile (fever).",
+    oe:[
+      "96.8°F is below the normal range — this would indicate mild hypothermia.",
+      "Correct. 98.6°F (37°C) is the accepted normal mean oral body temperature.",
+      "100.4°F is the threshold commonly used to define fever in clinical settings.",
+      "101.2°F is clearly febrile — well above the normal range."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"The normal resting respiratory rate for an adult is:",
+    opts:["6–10 breaths/min","12–20 breaths/min","22–30 breaths/min","30–40 breaths/min"],
+    a:1,
+    exp:"A healthy adult breathes 12–20 times per minute at rest. Fewer than 12 is bradypnea; more than 20 is tachypnea.",
+    oe:[
+      "6–10 breaths/min is bradypnea — abnormally slow breathing, suggesting respiratory depression.",
+      "Correct. 12–20 breaths/min is the normal adult respiratory rate.",
+      "22–30 breaths/min represents tachypnea in adults — seen with pain, anxiety, or pulmonary conditions.",
+      "30–40 breaths/min is the normal range for children, not adults."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"Tachycardia is defined as a heart rate greater than:",
+    opts:["60 BPM","80 BPM","100 BPM","120 BPM"],
+    a:2,
+    exp:"Tachycardia = heart rate >100 beats per minute. Normal adult resting pulse is 60–100 BPM. Bradycardia = <60 BPM.",
+    oe:[
+      "60 BPM is the lower boundary of normal adult heart rate — below this is bradycardia.",
+      "80 BPM is mid-normal range — not a threshold for any abnormal classification.",
+      "Correct. Tachycardia is defined as heart rate greater than 100 BPM.",
+      "120 BPM is tachycardia, but the definition threshold begins at 100 BPM, not 120."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"Normal adult blood pressure is classified as systolic less than:",
+    opts:["100 mm Hg","110 mm Hg","120 mm Hg","140 mm Hg"],
+    a:2,
+    exp:"Normal BP: systolic <120 mm Hg AND diastolic <80 mm Hg. Systolic 120–129 = elevated; 130–139 = stage 1 hypertension; ≥140 = stage 2 hypertension.",
+    oe:[
+      "100 mm Hg systolic is below the normal range — values this low may indicate hypotension.",
+      "110 mm Hg is within the normal range but not the defined upper boundary of normal.",
+      "Correct. Systolic <120 mm Hg is classified as normal per current guidelines.",
+      "140 mm Hg systolic defines stage 2 hypertension — well above the normal threshold."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"The MOST accurate route for measuring core body temperature is:",
+    opts:["Axillary","Oral","Rectal","Tympanic"],
+    a:2,
+    exp:"Rectal thermometry is considered the most accurate reflection of core body temperature. Temporal artery (TA) thermometers also closely correlate. Axillary is the least accurate.",
+    oe:[
+      "Axillary temperature is the least accurate — the thermometer must stay 5–10 min and results are notoriously unreliable.",
+      "Oral measurement is widely used and acceptable, but can be affected by recent eating, drinking, or breathing through the mouth.",
+      "Correct. Rectal temperature is the gold standard for core body temperature — it registers approximately 1°F higher than oral.",
+      "Tympanic measurement is fast (3 seconds) and reasonably accurate, but does not equal the precision of rectal measurement."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"Bradycardia is defined as a resting heart rate less than:",
+    opts:["50 BPM","60 BPM","70 BPM","80 BPM"],
+    a:1,
+    exp:"Bradycardia = heart rate <60 BPM at rest. It can be normal in highly trained athletes but may indicate cardiac conduction problems, medication effects, or hypothyroidism in others.",
+    oe:[
+      "50 BPM is bradycardia, but the definition threshold is <60 BPM, not <50.",
+      "Correct. Bradycardia = heart rate less than 60 BPM. Below this threshold requires clinical evaluation.",
+      "70 BPM is a normal resting heart rate — no classification of bradycardia.",
+      "80 BPM is mid-normal range — no concern for bradycardia at this rate."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"Diaphoresis refers to:",
+    opts:["Difficult or labored breathing","Profuse sweating","Absence of spontaneous ventilation","Low blood oxygen tension"],
+    a:1,
+    exp:"Diaphoresis = profuse sweating. It can be a sign of shock, myocardial infarction, hypoglycemia, or severe anxiety. Cold and clammy skin with diaphoresis is a classic shock warning sign.",
+    oe:[
+      "Difficult or labored breathing is dyspnea — a respiratory term, not diaphoresis.",
+      "Correct. Diaphoresis = profuse sweating. Cold and clammy skin with diaphoresis signals potential shock.",
+      "Absence of spontaneous ventilation is apnea — a breathing cessation term.",
+      "Low blood oxygen tension is hypoxemia — measured by pulse oximetry or arterial blood gas."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"A patient with a blood pressure of 85/50 mm Hg is MOST likely experiencing:",
+    opts:["Hypertension","Orthostatic hypotension","Hypotension","Normal variation"],
+    a:2,
+    exp:"Hypotension is abnormally low blood pressure — generally systolic <90 mm Hg. At 85/50, the patient may be in shock, severely dehydrated, or experiencing a vasovagal reaction. Immediate attention is required.",
+    oe:[
+      "Hypertension means elevated BP (≥130/80 mm Hg) — this patient has the opposite problem.",
+      "Orthostatic hypotension is a drop in BP when standing up — it is a type of hypotension but requires positional change to diagnose.",
+      "Correct. 85/50 mm Hg is frank hypotension — systolic well below the 90 mm Hg threshold. This warrants immediate assessment.",
+      "Normal variation ranges around 120/80 — 85/50 is far outside normal limits."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"A sphygmomanometer is an instrument used to measure:",
+    opts:["Heart rate","Oxygen saturation","Blood pressure","Respiratory rate"],
+    a:2,
+    exp:"Sphygmomanometer = blood pressure cuff. It works by inflating a cuff to occlude arterial flow, then slowly deflating while auscultating Korotkoff sounds with a stethoscope.",
+    oe:[
+      "Heart rate is measured by counting the radial or apical pulse — a sphygmomanometer measures pressure, not rate.",
+      "Oxygen saturation is measured by a pulse oximeter — a separate device clipped to the fingertip.",
+      "Correct. Sphygmomanometer = blood pressure measuring device. BP = systolic/diastolic (mm Hg).",
+      "Respiratory rate is assessed by counting chest rise and fall over one minute — no instrument is required."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Vital Signs",
+    q:"Hyperthermia exists when the oral temperature exceeds:",
+    opts:["98.6°F","99.5°F","100.4°F","101°F"],
+    a:1,
+    exp:"An oral temperature above 99.5°F is classified as fever (hyperthermia). A patient with a fever is described as febrile. Normal variation can reach up to 99.5°F, so this is the threshold.",
+    oe:[
+      "98.6°F is average normal — no fever present.",
+      "Correct. Oral temperature >99.5°F = hyperthermia/fever. The patient is said to be febrile above this point.",
+      "100.4°F (38°C) is another widely used clinical definition of fever, particularly in the context of neutropenic patients — but the textbook threshold for hyperthermia is >99.5°F.",
+      "101°F is clearly febrile but not the threshold value used to define the onset of hyperthermia."
+    ]
+  },
+
+  // ──────────────────────── PATIENT CARE – OXYGEN THERAPY ────────────────────────
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"A nasal cannula delivers oxygen at flow rates of 1–6 L/min, providing an approximate FiO₂ of:",
+    opts:["10–20%","24–44%","50–60%","70–90%"],
+    a:1,
+    exp:"Nasal cannula: low-flow device, 1–6 L/min → FiO₂ ≈ 24–44%. Each additional L/min adds approximately 4% FiO₂. It is appropriate for patients with mild hypoxia who can breathe on their own.",
+    oe:[
+      "10–20% FiO₂ is below room air (21%) — a nasal cannula would not reduce oxygen below ambient levels.",
+      "Correct. Nasal cannula at 1–6 L/min delivers approximately 24–44% FiO₂ — a low-flow device for mild hypoxia.",
+      "50–60% FiO₂ requires a simple mask or partial rebreather mask — not achievable with a nasal cannula alone.",
+      "70–90% FiO₂ requires a non-rebreather mask with reservoir bag — the highest FiO₂ achievable without intubation."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"A non-rebreather mask delivers the highest FiO₂ of any mask device because:",
+    opts:["It has one-way valves preventing exhaled air from re-entering the reservoir bag","It uses a Venturi mechanism to entrain room air","It increases the respiratory rate automatically","It delivers oxygen directly into the trachea"],
+    a:0,
+    exp:"Non-rebreather mask: one-way valves on the exhalation ports + reservoir bag. Exhaled CO₂ cannot re-enter the bag. The patient inhales near-100% O₂ from the reservoir. FiO₂ can reach 60–90%.",
+    oe:[
+      "Correct. One-way valves prevent exhaled air from entering the reservoir bag, maintaining high-concentration O₂ delivery. FiO₂ ≈ 60–90%.",
+      "Venturi mechanism describes air-entrainment masks (Venturi mask) — used for precise low-to-moderate FiO₂ delivery, not the non-rebreather.",
+      "Respiratory rate control is a ventilator function — no mask automatically controls respiratory rate.",
+      "Direct tracheal oxygen delivery is endotracheal intubation — an invasive procedure, not a mask."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Which oxygen delivery device provides the MOST precise and controlled FiO₂?",
+    opts:["Nasal cannula","Simple oxygen mask","Air-entrainment (Venturi) mask","Non-rebreather mask"],
+    a:2,
+    exp:"Air-entrainment (Venturi) mask: uses jets to entrain a precise ratio of room air to O₂, delivering accurate, fixed FiO₂ (24–50%). Used when exact oxygen concentration is critical — e.g., COPD patients sensitive to high O₂.",
+    oe:[
+      "Nasal cannula FiO₂ varies with the patient's breathing pattern — not a precise delivery system.",
+      "Simple oxygen mask provides moderate FiO₂ but is imprecise — it depends on flow rate and tidal volume.",
+      "Correct. Venturi mask (air-entrainment mask) delivers the most controlled FiO₂ of any mask — color-coded jets provide exact concentrations.",
+      "Non-rebreather mask delivers very high FiO₂ but is not a precise system — output varies with patient breathing."
+    ]
+  },
+
+  // ──────────────────────── PATIENT CARE – EMERGENCY CARE ────────────────────────
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"When encountering a patient emergency, the FIRST priority of the radiographer is to:",
+    opts:["Administer emergency medications","Ensure an open airway","Call the radiologist","Complete the imaging examination"],
+    a:1,
+    exp:"The first priority in any emergency is airway — if the patient cannot breathe, all other interventions are secondary. The sequence is: Airway → Bleeding control → Shock prevention → Wounds → Emotional support.",
+    oe:[
+      "Administering medications requires a physician order — the radiographer's role is support, not medication administration (except per protocol).",
+      "Correct. Airway is the first priority in every emergency. Without a patent airway, life cannot be sustained.",
+      "Calling the radiologist is important but occurs while maintaining the patient — it is not the very first action.",
+      "The examination stops when a patient emergency occurs — patient safety supersedes image acquisition."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Hypovolemic shock is caused by:",
+    opts:["Severe allergic reaction to contrast media","Loss of blood or tissue fluid","Spinal cord injury or anesthesia","Myocardial infarction"],
+    a:1,
+    exp:"Hypovolemic shock results from inadequate circulating blood volume due to blood loss (hemorrhage) or fluid loss (dehydration, burns). It is one of the most common types encountered in radiology.",
+    oe:[
+      "Severe allergic reaction causes anaphylactic shock — a form of vasogenic (distributive) shock, not hypovolemic.",
+      "Correct. Hypovolemic shock = loss of blood or fluid → reduced venous return → decreased cardiac output → organ hypoperfusion.",
+      "Spinal cord injury or high spinal anesthesia causes neurogenic shock — loss of vasomotor tone, not volume loss.",
+      "Myocardial infarction causes cardiogenic shock — pump failure, not volume deficiency."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Classic signs and symptoms of a patient going into shock include all of the following EXCEPT:",
+    opts:["Tachycardia","Decreasing blood pressure","Warm, flushed skin","Cold and clammy skin"],
+    a:2,
+    exp:"Shock signs: restlessness, tachycardia, hypotension, COLD and CLAMMY skin (not warm), pallor, diaphoresis. Warm flushed skin occurs in early neurogenic or septic shock — not hypovolemic/cardiogenic shock.",
+    oe:[
+      "Tachycardia is a compensatory response to reduced cardiac output — a classic early shock sign.",
+      "Decreasing blood pressure occurs as compensation fails — a hallmark late sign of shock.",
+      "Correct. Warm flushed skin is NOT typical of hypovolemic or cardiogenic shock. Shock produces cold, clammy, pale skin due to peripheral vasoconstriction.",
+      "Cold and clammy skin results from peripheral vasoconstriction diverting blood to vital organs — a classic shock sign."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"The drug of choice for treating anaphylactic shock is:",
+    opts:["Atropine","Diphenhydramine (Benadryl)","Epinephrine","Nitroglycerin"],
+    a:2,
+    exp:"Epinephrine (adrenaline) is the FIRST-LINE treatment for anaphylaxis. It reverses bronchoconstriction, increases heart rate and BP, and reduces laryngeal edema. Benadryl is adjunctive — it does NOT replace epinephrine.",
+    oe:[
+      "Atropine treats bradycardia — it is not indicated for anaphylactic shock.",
+      "Diphenhydramine (Benadryl) is useful adjunctively for urticaria, but it does not reverse airway compromise or cardiovascular collapse — epinephrine must come first.",
+      "Correct. Epinephrine is the first-line drug for anaphylaxis — it counteracts all major components of the anaphylactic response.",
+      "Nitroglycerin treats angina — it vasodilates and would worsen the hypotension of anaphylaxis."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Syncope (fainting) in the radiology department should FIRST be managed by:",
+    opts:["Administering smelling salts","Lowering the patient's head and elevating the legs","Sitting the patient upright","Calling a code blue immediately"],
+    a:1,
+    exp:"Syncope = transient loss of consciousness from cerebral hypoperfusion. First action: lay patient flat and elevate legs (Trendelenburg-like) to increase cerebral blood flow. Then assess, monitor vitals, and seek assistance if needed.",
+    oe:[
+      "Smelling salts are not a standard clinical intervention — they can cause agitation or injury. Positioning is the priority.",
+      "Correct. Lower the head and elevate the legs to improve venous return and cerebral perfusion. Do not leave the patient unattended.",
+      "Sitting the patient upright worsens syncope by reducing cerebral perfusion — the opposite of what's needed.",
+      "Code blue is for cardiac/respiratory arrest. Simple syncope requires positioning and monitoring first — escalate only if the patient does not recover quickly."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Atropine, found on the emergency crash cart, is used primarily for:",
+    opts:["Cardiac arrest","Bradycardia","Allergic reactions","Seizures"],
+    a:1,
+    exp:"Atropine is an anticholinergic drug that blocks vagal tone, increasing heart rate. It is the drug of choice for symptomatic bradycardia. It is also used pre-procedurally to reduce secretions.",
+    oe:[
+      "Cardiac arrest uses epinephrine (and amiodarone for shockable rhythms) — atropine is no longer recommended for asystole per current ACLS guidelines.",
+      "Correct. Atropine is the first-line drug for symptomatic bradycardia — it blocks the vagus nerve and accelerates the heart rate.",
+      "Allergic reactions are treated with epinephrine (anaphylaxis) and diphenhydramine — atropine has no role.",
+      "Seizures are treated with phenytoin (Dilantin) or benzodiazepines — not atropine."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"Naloxone (Narcan) is indicated for:",
+    opts:["Opioid overdose reversal","Cardiac arrhythmia","Hypoglycemia","Metabolic acidosis"],
+    a:0,
+    exp:"Naloxone (Narcan) is an opioid antagonist. It rapidly reverses opioid-induced respiratory depression, sedation, and hypotension. It is found on crash carts and is used in radiological settings where patients may have received opioid sedation.",
+    oe:[
+      "Correct. Naloxone reverses opioid overdose — it competitively blocks opioid receptors, restoring respiration within minutes.",
+      "Cardiac arrhythmias are treated with amiodarone, adenosine, atropine, or defibrillation depending on type — not naloxone.",
+      "Hypoglycemia is treated with dextrose (D50) IV — naloxone has no effect on blood glucose.",
+      "Metabolic acidosis is treated with sodium bicarbonate — naloxone addresses opioid toxicity only."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Emergency Care",
+    q:"A fully automatic AED differs from a semiautomatic AED in that it:",
+    opts:["Requires the operator to press a button to deliver the shock","Analyzes the rhythm and delivers the shock automatically without operator input","Is only used by physicians","Requires the patient to be conscious"],
+    a:1,
+    exp:"Fully automatic AED: analyzes rhythm AND delivers shock automatically if indicated — no button press needed. Semiautomatic AED: analyzes rhythm, advises shock if needed, but operator must press the button to deliver it.",
+    oe:[
+      "Requiring operator button press describes the SEMIautomatic AED — not the fully automatic type.",
+      "Correct. Fully automatic AED completes the entire process — analysis and shock delivery — without operator intervention.",
+      "AEDs are designed for use by laypeople and first responders, not exclusively physicians.",
+      "AEDs are used for pulseless ventricular fibrillation/tachycardia — the patient is unconscious, not conscious."
+    ]
+  },
+
+  // ──────────────────────── PATIENT CARE – INFECTION CONTROL ────────────────────────
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Standard Precautions apply to:",
+    opts:["Only patients known to be infected","All blood, body fluids, secretions, excretions, non-intact skin, and mucous membranes of ALL patients","Only surgical patients","Only patients in isolation rooms"],
+    a:1,
+    exp:"Standard Precautions are applied to ALL patients regardless of diagnosis or infection status. They cover blood, all body fluids (except sweat), non-intact skin, and mucous membranes — the foundation of infection control.",
+    oe:[
+      "Standard Precautions are NOT limited to known infected patients — they apply universally to prevent unknown transmissions.",
+      "Correct. Standard Precautions apply to all patients with all body fluids and substances (except sweat) — universal application is the key concept.",
+      "Standard Precautions apply in ALL clinical settings, not just surgical environments.",
+      "Isolation rooms use additional Transmission-Based Precautions on top of Standard Precautions — Standard Precautions are for every patient, everywhere."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"A fomite is:",
+    opts:["A living carrier of disease who shows no symptoms","An inanimate object that can harbor and transmit pathogenic microorganisms","A vector arthropod that transmits disease","A person who is immune to a specific infection"],
+    a:1,
+    exp:"A fomite is an inanimate object — a book, radiographic equipment, latex gloves, or clothing — that harbors pathogens and can transmit infection. Radiographic cassettes and positioning aids can serve as fomites.",
+    oe:[
+      "A living carrier without symptoms is called a carrier or reservoir host — distinct from a fomite.",
+      "Correct. Fomite = inanimate object capable of transmitting infection. Radiographic equipment and positioning sponges are common fomites in the radiology department.",
+      "A vector is a living organism (usually arthropod like a mosquito or tick) that transmits disease — not inanimate.",
+      "An immune person is simply immune — not related to the fomite concept."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Nosocomial infection is defined as an infection:",
+    opts:["Present before hospital admission","Acquired in the hospital, typically developing 72 hours after admission","Caused exclusively by antibiotic-resistant bacteria","Transmitted only through surgical wounds"],
+    a:1,
+    exp:"Nosocomial (Healthcare-Associated) infections develop AFTER the patient is admitted to the hospital — typically 72 hours post-admission. They were not present or incubating at the time of admission.",
+    oe:[
+      "Infections present before admission are community-acquired — the opposite of nosocomial.",
+      "Correct. Nosocomial = hospital-acquired, generally developing ≥72 hours after admission and not present at time of admission.",
+      "HAIs can be caused by ANY pathogen — drug-resistant or not. The defining feature is where it was acquired.",
+      "HAIs can occur in the urinary tract, bloodstream, lungs, wounds, and any body site — not limited to surgical wounds."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"The four links in the chain of infection are:",
+    opts:["Bacteria, viruses, fungi, protozoa","Host, infectious microorganism, mode of transmission, reservoir","Encounter, entry, spread, damage","Encounter, multiplication, damage, outcome"],
+    a:1,
+    exp:"Koch's chain of infection has four links: (1) host, (2) infectious microorganism, (3) mode of transmission, (4) reservoir. Breaking any ONE link stops the spread of infection — the basis of all infection control.",
+    oe:[
+      "These are the four categories of infectious agents — not the links in the chain of infection.",
+      "Correct. Host + infectious microorganism + mode of transmission + reservoir = chain of infection. All four must be present for disease to spread.",
+      "These are steps in the establishment of infectious disease — not the chain of infection links.",
+      "These are steps in the disease process, not the epidemiological chain of infection."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Surgical asepsis differs from medical asepsis in that surgical asepsis:",
+    opts:["Reduces the number of microorganisms but does not eliminate them","Prevents contamination by all microbes and endospores using sterile technique","Only applies to patient skin preparation","Is less rigorous than medical asepsis"],
+    a:1,
+    exp:"Surgical asepsis (sterile technique) = complete elimination of ALL microorganisms including spores. Medical asepsis = reduces organism numbers but does not achieve sterility. Surgical asepsis is required for invasive procedures.",
+    oe:[
+      "Reducing microorganism numbers without achieving sterility describes MEDICAL asepsis — not surgical.",
+      "Correct. Surgical asepsis prevents ALL contamination by microbes and endospores — it is sterile technique, used for invasive procedures.",
+      "Skin preparation is one component of surgical asepsis but does not define the entire concept.",
+      "Surgical asepsis is MORE rigorous than medical asepsis — it aims for complete sterility, not just reduction."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Airborne transmission precautions are required for which of the following diseases?",
+    opts:["Influenza","Tuberculosis (TB)","MRSA","C. difficile"],
+    a:1,
+    exp:"Airborne precautions (negative pressure room + N95 respirator) are required for diseases spread by small droplet nuclei (<5 µm) that remain suspended in air: TB, measles, chickenpox. Influenza uses droplet precautions.",
+    oe:[
+      "Influenza is spread by large respiratory droplets (>5 µm) — it requires DROPLET precautions, not airborne.",
+      "Correct. TB is the classic airborne precaution disease. Small droplet nuclei (<5 µm) can remain airborne for hours — requires N95 respirator and negative pressure room.",
+      "MRSA is spread by direct and indirect contact — it requires CONTACT precautions (gown and gloves).",
+      "C. difficile is spread by fecal-oral route and contact — it requires CONTACT precautions and soap-and-water hand washing (alcohol gel is ineffective against C. diff spores)."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Endospores are significant in infection control because they:",
+    opts:["Are destroyed by standard alcohol hand sanitizers","Are metabolically dormant, highly resistant structures capable of surviving for years","Only form in fungal organisms","Are too large to be transmitted through the air"],
+    a:1,
+    exp:"Bacterial endospores (produced by Bacillus and Clostridium genera) are extremely resistant to heat, chemicals, and physical agents. They can remain viable for years. Standard disinfection may not destroy them — sterilization is required.",
+    oe:[
+      "Alcohol hand sanitizers do NOT destroy endospores — this is why C. difficile requires soap and water, which mechanically removes spores.",
+      "Correct. Endospores are dormant, highly resistant bacterial survival structures — unaffected by most disinfectants. Only sterilization destroys them.",
+      "Endospores are formed by BACTERIA (specifically Bacillus and Clostridium genera) — not by fungi.",
+      "Endospores can be aerosolized and transmitted — their size does not prevent airborne spread."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Infection Control",
+    q:"Which type of microorganism is an obligate intracellular parasite that cannot survive outside a living cell?",
+    opts:["Bacteria","Viruses","Fungi","Protozoa"],
+    a:1,
+    exp:"Viruses are obligate intracellular parasites — they carry DNA or RNA but lack the cellular machinery to replicate independently. They must invade and hijack host cell organelles to reproduce.",
+    oe:[
+      "Bacteria are prokaryotic cells capable of independent reproduction — they do not require a host cell to survive.",
+      "Correct. Viruses cannot live outside a living cell — they are obligate intracellular parasites that depend entirely on the host cell's metabolic machinery.",
+      "Fungi are eukaryotic organisms with a nucleus — they can survive and replicate independently of a host cell.",
+      "Protozoa are unicellular eukaryotes capable of independent existence and motility — they are not obligate intracellular parasites."
+    ]
+  },
+
+  // ──────────────────────── PATIENT CARE – PHARMACOLOGY ────────────────────────
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"Which route of drug administration provides the most rapid onset of action?",
+    opts:["Oral (PO)","Subcutaneous (Sub-Q)","Intramuscular (IM)","Intravenous (IV)"],
+    a:3,
+    exp:"IV administration delivers drugs directly into the bloodstream — onset is immediate. Oral → IM → Sub-Q are progressively slower routes as absorption through tissues takes time.",
+    oe:[
+      "Oral administration is the slowest route — drugs must be absorbed through the GI tract, which can take 30–60 minutes.",
+      "Subcutaneous injection provides slow, constant absorption — used for drugs requiring gradual release (e.g., insulin).",
+      "Intramuscular injection provides faster absorption than oral or sub-Q but is still slower than IV.",
+      "Correct. Intravenous = immediate onset. Drug enters the circulation directly with no absorption phase."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"Nitroglycerin is most commonly used in the radiology setting for:",
+    opts:["Anaphylaxis","Seizures","Angina (chest pain)","Hypoglycemia"],
+    a:2,
+    exp:"Nitroglycerin (spray or sublingual tablet) is a vasodilator used for angina pectoris (chest pain from coronary artery disease). It is commonly found on crash carts and may be needed if a patient experiences chest pain during a procedure.",
+    oe:[
+      "Anaphylaxis is treated with epinephrine — nitroglycerin would worsen hypotension.",
+      "Seizures are treated with phenytoin or benzodiazepines — nitroglycerin has no anticonvulsant effect.",
+      "Correct. Nitroglycerin dilates coronary and peripheral vessels, relieving anginal chest pain.",
+      "Hypoglycemia is treated with dextrose (oral glucose or IV D50) — nitroglycerin has no effect on blood sugar."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"Diphenhydramine (Benadryl) is classified as:",
+    opts:["A bronchodilator","An antihistamine","An opioid analgesic","A diuretic"],
+    a:1,
+    exp:"Diphenhydramine is an antihistamine (H1-receptor blocker). In the radiology setting it is used as an adjunct for mild-to-moderate allergic reactions to contrast media, and for urticaria (hives). It is NOT a first-line drug for anaphylaxis.",
+    oe:[
+      "Bronchodilators (e.g., albuterol) open airways — diphenhydramine is an antihistamine, not a bronchodilator.",
+      "Correct. Diphenhydramine (Benadryl) = antihistamine. Adjunct treatment for allergic reactions — epinephrine is still first-line for anaphylaxis.",
+      "Opioid analgesics (e.g., morphine, fentanyl) relieve pain — diphenhydramine does not.",
+      "Diuretics (e.g., furosemide/Lasix) increase urine output — diphenhydramine has no diuretic action."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"Furosemide (Lasix) is a diuretic found on the crash cart and is indicated for:",
+    opts:["Bradycardia","Edema and fluid overload","Opioid overdose","Anaphylaxis"],
+    a:1,
+    exp:"Furosemide (Lasix) is a loop diuretic that promotes renal excretion of sodium and water. It is used for pulmonary edema, heart failure, and hypertensive emergencies involving fluid overload.",
+    oe:[
+      "Bradycardia is treated with atropine — furosemide has no chronotropic effect.",
+      "Correct. Furosemide = diuretic for edema and fluid overload. It rapidly reduces intravascular fluid volume.",
+      "Opioid overdose is treated with naloxone (Narcan) — furosemide has no opioid-reversing action.",
+      "Anaphylaxis requires epinephrine — furosemide is not indicated and could worsen hypotension."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Pharmacology",
+    q:"Analgesics are drugs that:",
+    opts:["Relieve pain","Reduce fever only","Cause bronchodilation","Increase urine output"],
+    a:0,
+    exp:"Analgesics are pain-relieving drugs. They include non-opioids (acetaminophen, NSAIDs) and opioids (morphine, fentanyl). In radiology, opioids may be given for procedural sedation and analgesia.",
+    oe:[
+      "Correct. Analgesics = pain-relieving drugs. They range from over-the-counter NSAIDs to powerful opioid narcotics.",
+      "Drugs that reduce fever are antipyretics — some analgesics (acetaminophen, ibuprofen) have antipyretic properties but that is not their defining classification.",
+      "Bronchodilation is caused by bronchodilator drugs (e.g., albuterol) — not analgesics.",
+      "Increasing urine output is the action of diuretics — unrelated to analgesics."
+    ]
+  },
+
+  // ──────────────────────── PATIENT CARE – TRANSFER ────────────────────────
+
+  { cat:"Patient Care", sub:"Patient Transfer",
+    q:"When transferring a patient from a wheelchair to the radiographic table, the wheelchair should be positioned:",
+    opts:["Directly behind the table","At a 90-degree angle to the table","At a 45-degree angle to the table, with the patient's stronger side toward the table","Facing away from the table at 180 degrees"],
+    a:2,
+    exp:"Wheelchair-to-table transfer: place the chair at a 45° angle to the table, locking the wheels. Position the patient's stronger/unaffected side toward the table so the patient can push off and pivot onto the table safely.",
+    oe:[
+      "Positioning directly behind the table makes lateral transfer impossible — the patient has no space to pivot.",
+      "90 degrees (parallel) is not optimal — the 45-degree angle reduces the pivot distance and is safer.",
+      "Correct. 45° angle + locked wheels + stronger side leading = safest wheelchair transfer technique.",
+      "Facing away from the table (180°) would require the patient to back onto the table — unsafe and impractical."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Patient Transfer",
+    q:"Orthostatic hypotension refers to:",
+    opts:["Chronically elevated blood pressure","A sudden drop in blood pressure when moving from lying to standing","Low blood pressure that does not change with position","Hypertension caused by kidney disease"],
+    a:1,
+    exp:"Orthostatic hypotension = a drop of ≥20 mm Hg systolic (or ≥10 mm Hg diastolic) when moving from supine to standing. Causes dizziness and syncope. Radiographers should assist patients slowly when changing position.",
+    oe:[
+      "Chronically elevated BP requiring medication is simply hypertension — not an orthostatic phenomenon.",
+      "Correct. Orthostatic (postural) hypotension = BP drop upon standing → dizziness, lightheadedness, or syncope. Always assist patients when they sit or stand.",
+      "Hypotension that does not change with position is resting hypotension — orthostatic specifically implies a positional trigger.",
+      "Hypertension from kidney disease is renal (renovascular) hypertension — a different entity entirely."
+    ]
+  },
+
+  // ──────────────────────── PATIENT CARE – COMMUNICATION/LEGAL ────────────────────────
+
+  { cat:"Patient Care", sub:"Communication",
+    q:"Informed consent requires that the patient be provided with:",
+    opts:["Only the name of the procedure","A general description of purpose only","An explanation of the procedure, risks, benefits, and alternatives so the patient can make a voluntary decision","Written consent from the radiographer only"],
+    a:2,
+    exp:"Informed consent requires disclosure of: (1) the nature of the procedure, (2) risks and benefits, (3) available alternatives, (4) expected outcomes. The patient must understand and voluntarily agree without coercion.",
+    oe:[
+      "Providing only the procedure name is insufficient — the patient cannot make an informed decision without understanding risks and alternatives.",
+      "Describing only the purpose fails to disclose risks and alternatives — this is not informed consent.",
+      "Correct. Informed consent = procedure explained + risks + benefits + alternatives + voluntary agreement. All four elements must be present.",
+      "The radiographer witnesses or documents consent but does not grant it — the performing physician is responsible for obtaining informed consent."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Communication",
+    q:"Implied consent is most commonly applied when:",
+    opts:["A patient refuses treatment","A patient cannot give verbal consent and is brought to the ER unconscious","A family member signs on behalf of a competent adult","A patient signs a general hospital admission form"],
+    a:1,
+    exp:"Implied consent: assumed in emergency situations when a patient is unconscious and unable to consent, and delay would result in death or serious harm. The law assumes a reasonable person would consent to life-saving care.",
+    oe:[
+      "A patient refusing treatment is an exercise of their right of refusal — consent cannot be implied in that case.",
+      "Correct. Implied consent applies when an unconscious or incapacitated patient cannot consent and emergency treatment is required — the law infers consent to save the patient's life.",
+      "A family member can provide surrogate consent for an incapacitated patient — but this is surrogate/proxy consent, not implied consent.",
+      "Signing a hospital admission form is express (written) consent for routine care — it does not cover all procedures."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Communication",
+    q:"Which of the following best describes nonverbal communication?",
+    opts:["Speaking loudly and clearly","Maintaining eye contact and an open posture","Using medical terminology only","Providing written discharge instructions"],
+    a:1,
+    exp:"Nonverbal communication includes body language, eye contact, facial expressions, gestures, posture, and proxemics (personal space). Maintaining eye contact and open posture conveys attentiveness and trustworthiness.",
+    oe:[
+      "Speaking loudly is verbal (and paralanguage) communication — it involves sound and words.",
+      "Correct. Eye contact and open posture are nonverbal communication cues — they convey engagement, confidence, and empathy without words.",
+      "Using medical terminology is a verbal communication choice — content and vocabulary selection, not nonverbal.",
+      "Written instructions are written communication — a form of communication but not nonverbal body language."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Legal & Ethics",
+    q:"Libel differs from slander in that libel is:",
+    opts:["Verbal defamation of a patient","Written defamation — false information in recorded form","The legal right to practice radiography","Touching a patient without consent"],
+    a:1,
+    exp:"Defamation has two forms: (1) libel = written (or recorded) false statement that damages a person's reputation; (2) slander = spoken false statement. Incorrect entries in a patient's medical record could constitute libel.",
+    oe:[
+      "Verbal defamation is SLANDER — the spoken form of defamation.",
+      "Correct. Libel = written/recorded defamation. Falsifying a radiograph report or medical record constitutes libel.",
+      "The legal right to practice is a licensing issue — separate from defamation law.",
+      "Touching without consent is battery — a different legal tort from defamation."
+    ]
+  },
+
+  { cat:"Patient Care", sub:"Legal & Ethics",
+    q:"Which of the following describes the legal concept of 'negligence' in radiography?",
+    opts:["An intentional harmful act toward a patient","Failure to meet the standard of care that a reasonably prudent radiographer would provide","Performing a procedure without the patient's knowledge","Writing incorrect information in a patient's record"],
+    a:1,
+    exp:"Negligence = unintentional failure to meet the standard of care. A radiographer is negligent when their conduct falls below what a reasonably prudent radiographer would do under similar circumstances, causing harm.",
+    oe:[
+      "An intentional harmful act is an intentional tort (battery, assault) — negligence is unintentional.",
+      "Correct. Negligence = failure to meet the reasonably prudent radiographer standard → patient harm. All four malpractice elements (duty, breach, causation, damage) must be proven.",
+      "Performing a procedure without the patient's knowledge (not without consent) may constitute battery — not negligence.",
+      "Incorrect documentation is related to falsification — may constitute fraud or libel depending on intent."
+    ]
+  },
+
+  // ──────────────────────── SAFETY – RADIATION PHYSICS ────────────────────────
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Classic coherent scattering occurs when an x-ray photon has energy below:",
+    opts:["1 keV","10 keV","33 keV","70 keV"],
+    a:1,
+    exp:"Classic coherent (Thomson/unmodified) scattering occurs at photon energies below 10 keV. The photon is absorbed by an atom and re-emitted in a different direction with the same energy — no energy is transferred to the patient.",
+    oe:[
+      "1 keV is below the threshold — coherent scattering occurs below 10 keV, not limited to just below 1 keV.",
+      "Correct. Coherent scattering occurs at energies below 10 keV — the photon changes direction but transfers no energy to tissue.",
+      "33 keV is in the diagnostic range — at this energy, photoelectric or Compton interactions dominate, not coherent scattering.",
+      "70 keV is a common diagnostic kVp range — Compton scattering predominates at this energy level."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"In photoelectric absorption, the incoming x-ray photon:",
+    opts:["Passes through matter completely unchanged","Ejects an outer shell electron and proceeds with reduced energy","Is completely absorbed after ejecting an inner shell electron","Changes direction without any energy loss"],
+    a:2,
+    exp:"Photoelectric absorption: photon strikes an inner shell electron, ejects it (photoelectron), and the photon's energy is completely absorbed. This constitutes the greatest hazard to patients in diagnostic radiography and is responsible for subject contrast.",
+    oe:[
+      "Passing through unchanged describes transmission — no interaction occurs with the atom.",
+      "Ejecting an outer shell electron and proceeding with reduced energy describes Compton scattering, not photoelectric absorption.",
+      "Correct. In photoelectric absorption, the photon is completely absorbed by the inner shell electron — all energy is transferred, creating an ion pair.",
+      "Changing direction without energy loss describes classic coherent scattering."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Compton scattering is the primary source of occupational radiation exposure because:",
+    opts:["It occurs only at very low energies","The scattered photon can exit the patient and reach the radiographer","It transfers no energy to the patient","It only occurs in the therapeutic range"],
+    a:1,
+    exp:"Compton scattering ejects an outer shell electron and produces a lower-energy scattered photon. This scattered photon can travel in any direction — including toward the radiographer — making it the principal source of occupational exposure.",
+    oe:[
+      "Compton scattering occurs across the entire diagnostic range — not just low energies.",
+      "Correct. The Compton-scattered photon can exit the patient in any direction, including toward the technologist — it is the dominant source of occupational dose.",
+      "Compton scattering DOES transfer energy — part of the photon's energy ejects the electron.",
+      "Compton scattering occurs in the diagnostic range — pair production and photodisintegration occur in the therapeutic range."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Pair production requires a minimum photon energy of:",
+    opts:["0.51 MeV","1.02 MeV","10 MeV","100 keV"],
+    a:1,
+    exp:"Pair production requires a minimum photon energy of 1.02 MeV. The photon interacts with the nuclear force field and is converted into an electron-positron pair (each with rest mass energy of 0.511 MeV). It occurs in the therapeutic (not diagnostic) range.",
+    oe:[
+      "0.51 MeV is the rest mass energy of ONE particle (electron or positron) — pair production requires energy for BOTH (0.511 × 2 = 1.022 MeV).",
+      "Correct. Pair production threshold = 1.02 MeV — the photon must have enough energy to create both an electron and a positron.",
+      "10 MeV is above the threshold — pair production can occur, but 1.02 MeV is the minimum.",
+      "100 keV is 0.1 MeV — far below the 1.02 MeV threshold for pair production."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Three requirements must be met for x-ray production. Which of the following is NOT one of them?",
+    opts:["A source of electrons","A means to rapidly accelerate the electrons","A high-atomic-number target to stop the electrons","A source of visible light photons"],
+    a:3,
+    exp:"Three requirements for x-ray production: (1) source of electrons (filament/cathode), (2) means to accelerate electrons (kVp/high voltage), (3) something to rapidly stop the electrons (tungsten anode). Visible light is not part of x-ray production.",
+    oe:[
+      "A source of electrons (thermionic emission from the tungsten filament) is the first requirement for x-ray production.",
+      "A means to accelerate the electrons (kilovoltage applied across the tube) is the second requirement.",
+      "A target to stop the electrons (the anode — preferably high-Z tungsten) is the third requirement — x-rays are produced when electrons decelerate.",
+      "Correct. Visible light photons are not required for x-ray production — x-rays are electromagnetic radiation produced by electron interactions with the anode."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Thermionic emission refers to:",
+    opts:["The production of x-rays by electron deceleration","The process by which electrons are boiled off the filament by heating","The scattering of x-rays after striking the patient","The conversion of x-ray energy to light in an image receptor"],
+    a:1,
+    exp:"Thermionic emission: when the filament (cathode) is heated by milliamperage (electrical current), electrons are released from the tungsten wire. These electrons form the electron cloud (space charge) that is then accelerated toward the anode when kVp is applied.",
+    oe:[
+      "X-ray production by electron deceleration is Bremsstrahlung (braking radiation) — not thermionic emission.",
+      "Correct. Thermionic emission = heating the filament → electrons boil off → form the electron cloud ready for acceleration toward the anode.",
+      "X-ray scattering after striking the patient is Compton scattering — a different process.",
+      "X-ray energy conversion to light in an image receptor describes the function of the phosphor layer in CR/film-screen cassettes — not thermionic emission."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Physics",
+    q:"Characteristic radiation is produced when:",
+    opts:["An electron decelerates near the atomic nucleus","An outer shell electron fills an inner shell vacancy, releasing excess energy as an x-ray","A photon is absorbed by a proton in the nucleus","Two photons collide in matter"],
+    a:1,
+    exp:"Characteristic radiation: during photoelectric absorption, the ejected inner shell electron leaves a vacancy. Outer shell electrons drop in to fill the vacancy and emit excess energy as characteristic x-rays — characteristic of the target material (e.g., tungsten K-shell x-rays).",
+    oe:[
+      "Electron deceleration near the atomic nucleus produces Bremsstrahlung (braking) radiation — a different type of x-ray.",
+      "Correct. Characteristic radiation = outer-to-inner shell electron transition → emission of a photon equal to the energy difference between shells.",
+      "Photon absorption by a proton is not a mechanism that produces diagnostic x-rays.",
+      "Two photons colliding is not a recognized x-ray production mechanism in diagnostic radiology."
+    ]
+  },
+
+  // ──────────────────────── SAFETY – RADIATION UNITS ────────────────────────
+
+  { cat:"Safety", sub:"Radiation Units",
+    q:"The SI unit of absorbed dose is the:",
+    opts:["Sievert (Sv)","Gray (Gy)","Becquerel (Bq)","Coulomb per kilogram (C/kg)"],
+    a:1,
+    exp:"Gray (Gy) = SI unit of absorbed dose = energy deposited per unit mass (J/kg). 1 Gy = 100 rad (traditional unit). Absorbed dose measures the actual energy absorbed by tissue, regardless of radiation type.",
+    oe:[
+      "Sievert (Sv) measures dose equivalent/effective dose — it accounts for biological effectiveness of different radiation types. 1 Sv = 100 rem.",
+      "Correct. Gray (Gy) = SI absorbed dose unit. 1 Gy = 100 rad. It quantifies energy deposited in tissue.",
+      "Becquerel (Bq) measures radioactivity (rate of nuclear disintegrations) — not absorbed dose.",
+      "Coulomb per kilogram (C/kg) measures radiation exposure (ionization in air) — not absorbed dose in tissue."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Units",
+    q:"The SI unit of effective dose (biologic effectiveness of radiation) is the:",
+    opts:["Gray (Gy)","Becquerel (Bq)","Sievert (Sv)","Roentgen (R)"],
+    a:2,
+    exp:"Sievert (Sv) = SI unit of effective dose and dose equivalent. It accounts for the biologically damaging potential of different radiation types by applying a quality factor (QF). 1 Sv = 100 rem (traditional).",
+    oe:[
+      "Gray measures absorbed dose (energy deposited in tissue) — it does not account for the type of radiation or biologic effectiveness.",
+      "Becquerel measures radioactivity (disintegrations per second) — not biologic dose.",
+      "Correct. Sievert (Sv) = effective dose. It equals the absorbed dose (Gy) multiplied by the radiation quality factor. For x-rays, QF = 1, so 1 Gy = 1 Sv.",
+      "Roentgen is a traditional (non-SI) unit of exposure measured in air — it has been replaced by C/kg in SI units."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Units",
+    q:"One Gray (Gy) is equivalent to how many rad (traditional unit)?",
+    opts:["1 rad","10 rad","100 rad","1000 rad"],
+    a:2,
+    exp:"1 Gy = 100 rad. Conversely, 1 rad = 0.01 Gy (1 cGy). The Gray replaced the rad in the SI system. Both measure absorbed dose — energy deposited per unit mass of tissue.",
+    oe:[
+      "1 rad = 0.01 Gy — not 1 Gy. If 1 Gy = 1 rad, the values would be identical — they are not.",
+      "10 rad = 0.1 Gy — still not 1 Gy.",
+      "Correct. 1 Gy = 100 rad. This conversion is essential for ARRT exam calculations.",
+      "1000 rad = 10 Gy — this is an order of magnitude too high."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Units",
+    q:"One Sievert (Sv) is equivalent to how many rem (traditional unit)?",
+    opts:["1 rem","10 rem","100 rem","1000 rem"],
+    a:2,
+    exp:"1 Sv = 100 rem. Conversely, 1 rem = 0.01 Sv (1 cSv). The Sievert replaced the rem in the SI system. Both measure dose equivalent/effective dose.",
+    oe:[
+      "1 rem = 0.01 Sv — not 1 Sv.",
+      "10 rem = 0.1 Sv — not 1 Sv.",
+      "Correct. 1 Sv = 100 rem. The Sievert and rem are the SI and traditional units of dose equivalence, respectively.",
+      "1000 rem = 10 Sv — an order of magnitude too high."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Units",
+    q:"The Becquerel (Bq) measures:",
+    opts:["Absorbed dose in tissue","The biologic effectiveness of radiation","The rate of radioactive disintegration (1 disintegration per second)","Radiation exposure in air"],
+    a:2,
+    exp:"Becquerel (Bq) = SI unit of radioactivity = 1 nuclear disintegration per second. It replaced the Curie (Ci). 1 Ci = 3.7 × 10¹⁰ Bq. Becquerel is used in nuclear medicine to quantify radiopharmaceutical activity.",
+    oe:[
+      "Absorbed dose in tissue is measured in Gray (Gy) — not Becquerel.",
+      "Biologic effectiveness of radiation is measured in Sievert (Sv) — not Becquerel.",
+      "Correct. Becquerel = 1 disintegration per second. It quantifies the rate of radioactive decay, not the energy deposited.",
+      "Radiation exposure in air is measured in Roentgen (R) or Coulombs per kilogram (C/kg) — not Becquerel."
+    ]
+  },
+
+  // ──────────────────────── SAFETY – DOSE LIMITS ────────────────────────
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The NCRP annual whole-body effective dose limit for occupational workers is:",
+    opts:["5 mSv","10 mSv","50 mSv","100 mSv"],
+    a:2,
+    exp:"NCRP annual whole-body effective dose limit for occupational workers = 50 mSv (5 rem). The cumulative lifetime limit = 10 mSv × age in years. This is far above doses received in routine radiographic practice.",
+    oe:[
+      "5 mSv is the annual limit for the general public with continuous/frequent exposure — not the occupational limit.",
+      "10 mSv is not the annual occupational limit — it is used in the cumulative formula (10 mSv × age).",
+      "Correct. 50 mSv (5 rem) = annual occupational whole-body effective dose limit per NCRP Report 116.",
+      "100 mSv is above the NCRP occupational limit — exceeding 50 mSv/year requires investigation and remediation."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The cumulative lifetime effective dose formula for occupational workers is:",
+    opts:["5 mSv × age in years","10 mSv × age in years","50 mSv × age in years","100 mSv per decade"],
+    a:1,
+    exp:"Cumulative lifetime dose limit = 10 mSv × age in years (NCRP). Example: a 35-year-old radiographer may have accumulated up to 350 mSv (35 Sv × 10 mSv) over their career.",
+    oe:[
+      "5 mSv × age is not the NCRP cumulative formula — it would be too restrictive for routine occupational practice.",
+      "Correct. Cumulative limit = 10 mSv × age. A 40-year-old may accumulate up to 400 mSv (40 × 10) over a lifetime.",
+      "50 mSv × age would far exceed acceptable limits — 50 mSv is the annual limit, not the per-year cumulative factor.",
+      "Per-decade limits are not part of NCRP's cumulative dose formula."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The annual occupational equivalent dose limit for the lens of the eye is:",
+    opts:["15 mSv","50 mSv","150 mSv","500 mSv"],
+    a:2,
+    exp:"Lens of the eye annual equivalent dose limit for occupational workers = 150 mSv (15 rem) per NCRP. The lens is particularly radiosensitive — radiation-induced cataracts are a known late somatic effect.",
+    oe:[
+      "15 mSv is the PUBLIC annual lens dose limit — not the occupational limit.",
+      "50 mSv is the annual whole-body effective dose limit — not the lens-specific limit.",
+      "Correct. Occupational annual lens dose limit = 150 mSv. The lens is radiosensitive, and this limit reflects the need to protect against cataract formation.",
+      "500 mSv is the occupational limit for skin, hands, and feet — not the lens."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The annual occupational equivalent dose limit for the skin, hands, and feet is:",
+    opts:["50 mSv","150 mSv","500 mSv","1000 mSv"],
+    a:2,
+    exp:"Skin, hands, and feet annual occupational limit = 500 mSv (50 rem). These extremity tissues are less radiosensitive than deep organs, which is why a higher limit is set. Fluoroscopists working near the primary beam particularly need extremity monitoring.",
+    oe:[
+      "50 mSv is the annual whole-body effective dose limit — not specific to skin/extremities.",
+      "150 mSv is the occupational lens of eye limit — not the extremity limit.",
+      "Correct. 500 mSv = annual occupational dose limit for skin, hands, and feet — reflecting their lower radiosensitivity compared to internal organs.",
+      "1000 mSv (1 Sv) exceeds all standard dose limits — this is not an NCRP limit."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The embryo/fetal monthly equivalent dose limit (once pregnancy is declared) is:",
+    opts:["0.1 mSv","0.5 mSv","1 mSv","5 mSv"],
+    a:1,
+    exp:"Once a radiographer declares her pregnancy, the monthly equivalent dose limit to the embryo-fetus is 0.5 mSv (50 mrem). This is a very conservative limit designed to protect the radiosensitive developing organism.",
+    oe:[
+      "0.1 mSv/month is more restrictive than the NCRP recommendation — the actual limit is 0.5 mSv/month.",
+      "Correct. Embryo-fetal monthly equivalent dose limit = 0.5 mSv once pregnancy is declared to protect the developing fetus.",
+      "1 mSv is the annual PUBLIC effective dose limit — not the monthly embryo-fetal limit.",
+      "5 mSv is the annual public dose limit for infrequent exposure — far exceeds the monthly fetal limit."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dose Limits",
+    q:"The annual effective dose limit for the general public with continuous or frequent exposure is:",
+    opts:["0.1 mSv","1 mSv","5 mSv","50 mSv"],
+    a:1,
+    exp:"Annual public effective dose limit (continuous or frequent exposure) = 1 mSv (0.1 rem) per NCRP. This is one-tenth of the occupational annual limit, reflecting the ALARA principle for non-occupational individuals.",
+    oe:[
+      "0.1 mSv is the monthly embryo-fetal limit — not the annual public limit for continuous exposure.",
+      "Correct. 1 mSv/year = public dose limit for continuous/frequent exposure. This applies to family members who live near radiation sources.",
+      "5 mSv is the annual public limit for INFREQUENT exposure — a less stringent limit used for non-routine exposures.",
+      "50 mSv is the OCCUPATIONAL annual limit — 50× higher than the public continuous exposure limit."
+    ]
+  },
+
+  // ──────────────────────── SAFETY – RADIOBIOLOGY ────────────────────────
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"The law of Bergonie and Tribondeau states that cells are most sensitive to radiation when they are:",
+    opts:["Highly differentiated and specialized","Rapidly dividing and primitive in structure","In the resting (G0) phase of the cell cycle","Composed primarily of fat tissue"],
+    a:1,
+    exp:"Bergonie and Tribondeau (1906): cells are most radiosensitive when actively dividing (high mitotic activity) and primitive in structure/function. This law explains why lymphocytes, germ cells, and bone marrow cells are highly radiosensitive.",
+    oe:[
+      "Highly differentiated and specialized cells are RADIORESISTANT — they rarely divide and are mature in function.",
+      "Correct. Bergonie-Tribondeau law: high mitotic rate + primitive structure = high radiosensitivity. Examples: lymphocytes, germ cells, bone marrow, intestinal crypt cells.",
+      "Cells in the resting (G0) phase are generally LESS sensitive — they are not actively dividing.",
+      "Fat tissue is relatively radioresistant — adipocytes are mature, specialized cells with low mitotic activity."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"Which of the following cells is MOST radiosensitive?",
+    opts:["Nerve cells","Muscle cells","Lymphocytes","Liver (hepatic) cells"],
+    a:2,
+    exp:"Lymphocytes are among the most radiosensitive cells in the body — they are primitive, rapidly dividing, and critically involved in immune function. Lymphocyte depletion is an early indicator of radiation exposure.",
+    oe:[
+      "Nerve cells are highly radioresistant — they are terminally differentiated, rarely divide, and can survive significant radiation doses.",
+      "Muscle cells are radioresistant — they are specialized, differentiated, and have low mitotic activity.",
+      "Correct. Lymphocytes are extremely radiosensitive despite being mature cells — an exception to the Bergonie-Tribondeau rule. They die in interphase even without cell division.",
+      "Liver cells (hepatocytes) have moderate radiosensitivity — they can regenerate but are not as sensitive as lymphocytes or germ cells."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"Which of the following cells is MOST radioresistant?",
+    opts:["Intestinal crypt cells","Germ cells (ovum, spermatozoa)","Nerve cells","Basal skin cells"],
+    a:2,
+    exp:"Nerve cells are among the most radioresistant — they are highly differentiated, do not undergo repeated mitosis, and have very low turnover. They require extremely high doses (CNS syndrome: >50 Gy) to demonstrate radiation injury.",
+    oe:[
+      "Intestinal crypt cells are highly radiosensitive — they divide rapidly to renew the intestinal epithelium and are the target cells in GI syndrome.",
+      "Germ cells (ovum, spermatogonia) are highly radiosensitive — radiation-induced sterility is a documented effect.",
+      "Correct. Nerve cells = most radioresistant. They are terminally differentiated with virtually no mitotic activity — radiation injury manifests only at very high doses.",
+      "Basal skin cells are radiosensitive — they are actively dividing stem cells responsible for skin renewal."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"Hematopoietic (bone marrow) syndrome occurs at total body doses of approximately:",
+    opts:["<1 Gy","2–10 Gy","10–50 Gy",">50 Gy"],
+    a:1,
+    exp:"Hematopoietic (bone marrow) syndrome: 2–10 Gy total body dose. Results in infection, hemorrhage, and anemia due to destruction of blood-forming stem cells. Mean survival 6–8 weeks without treatment; recovery possible in 6 months with treatment.",
+    oe:[
+      "<1 Gy may cause subclinical blood count changes but does not produce full acute radiation syndrome.",
+      "Correct. 2–10 Gy = hematopoietic syndrome. Bone marrow is destroyed → inability to produce blood cells → infection, hemorrhage, anemia.",
+      "10–50 Gy produces gastrointestinal (GI) syndrome — damage to the intestinal epithelium causing massive diarrhea, dehydration, and death in 3–10 days.",
+      ">50 Gy produces central nervous system (CNS) syndrome — seizures, coma, and death within hours to 2–3 days."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"Gastrointestinal (GI) syndrome from acute radiation exposure occurs at doses of:",
+    opts:["1–2 Gy","2–10 Gy","10–50 Gy",">50 Gy"],
+    a:2,
+    exp:"GI syndrome: 10–50 Gy total body dose. The intestinal epithelium is destroyed, causing massive diarrhea, nausea, vomiting, and fever. Death occurs in 3–10 days from dehydration, infection, and electrolyte imbalance.",
+    oe:[
+      "1–2 Gy may cause mild prodromal symptoms — GI syndrome requires at least 10 Gy.",
+      "2–10 Gy produces hematopoietic syndrome — bone marrow failure, not GI syndrome.",
+      "Correct. GI syndrome = 10–50 Gy. Intestinal crypt cells are destroyed, the epithelial lining sloughs off, and the GI barrier is lost — lethal in days.",
+      ">50 Gy produces CNS syndrome (seizures, coma, death) — even more severe than GI syndrome."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"Central nervous system (CNS) syndrome from acute radiation occurs at doses above:",
+    opts:["2 Gy","10 Gy","50 Gy","100 Gy"],
+    a:2,
+    exp:"CNS syndrome occurs at doses >50 Gy. Massive brain edema, increased intracranial pressure, seizures, and coma result in death within hours to 2–3 days. There is no survival at this dose range.",
+    oe:[
+      "2 Gy produces hematopoietic syndrome — far below the threshold for CNS syndrome.",
+      "10 Gy produces GI syndrome — still below the threshold for CNS syndrome.",
+      "Correct. CNS syndrome = >50 Gy. Brain edema and increased intracranial pressure cause rapid death — no treatment can reverse this level of damage.",
+      ">100 Gy is also lethal CNS syndrome — but the threshold definition begins at 50 Gy."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"The prodromal stage of acute radiation syndrome is characterized by:",
+    opts:["Recovery and apparent well-being","Full expression of organ system damage","Nausea, vomiting, and diarrhea within hours of exposure","Genetic mutations in future generations"],
+    a:2,
+    exp:"The prodromal stage is the first stage of acute radiation syndrome — occurring within hours of exposure. Classic symptoms: nausea, vomiting, and diarrhea (the 'NVD' stage). The severity of prodromal symptoms correlates with the dose received.",
+    oe:[
+      "Recovery and apparent well-being describes the LATENT period — the second stage where the patient feels well despite ongoing biological damage.",
+      "Full expression of organ system damage describes the MANIFEST ILLNESS stage — the third and final acute stage.",
+      "Correct. Prodromal stage = NVD (nausea, vomiting, diarrhea) within hours of high-dose radiation exposure. More severe prodromal symptoms indicate a higher dose.",
+      "Genetic mutations in future generations are LATE genetic effects of radiation — not a feature of the acute prodromal stage."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"The late somatic effects of radiation exposure include all of the following EXCEPT:",
+    opts:["Cataract formation","Leukemia and other cancers","Hair loss within 24 hours of exposure","Shortened life span"],
+    a:2,
+    exp:"Late somatic effects develop months to years after exposure: cataracts, carcinogenesis (leukemia, skin cancer, bone cancer), and shortened life span. Hair loss (epilation) within 24 hours is an EARLY effect — it is transient and seen at doses of approximately 3 Gy.",
+    oe:[
+      "Cataract formation is a classic late somatic effect — the lens is radiosensitive and cataracts can develop years after exposure.",
+      "Leukemia and other cancers are the most important late somatic effects — the first documented case of radiation-induced cancer was a radiographer's hand cancer in 1902.",
+      "Correct. Hair loss within 24 hours is an EARLY effect of radiation, not a late somatic effect — it is temporary and resolves unless doses are very high.",
+      "Shortened life span is a recognized late somatic effect — early radiologists and radiation workers had statistically shorter lives than non-exposed peers."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"The indirect hit theory of radiation damage proposes that:",
+    opts:["Radiation directly strikes DNA and breaks chemical bonds","Radiation ionizes water molecules within the cell, creating free radicals that damage critical molecules","Only the cell nucleus is damaged by radiation","Radiation converts cellular proteins to carcinogens"],
+    a:1,
+    exp:"Indirect hit theory: x-rays and gamma rays primarily ionize the water (≈80% of cells) to form free radicals (H• and OH•). These highly reactive species then chemically attack DNA and other critical molecules — causing most of the cellular radiation damage.",
+    oe:[
+      "Radiation directly striking DNA and breaking bonds describes the DIRECT hit theory — the indirect theory involves water ionization as the intermediary.",
+      "Correct. Indirect hit = radiation ionizes water → free radicals → attack DNA. This accounts for the MAJORITY of cellular damage from x-radiation and gamma radiation.",
+      "Only DNA damage is the focus of the target theory — indirect hits affect all molecules, not just the nucleus.",
+      "Radiation does not directly convert proteins to carcinogens — it damages DNA, which can lead to mutations causing cancer."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiobiology",
+    q:"Somatic effects of radiation differ from genetic effects in that somatic effects:",
+    opts:["Appear in future generations","Affect only the germ cells","Occur in the exposed individual's own body cells","Are always beneficial at low doses"],
+    a:2,
+    exp:"Somatic effects manifest in the EXPOSED individual (soma = body). Genetic (hereditary) effects occur in future generations when germ cells (ovum, spermatogonia) whose DNA is damaged by radiation are fertilized.",
+    oe:[
+      "Appearing in future generations describes GENETIC effects — damage to germ cell DNA that is passed on if fertilization occurs.",
+      "Affecting only germ cells describes the mechanism of genetic effects — somatic effects occur in all body cells except germ cells.",
+      "Correct. Somatic effects = effects in the exposed individual's own somatic cells (non-reproductive cells). Cataracts and cancer are somatic late effects.",
+      "Low-dose radiation benefits (hormesis) are controversial and not established as beneficial — somatic effects are considered harmful at any dose per the ALARA principle."
+    ]
+  },
+
+  // ──────────────────────── SAFETY – RADIATION PROTECTION ────────────────────────
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"The NCRP is best described as:",
+    opts:["A federal agency with authority to enforce radiation standards","A not-for-profit congressional advisory body that collects and distributes radiation safety information","The organization that licenses nuclear power plants","The agency that certifies radiologic technologists"],
+    a:1,
+    exp:"The National Council on Radiation Protection and Measurements (NCRP) is a not-for-profit organization formed by Congress in 1964 to advise on radiation safety. It publishes recommendations but has NO enforcement authority — that belongs to the NRC.",
+    oe:[
+      "The NCRP is ADVISORY — it cannot enforce standards. Enforcement authority rests with the Nuclear Regulatory Commission (NRC).",
+      "Correct. NCRP = congressional advisory body. It collects radiation data, publishes reports, and recommends dose limits — but cannot mandate compliance.",
+      "Licensing of nuclear power plants is done by the Nuclear Regulatory Commission (NRC) — not the NCRP.",
+      "Certification of radiologic technologists is performed by the ARRT — not the NCRP."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"The inverse square law states that radiation intensity is:",
+    opts:["Directly proportional to the square of the distance from the source","Inversely proportional to the square of the distance from the source","Equal at all distances from an isotropic source","Unaffected by distance in a collimated beam"],
+    a:1,
+    exp:"Inverse square law: I₁/I₂ = (D₂)²/(D₁)². Doubling the distance reduces intensity to 1/4. Tripling the distance reduces intensity to 1/9. Distance is the most effective radiation protection tool for occupational workers.",
+    oe:[
+      "Radiation intensity is INversely proportional — as distance increases, intensity decreases (not increases).",
+      "Correct. Intensity ∝ 1/distance². Double distance = 1/4 intensity. Triple distance = 1/9 intensity. This is why the radiographer stands as far as possible during exposures.",
+      "Radiation intensity from a point source varies with distance — the inverse square law describes this variation.",
+      "Even in a collimated beam, intensity decreases with distance — the inverse square law applies to all radiation sources."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"Lead (Pb) is used as a radiation shielding material because of its:",
+    opts:["Low melting point","Low atomic number (Z=14)","High atomic number (Z=82) promoting photoelectric absorption","High conductivity of electricity"],
+    a:2,
+    exp:"Lead (Z=82) is effective because its high atomic number strongly promotes photoelectric absorption of x-rays — completely absorbing the photon. Lead aprons, gloves, thyroid shields, and room barriers use lead as the primary attenuating material.",
+    oe:[
+      "Lead actually has a high melting point — but this is not the reason it is used as shielding.",
+      "Z=14 is silicon — lead has Z=82. Low-Z materials like aluminum are used as filters, not shielding.",
+      "Correct. Lead (Z=82) has a high atomic number that strongly promotes photoelectric absorption, completely stopping x-rays. This makes it ideal for radiation shielding.",
+      "Lead is not particularly known for electrical conductivity — copper (Z=29) is the standard conductor."
+    ]
+  },
+
+  { cat:"Safety", sub:"Radiation Protection",
+    q:"According to current guidelines, patient gonadal shielding during radiography:",
+    opts:["Is mandatory for all radiographic procedures","Is always required for pediatric patients","Is being discontinued because it provides negligible benefit and risks compromising image quality","Should be used whenever the gonads are within 5 cm of the primary beam"],
+    a:2,
+    exp:"Current evidence (supported by updated NCRP and AAPM guidance) shows gonadal/fetal shielding provides negligible dose reduction with modern techniques while risking image quality compromise by obscuring anatomy. The practice is being phased out. Areas still protected include lens, breasts, and thyroid when not in the field.",
+    oe:[
+      "Mandatory gonadal shielding for all procedures has been the traditional teaching, but current guidelines are moving away from this practice.",
+      "Even for pediatric patients, gonadal shielding is being reconsidered — modern digital detectors and dose optimization have reduced gonadal dose significantly.",
+      "Correct. Modern evidence shows gonadal shielding provides negligible benefit while posing risks of obscuring anatomy and increasing repeat rates. AAPM and NCRP now advise against routine gonadal shielding.",
+      "The '5 cm rule' was the traditional guideline — but current practice is moving toward discontinuing routine gonadal shielding entirely."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dosimetry",
+    q:"A thermoluminescent dosimeter (TLD) works by:",
+    opts:["Ionizing a gas-filled chamber to measure cumulative exposure","Storing radiation energy in crystal lattice defects that emit light when heated","Developing a photographic image proportional to radiation dose","Measuring real-time dose rate using a Geiger-Müller tube"],
+    a:1,
+    exp:"TLD: radiation creates trapped electrons in crystal lattice defects (LiF crystals). When heated, the electrons release their stored energy as visible light (thermoluminescence). The amount of light is proportional to the radiation dose received.",
+    oe:[
+      "Ionizing a gas-filled chamber describes a pocket (ionization chamber) dosimeter — not a TLD.",
+      "Correct. TLD = crystal lattice traps electrons → heating releases trapped energy as light → light measured and correlated to dose. Accurate, reusable, and can measure doses as low as 0.1 mGy.",
+      "Developing a photographic image describes the film badge dosimeter — a different (older) monitoring device.",
+      "Real-time Geiger-Müller tube measurement describes a survey meter (Geiger counter) — not a personal dosimeter."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dosimetry",
+    q:"An optically stimulated luminescence (OSL) dosimeter differs from a TLD in that it:",
+    opts:["Uses heat to release stored energy","Uses laser light to stimulate the release of stored energy from aluminum oxide crystals","Is only used for measuring gamma radiation","Cannot be reread after the initial measurement"],
+    a:1,
+    exp:"OSL dosimeter: uses aluminum oxide (Al₂O₃:C) crystals. Stored radiation energy is released by stimulating with laser light — producing luminescence proportional to dose. Advantage: the badge can be RE-READ multiple times without losing the stored data.",
+    oe:[
+      "Using heat to release stored energy describes a TLD (thermoluminescent dosimeter) — OSL uses laser light.",
+      "Correct. OSL uses laser light to stimulate Al₂O₃ crystals → luminescence proportional to dose. Can be re-analyzed multiple times, unlike TLDs which are destroyed by reading.",
+      "OSL can measure x-rays, gamma, beta, and neutrons — it is not limited to gamma radiation.",
+      "OSL can be RE-READ multiple times — this is actually a KEY advantage over TLDs."
+    ]
+  },
+
+  { cat:"Safety", sub:"Dosimetry",
+    q:"Where should a personnel dosimeter badge be worn during radiographic procedures?",
+    opts:["On the wrist of the dominant hand","On the collar outside the lead apron, at neck level","Inside the lead apron at waist level","Clipped to the image receptor"],
+    a:1,
+    exp:"Dosimeter badge: worn at collar level (outside and above the lead apron) to monitor the dose to the head, neck, and thyroid — areas not protected by the apron. This gives the most representative reading of exposure to unprotected sensitive tissues.",
+    oe:[
+      "A wrist dosimeter is sometimes worn in addition to the collar badge to monitor extremity dose — but it is not the PRIMARY badge placement.",
+      "Correct. Collar level outside the lead apron = standard dosimeter placement. It measures dose to the thyroid, eyes, and head — all sensitive structures above apron coverage.",
+      "Inside the lead apron reads near zero — providing no useful information about actual unprotected body exposure.",
+      "The image receptor is not on the radiographer's body — the dosimeter must be worn by the person, not placed on equipment."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION – X-RAY EQUIPMENT ────────────────────────
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"The primary advantage of a rotating anode over a stationary anode is:",
+    opts:["Lower cost of manufacture","Ability to handle higher heat loads by distributing heat over a larger area","Elimination of the filament","Production of a more homogeneous x-ray beam"],
+    a:1,
+    exp:"Rotating anode: the anode disk spins (3,000–10,000 RPM), continuously exposing a fresh area of the focal track to the electron beam. This distributes heat over a much larger area (the entire focal track), allowing much higher mA and shorter exposure times.",
+    oe:[
+      "Rotating anodes are MORE expensive than stationary anodes due to their complex bearing and motor systems.",
+      "Correct. Rotating anode = greater heat capacity. Heat is spread over the entire focal track rather than a single stationary point — enabling higher technique factors.",
+      "The filament is present in both rotating and stationary anode tubes — it is the electron source and is not eliminated.",
+      "Both tube types produce a heterogeneous (polyenergetic) beam — the beam's energy spectrum is determined by kVp and filtration, not anode rotation."
+    ]
+  },
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"Tungsten is the preferred anode material in diagnostic x-ray tubes primarily because of its:",
+    opts:["Low melting point and low atomic number","High melting point (3,422°C) and high atomic number (Z=74) for efficient x-ray production","Abundance and low cost","Ability to produce a monoenergetic beam"],
+    a:1,
+    exp:"Tungsten (W, Z=74) is the anode material of choice because: (1) highest melting point of all pure metals (3,422°C) — handles intense heat, (2) high atomic number → efficient x-ray production via Bremsstrahlung and characteristic radiation.",
+    oe:[
+      "Tungsten has a HIGH melting point (not low) and HIGH atomic number (not low) — both properties are essential for anode function.",
+      "Correct. Tungsten's extremely high melting point and high Z make it ideal — it withstands the heat generated and efficiently produces x-rays.",
+      "Tungsten is not particularly abundant or cheap — it is chosen for its physical properties, not economics.",
+      "All x-ray tubes produce a heterogeneous (polyenergetic) beam — Bremsstrahlung produces a continuous spectrum, not monoenergetic photons."
+    ]
+  },
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"A small focal spot size is preferred when:",
+    opts:["High mAs exposures are needed for large patients","Maximum spatial resolution/recorded detail is required","Reducing patient dose is the primary concern","Reducing tube heat load is the goal"],
+    a:1,
+    exp:"Small focal spot = better spatial resolution (less penumbra/geometric unsharpness). However, small focal spots have lower heat capacity — they require lower mAs and cannot handle high-output exposures. Large focal spots are used for larger body parts requiring high technique.",
+    oe:[
+      "High mAs exposures require a LARGE focal spot to handle the heat generated — small focal spots would overheat.",
+      "Correct. Small focal spot = sharper recorded detail = better spatial resolution. Used for extremities, small structures, and magnification radiography.",
+      "Focal spot size does not directly control patient dose — mAs and kVp are the primary dose determinants.",
+      "Reducing heat load requires a LARGE focal spot (more surface area for heat distribution) — small focal spots generate more concentrated heat."
+    ]
+  },
+
+  { cat:"Image Production", sub:"X-ray Equipment",
+    q:"The filament of the x-ray tube is located in the:",
+    opts:["Anode","Cathode","Focusing cup","Rotor"],
+    a:1,
+    exp:"The filament (thoriated tungsten wire) is housed within the focusing cup in the cathode (negative terminal) assembly. When heated by milliamperage, it undergoes thermionic emission — releasing the electrons that form the useful beam.",
+    oe:[
+      "The anode is the positive terminal where electrons strike to produce x-rays — the filament is in the cathode.",
+      "Correct. Filament = cathode component. The cathode contains the filament + focusing cup. The filament boils off electrons by thermionic emission.",
+      "The focusing cup surrounds and focuses the electron beam toward the focal spot — but the filament is inside the focusing cup.",
+      "The rotor is the rotating component of the anode assembly — it contains the anode disk and bearings, not the filament."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION – EXPOSURE FACTORS ────────────────────────
+
+  { cat:"Image Production", sub:"Exposure Factors",
+    q:"Milliampere-seconds (mAs) primarily controls:",
+    opts:["Beam penetrating ability (kVp)","The quantity (number) of x-rays produced and therefore radiographic density/brightness","The energy distribution of the x-ray beam","The spatial resolution of the image"],
+    a:1,
+    exp:"mAs controls the QUANTITY of x-rays (number of photons). Increasing mAs increases the electron current through the tube → more photons produced → more photons reaching the IR → increased radiographic density/brightness. mAs is the primary density control.",
+    oe:[
+      "Beam penetrating ability is controlled by kVp (kilovoltage) — not mAs.",
+      "Correct. mAs = quantity of radiation produced = primary density/brightness control. Double mAs → double the photon quantity → double the density.",
+      "Energy distribution of the beam is determined by kVp and filtration — mAs does not change beam energy.",
+      "Spatial resolution is determined by focal spot size, OFD, and SID — mAs has no direct effect on recorded detail."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Exposure Factors",
+    q:"Applying the 15% rule: if a technique of 80 kVp/20 mAs is used and kVp is increased by 15%, the new mAs should be:",
+    opts:["40 mAs","20 mAs","10 mAs","5 mAs"],
+    a:2,
+    exp:"The 15% rule: increasing kVp by 15% doubles the beam's penetrating power, so mAs must be HALVED to maintain the same density. 80 kVp × 1.15 = 92 kVp; 20 mAs ÷ 2 = 10 mAs. New technique: 92 kVp / 10 mAs.",
+    oe:[
+      "40 mAs would be used if kVp was DECREASED by 15% (mAs doubled) — increasing kVp requires halving mAs.",
+      "20 mAs is unchanged — using this with increased kVp would overexpose the image.",
+      "Correct. 15% kVp increase = halve the mAs. 20 mAs ÷ 2 = 10 mAs. New technique: ~92 kVp / 10 mAs.",
+      "5 mAs would be used if mAs was quartered — the 15% rule only requires halving mAs, not quartering it."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Exposure Factors",
+    q:"kVp primarily controls which image quality factor?",
+    opts:["Radiographic density only","Radiographic contrast (and penetration)","Spatial resolution","Patient motion blur"],
+    a:1,
+    exp:"kVp controls: (1) PENETRATION — higher kVp penetrates tissue better; (2) CONTRAST — higher kVp reduces contrast (more Compton scatter, less differential absorption) producing a longer scale/lower contrast image; (3) it also affects density secondarily.",
+    oe:[
+      "mAs primarily controls density — kVp affects density secondarily and is not the primary density control.",
+      "Correct. kVp is the PRIMARY contrast control. Higher kVp → more Compton, less photoelectric → less differential absorption → lower contrast (longer gray scale).",
+      "Spatial resolution is controlled by focal spot size, OFD, and SID — kVp does not directly affect recorded detail.",
+      "Patient motion blur is controlled by exposure time (and short mAs) — kVp has no direct effect on motion."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Exposure Factors",
+    q:"The inverse square law applies to x-ray intensity: if SID is doubled from 100 cm to 200 cm, the intensity at the new distance is:",
+    opts:["Doubled","Halved","One-quarter of the original","Four times the original"],
+    a:2,
+    exp:"Inverse square law: I₁/I₂ = (D₂/D₁)². Doubling distance: I₂ = I₁ × (100/200)² = I₁ × (1/4). Intensity drops to 1/4. To maintain the same density, mAs must be increased 4× when SID is doubled.",
+    oe:[
+      "Doubling the intensity would occur if the SID were halved — the inverse square law predicts a decrease, not increase, when distance increases.",
+      "Halving the intensity corresponds to increasing distance by √2 ≈ 1.41×, not doubling it.",
+      "Correct. Doubling SID → intensity drops to 1/4. This is the mathematical consequence of the inverse square law.",
+      "Four times the original intensity would occur if SID were halved — the opposite of what doubling the distance produces."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Exposure Factors",
+    q:"Object-to-image receptor distance (OID) affects image quality primarily by:",
+    opts:["Increasing density when increased","Increasing magnification and decreasing recorded detail when increased","Decreasing patient dose","Improving contrast when increased"],
+    a:1,
+    exp:"Increasing OID: (1) increases magnification (image appears larger than the actual structure), (2) increases geometric unsharpness (penumbra), (3) decreases recorded detail. To minimize OID, place the body part as close to the IR as possible.",
+    oe:[
+      "OID does not directly affect density — it affects magnification and sharpness.",
+      "Correct. Increasing OID → more magnification + more penumbra → less recorded detail. Always minimize OID for best image quality.",
+      "OID does not significantly affect patient dose — dose is primarily determined by mAs and kVp.",
+      "OID does not improve contrast — contrast is determined by kVp, tissue thickness, and scatter."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION – GRIDS ────────────────────────
+
+  { cat:"Image Production", sub:"Grids",
+    q:"Grid ratio is defined as:",
+    opts:["The number of lead strips per centimeter","The ratio of lead strip height to the distance between strips","The percentage of primary radiation transmitted by the grid","The ratio of scattered radiation to primary radiation"],
+    a:1,
+    exp:"Grid ratio = height of lead strips (h) ÷ distance between strips (D). Common ratios: 8:1, 10:1, 12:1, 16:1. Higher ratio = more scatter cleanup = better contrast improvement, but requires more precise alignment and higher patient dose.",
+    oe:[
+      "The number of lead strips per centimeter is the grid frequency (lines/cm) — not the grid ratio.",
+      "Correct. Grid ratio = h/D. A 12:1 grid has strips 12× taller than the gap between them — very effective at removing scatter.",
+      "Percentage of primary radiation transmitted is related to the Bucky factor, not grid ratio.",
+      "The ratio of scattered to primary radiation is the scatter fraction — not grid ratio."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Grids",
+    q:"The Bucky factor (grid factor) represents:",
+    opts:["The number of lines per centimeter in a grid","How much the mAs must be increased to compensate for radiation absorbed by the grid","The percentage of scatter removed by the grid","The maximum kVp allowed when using a specific grid ratio"],
+    a:1,
+    exp:"Bucky factor (BF): the factor by which mAs must be multiplied when a grid is added to maintain the same density. BF = (primary + secondary) reaching IR without grid ÷ primary reaching IR with grid. Higher ratio grids have higher BF = more dose to patient.",
+    oe:[
+      "Lines per centimeter is the grid frequency — not the Bucky factor.",
+      "Correct. Bucky factor = compensation factor for grid use. Example: BF of 4 means mAs must be 4× greater when using that grid compared to no grid.",
+      "Percentage of scatter removed is the scatter cleanup efficiency — related to but distinct from Bucky factor.",
+      "Maximum kVp per grid ratio is a grid selection guideline, not the Bucky factor definition."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Grids",
+    q:"Grid cutoff (grid artifact) occurs when:",
+    opts:["The kVp is too high for the grid ratio selected","The x-ray beam is not aligned with the convergence point of a focused grid","The grid is used at too short an SID","Both B and C are correct"],
+    a:3,
+    exp:"Grid cutoff = absorption of primary radiation by lead strips, causing unilateral or bilateral density loss. Causes: (1) beam misalignment with focused grid's convergence line, (2) using grid outside its focal range (wrong SID), (3) grid tilt, (4) off-center CR.",
+    oe:[
+      "kVp selection does not cause grid cutoff — misalignment or wrong SID causes cutoff.",
+      "Beam misalignment with the convergence point is a cause — but so is using the wrong SID.",
+      "Using too short an SID is a cause of grid cutoff — but beam misalignment is also a cause.",
+      "Correct. Both beam misalignment AND wrong SID cause grid cutoff. Other causes include grid tilt and lateral decentering of the CR."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Grids",
+    q:"A grid is generally recommended when the body part being radiographed is greater than:",
+    opts:["5 cm","10 cm","15 cm","20 cm"],
+    a:1,
+    exp:"Grids are typically used for body parts ≥10 cm thick. Below 10 cm, the amount of scatter generated is small enough that a grid is not necessary and would only increase patient dose without meaningfully improving contrast.",
+    oe:[
+      "5 cm is too thin to generate significant scatter — a grid at this thickness would increase dose unnecessarily.",
+      "Correct. ≥10 cm = grid recommended. The threshold reflects where scatter becomes significant enough to degrade contrast.",
+      "15 cm is above the threshold — grids are used at 10 cm and above, not starting at 15 cm.",
+      "20 cm is definitely above the threshold — grids are required, but the guideline starts at 10 cm."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION – AEC ────────────────────────
+
+  { cat:"Image Production", sub:"AEC",
+    q:"When using Automatic Exposure Control (AEC), the detector/cell should be placed under:",
+    opts:["The thickest part of the patient regardless of the area of interest","The anatomic area of primary diagnostic interest","The edge of the collimation field","The grid to read grid efficiency"],
+    a:1,
+    exp:"AEC cells should be positioned under the area of PRIMARY diagnostic interest — the region the radiologist needs to evaluate. Incorrect cell placement causes over- or underexposure of the area of interest.",
+    oe:[
+      "Placing under the thickest part may expose for dense bone when the area of interest is soft tissue — incorrect cell placement.",
+      "Correct. AEC cell under the area of diagnostic interest ensures that area is optimally exposed. For chest: lateral cells for lung fields. For abdomen: center cell for organ of interest.",
+      "Placing the cell at the edge of collimation reads air, not tissue — this would cause massive overexposure.",
+      "AEC cells measure radiation reaching the IR, not grid function — they must be positioned under the anatomy of interest."
+    ]
+  },
+
+  { cat:"Image Production", sub:"AEC",
+    q:"The backup time (backup mAs) on an AEC system is set to:",
+    opts:["Reduce the maximum kVp if the exposure runs long","Terminate the exposure if the AEC fails to do so, protecting the patient and equipment","Improve image contrast for thin patients","Increase spatial resolution during long exposures"],
+    a:1,
+    exp:"Backup time/mAs is a safety device — if the AEC malfunctions and fails to terminate the exposure, the backup timer cuts the exposure at a preset limit (typically 150–200% of the expected mAs). It prevents radiation injury and tube damage.",
+    oe:[
+      "Backup time does not control kVp — kVp is set independently by the operator.",
+      "Correct. Backup time = fail-safe mechanism. If the AEC fails, the backup terminates exposure — protecting the patient from excessive dose and the tube from overload.",
+      "AEC does not adjust for patient size by altering contrast — the operator selects kVp and the AEC controls mAs.",
+      "Backup time has no effect on spatial resolution — it is purely a safety termination device."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION – DIGITAL IMAGING ────────────────────────
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"In computed radiography (CR), the imaging plate contains a layer of:",
+    opts:["Silver halide crystals","Cesium iodide (CsI) detector elements","Photostimulable phosphor (barium fluorohalide) crystals","Amorphous selenium"],
+    a:2,
+    exp:"CR imaging plates use photostimulable phosphor (PSP) — barium fluorohalide (BaFBr) doped with europium. X-ray energy is stored in the phosphor crystals. A laser scan during readout releases the stored energy as visible light, which is converted to a digital signal.",
+    oe:[
+      "Silver halide crystals are used in conventional film — not CR imaging plates.",
+      "Cesium iodide (CsI) is used as the phosphor in many indirect digital radiography (DR) flat-panel detectors — not CR cassettes.",
+      "Correct. CR = photostimulable phosphor (BaFBr:Eu) plate. Stores radiation as trapped electrons; laser light releases stored energy → light converted to digital image.",
+      "Amorphous selenium is used in DIRECT digital radiography (DR) flat-panel detectors — not CR cassettes."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"Window width in digital radiography controls:",
+    opts:["The brightness (lightness/darkness) of the displayed image","The number of shades of gray displayed (image contrast)","The spatial resolution of the image","The radiation dose to the patient"],
+    a:1,
+    exp:"Window width determines HOW MANY Hounsfield units (or pixel values) are mapped to the gray scale display — controlling CONTRAST. Narrow window width = high contrast (fewer shades of gray). Wide window width = low contrast (more shades of gray).",
+    oe:[
+      "Image brightness (lightness/darkness) is controlled by WINDOW LEVEL (window center) — not window width.",
+      "Correct. Window width = contrast control. Narrow window = fewer gray shades = high contrast. Wide window = many gray shades = low contrast.",
+      "Spatial resolution is determined by matrix size and pixel pitch — window width does not affect spatial resolution.",
+      "Radiation dose is controlled by mAs, kVp, and technique — not window width."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"Window level (window center) controls:",
+    opts:["Image contrast (number of gray shades)","Image brightness (overall lightness or darkness of the display)","Pixel matrix size","The dynamic range of the detector"],
+    a:1,
+    exp:"Window level sets the MIDPOINT of the gray scale display — controlling overall brightness. Increasing window level → image appears darker. Decreasing window level → image appears brighter. Used to optimize visualization of specific tissue densities.",
+    oe:[
+      "Image contrast (number of gray shades displayed) is controlled by WINDOW WIDTH — not window level.",
+      "Correct. Window level = brightness control. Moving the level up or down shifts which tissue densities appear gray, white, or black on the display.",
+      "Pixel matrix size is set during image acquisition and determines the resolution matrix — not controlled by windowing.",
+      "Dynamic range is an inherent property of the detector — it cannot be changed by window level adjustment."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"The primary advantage of digital radiography over film-screen radiography in terms of exposure latitude is:",
+    opts:["Digital systems require less radiation to produce a diagnostic image","Digital systems have a much wider dynamic range, allowing acceptable images over a broader range of exposures","Digital images can never be over- or underexposed","Digital systems eliminate the need for grids"],
+    a:1,
+    exp:"Digital systems have a far wider dynamic range (latitude) than film-screen — they can produce acceptable images over a much broader range of exposures. However, this creates the 'exposure creep' problem where overexposure goes undetected because the image still looks acceptable.",
+    oe:[
+      "Digital systems do not necessarily require less radiation — they can produce images at lower doses, but poor technique can still overexpose patients. Quantum noise (mottle) increases with underexposure.",
+      "Correct. Wide dynamic range = greater exposure latitude. Overexposure in digital imaging is invisible on the image (it still looks correct) — but patient dose is unnecessarily increased.",
+      "Digital images CAN be over- or underexposed — overexposure increases patient dose; underexposure produces quantum noise (mottle). The image may LOOK acceptable when overexposed due to post-processing.",
+      "Grids are still required in digital radiography for body parts ≥10 cm — digital detectors do not eliminate scatter."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"Quantum noise (quantum mottle) in digital radiography is caused by:",
+    opts:["Excessive kVp causing beam hardening","Inadequate radiation reaching the detector — too few photons to form a statistically smooth image","Grid misalignment artifacts","Electronic interference from nearby equipment"],
+    a:1,
+    exp:"Quantum noise (mottle) results from UNDEREXPOSURE — too few x-ray photons reach the detector. With fewer photons, statistical fluctuations in photon distribution become visible as a grainy, mottled appearance on the image.",
+    oe:[
+      "Excessive kVp does not cause quantum mottle — it may affect contrast but not quantum noise.",
+      "Correct. Quantum noise = too few photons reaching the detector. Insufficient photons → visible statistical randomness in the image → grainy appearance. Solution: increase mAs.",
+      "Grid misalignment causes grid cutoff (density loss bands) — not quantum noise.",
+      "Electronic interference causes specific artifact patterns — quantum noise is a statistical photon phenomenon."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Digital Imaging",
+    q:"PACS stands for:",
+    opts:["Picture Archiving and Communication System","Patient Access and Control System","Photostimulable Acquisition and Capture System","Primary Automated Calibration System"],
+    a:0,
+    exp:"PACS = Picture Archiving and Communication System. It stores, retrieves, distributes, and displays digital medical images. PACS replaced film libraries, enabling instant image access from any workstation in the hospital.",
+    oe:[
+      "Correct. PACS = Picture Archiving and Communication System. Enables filmless radiology — images stored digitally and accessed from remote workstations by radiologists and clinicians.",
+      "Patient Access and Control System is not a real radiology acronym.",
+      "Photostimulable Acquisition and Capture refers to CR technology aspects — not the complete picture archiving system.",
+      "Primary Automated Calibration System is not a recognized radiology acronym."
+    ]
+  },
+
+  // ──────────────────────── IMAGE PRODUCTION – IMAGE QUALITY ────────────────────────
+
+  { cat:"Image Production", sub:"Spatial Resolution",
+    q:"Geometric unsharpness (penumbra) is DECREASED by:",
+    opts:["Increasing OID and decreasing SID","Decreasing SID and increasing focal spot size","Using a small focal spot and minimizing OID","Using a large focal spot and maximum SID"],
+    a:2,
+    exp:"Penumbra (geometric unsharpness) is minimized by: (1) SMALL focal spot (less divergence), (2) minimum OID (body part close to IR), (3) maximum SID. Rule: small FS + short OID + long SID = least penumbra = sharpest image.",
+    oe:[
+      "Increasing OID INCREASES penumbra — more distance between object and IR = more geometric unsharpness.",
+      "Decreasing SID increases penumbra — shorter SID = more beam divergence at the IR level.",
+      "Correct. Small focal spot + minimum OID = least penumbra. These two factors are the primary controls for geometric unsharpness reduction.",
+      "Large focal spot creates MORE penumbra — the opposite of what's needed for sharp recorded detail."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Image Contrast",
+    q:"Scattered radiation primarily affects radiographic image quality by:",
+    opts:["Increasing spatial resolution","Adding unwanted gray tones that decrease contrast and fog the image","Increasing the overall brightness of the image","Improving visibility of low-contrast structures"],
+    a:1,
+    exp:"Scatter radiation reaches the IR without carrying anatomical information — it adds a uniform gray fog to the image, REDUCING contrast and OBSCURING detail. Grids, collimation, and compression are used to reduce scatter reaching the IR.",
+    oe:[
+      "Scatter does not affect spatial resolution (sharpness) — it affects contrast and fog level.",
+      "Correct. Scatter = image fog = reduced contrast. Scattered photons carry no anatomical information — they add uniform density that 'washes out' the image.",
+      "Scatter does increase overall brightness (fog), but this is harmful — it masks true subject contrast rather than improving it.",
+      "Scatter reduces, not improves, visibility of low-contrast structures — it adds noise that obscures subtle density differences."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Filtration",
+    q:"The purpose of added filtration in the x-ray beam is to:",
+    opts:["Increase the number of high-energy photons to penetrate thick body parts","Remove low-energy photons that would be absorbed by the patient without contributing to the image","Increase radiographic contrast by narrowing the beam spectrum","Reduce scatter radiation from the patient"],
+    a:1,
+    exp:"Added filtration (aluminum, 0.5–3 mm) removes low-energy photons that are too weak to penetrate tissue and reach the IR — they only add to patient skin dose (photoelectric absorption). Removing them 'hardens' the beam and reduces patient dose without significantly affecting image quality.",
+    oe:[
+      "Filtration REMOVES low-energy photons — it does not increase the high-energy photon quantity relative to what exits the tube.",
+      "Correct. Added filtration removes low-energy (soft) photons → reduces patient dose from non-diagnostic radiation → 'beam hardening.' Required: minimum 2.5 mm Al total filtration for units above 70 kVp.",
+      "Filtration reduces contrast slightly (removing low-energy photons that contribute to photoelectric differential absorption) — it does not narrow the spectrum in a way that increases contrast.",
+      "Filtration reduces patient skin dose — scatter FROM the patient is controlled by grids and collimation, not filtration."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Filtration",
+    q:"The minimum total filtration required for x-ray equipment operating above 70 kVp is:",
+    opts:["0.5 mm Al","1.5 mm Al","2.5 mm Al","5 mm Al"],
+    a:2,
+    exp:"NCRP requires a minimum total filtration of 2.5 mm aluminum equivalent for x-ray equipment operating above 70 kVp. This includes inherent filtration (glass envelope + oil + window ≈ 0.5 mm Al) plus added filtration.",
+    oe:[
+      "0.5 mm Al is approximately the inherent filtration alone — insufficient total filtration for equipment above 70 kVp.",
+      "1.5 mm Al is required for units operating 50–70 kVp — not for those above 70 kVp.",
+      "Correct. 2.5 mm Al equivalent total filtration is required for equipment operating above 70 kVp per NCRP standards.",
+      "5 mm Al is more than required — excessive filtration would remove diagnostic photons unnecessarily."
+    ]
+  },
+
+  { cat:"Image Production", sub:"Spatial Resolution",
+    q:"Magnification of a radiographic image is calculated using the formula:",
+    opts:["OID ÷ SID","SID ÷ SOD (source-to-object distance)","SOD ÷ OID","mAs × kVp"],
+    a:1,
+    exp:"Magnification factor (MF) = SID ÷ SOD. Since SOD = SID − OID, increasing OID increases MF. Example: SID = 100 cm, OID = 10 cm → SOD = 90 cm → MF = 100/90 = 1.11 (11% magnification).",
+    oe:[
+      "OID ÷ SID is the inverse of the magnification formula — this would give a value less than 1.",
+      "Correct. MF = SID ÷ SOD. All radiographic images have some magnification (MF > 1) due to OID. Minimize OID to minimize magnification.",
+      "SOD ÷ OID is not the magnification formula — this does not produce a standardized magnification factor.",
+      "mAs × kVp is an exposure technique product — it has no relation to magnification calculation."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – CHEST POSITIONING ────────────────────────
+
+  { cat:"Procedures", sub:"Chest",
+    q:"For a PA chest radiograph, the standard source-to-image receptor distance (SID) is:",
+    opts:["72 cm (28 inches)","100 cm (40 inches)","183 cm (72 inches)","200 cm (80 inches)"],
+    a:2,
+    exp:"PA chest: 72-inch (183 cm) SID is standard. The long SID minimizes heart magnification (since the heart is anterior, away from the IR on a PA). Short SID excessively magnifies the cardiac silhouette.",
+    oe:[
+      "72 cm is too short for a PA chest — it would cause unacceptable cardiac magnification.",
+      "100 cm is used for many other projections but not the standard PA chest, which requires 72 inches.",
+      "Correct. 72-inch (183 cm) SID for PA chest. This distance minimizes the cardiac shadow magnification by keeping divergence low.",
+      "200 cm is unnecessarily long — 72 inches is the established standard."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Chest",
+    q:"On a PA chest radiograph, the patient's rotation is evaluated by:",
+    opts:["Comparing the lengths of both clavicles","Checking symmetry of the medial clavicular ends relative to the spine (spinous process)","Counting the number of ribs visible","Comparing the width of both lung fields"],
+    a:1,
+    exp:"Rotation check on PA chest: the medial ends of both clavicles should be equidistant from the spinous process of the thoracic vertebra at that level. Rotation moves one clavicular end closer and the other farther — indicating the patient was turned.",
+    oe:[
+      "Clavicle length comparison is not the standard rotation test — clavicles vary in length between individuals.",
+      "Correct. Equal distance from clavicular medial ends to the thoracic spinous process = no rotation. Unequal distances = patient rotation.",
+      "Rib counting assesses depth of inspiration — not rotation.",
+      "Lung field width comparison can suggest rotation, but the clavicle-spine relationship is the specific, accepted rotation criterion."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Chest",
+    q:"The AP lordotic projection of the chest is used primarily to:",
+    opts:["Evaluate free air under the diaphragm","Project the clavicles above the apices to visualize the lung apices free of superimposition","Demonstrate air-fluid levels in the pleural space","Evaluate the heart in a cardiac series"],
+    a:1,
+    exp:"Lordotic (AP lordotic/Lindblom) projection: patient leans back (or CR angled cranially 15–20°), projecting the clavicles upward above the lung apices. This removes clavicular superimposition and reveals apical lung lesions (e.g., TB, apical tumors).",
+    oe:[
+      "Free air under the diaphragm is evaluated by an erect PA chest or left lateral decubitus abdomen — not the lordotic view.",
+      "Correct. AP lordotic = clavicles projected above the apices → lung apex free of bony superimposition. Classic view for apical TB surveillance.",
+      "Air-fluid levels in the pleural space are shown on erect PA or lateral decubitus projections — not the lordotic view.",
+      "Cardiac series uses multiple projections (PA, lateral, RAO, LAO) — the lordotic is not part of a cardiac series."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Chest",
+    q:"For a left lateral decubitus chest radiograph, the patient lies on their LEFT side with a horizontal beam. This position is used to demonstrate:",
+    opts:["Pneumothorax on the left side","Free pleural fluid on the right side (fluid layers dependently)","Heart enlargement","Pulmonary edema"],
+    a:1,
+    exp:"Left lateral decubitus (LLD): patient on left side → RIGHT side is now UP (non-dependent). Free fluid in the LEFT pleural space layers dependently (left side down). Free air in the RIGHT pleural space rises to the non-dependent (right) side and is demonstrated above the liver.",
+    oe:[
+      "Pneumothorax on the left would be demonstrated by a RIGHT lateral decubitus — air rises to the non-dependent (elevated) side.",
+      "Correct. LLD → right pleural space is UP → air (pneumothorax) would be visible on the right. Also, left pleural fluid layers dependently on the left, and the right side is now air-filled for comparison.",
+      "Heart enlargement is evaluated on PA and lateral chest — decubitus is for fluid/air detection.",
+      "Pulmonary edema is evaluated on PA or AP chest — not decubitus projections."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Chest",
+    q:"For a lateral chest radiograph, the patient's LEFT side is typically placed against the image receptor because:",
+    opts:["It is easier for right-handed radiographers","The left lateral minimizes heart magnification since the heart is left-sided and closer to the IR","The left lung is larger and requires less magnification","Positioning preference is irrelevant for the lateral chest"],
+    a:1,
+    exp:"Left lateral chest: left side against IR → heart is closer to the detector → less magnification of the cardiac shadow. If the right side were against the IR, the left-sided heart would be farther from the IR and more magnified.",
+    oe:[
+      "Handedness of the radiographer is not a consideration in standard projection selection.",
+      "Correct. Left lateral = left side against IR = heart (left-sided) is closest to IR = minimal cardiac magnification. This is the standard lateral chest projection.",
+      "The left lung is slightly smaller than the right (due to the heart's position) — not a reason to choose the left lateral.",
+      "Side selection matters significantly — left lateral is specifically chosen to minimize cardiac magnification."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – UPPER EXTREMITY ────────────────────────
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"For a PA projection of the hand, the central ray is directed:",
+    opts:["15° proximally to the third metacarpophalangeal joint","Perpendicular to the IR, to the third metacarpophalangeal joint","10° distally to the wrist","Perpendicular to the IR, to the fifth digit"],
+    a:1,
+    exp:"PA hand: patient's hand flat, fingers extended, palm down on the IR. CR perpendicular (no angle) directed to the third (middle) metacarpophalangeal (MCP) joint. Demonstrates phalanges, metacarpals, carpals, and soft tissues.",
+    oe:[
+      "A 15° proximal angle is not standard for the PA hand — the CR is perpendicular.",
+      "Correct. PA hand: CR perpendicular, directed to the 3rd MCP joint. Demonstrates all bones and joints of the hand in PA projection.",
+      "A 10° distal angle toward the wrist is not standard — the CR goes to the 3rd MCP joint perpendicular.",
+      "Centering to the fifth digit would not center the field appropriately for the entire hand."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The Norgaard method (ball-catcher position) is used to demonstrate:",
+    opts:["Carpal tunnel syndrome","Early erosive changes in rheumatoid arthritis at the MCP joints","Scaphoid fractures","Radial head fractures"],
+    a:1,
+    exp:"Norgaard (ball-catcher): both hands in the same AP oblique projection (as if holding a ball), fingers together, 45° oblique. This projection specifically shows the radial (lateral) aspects of the MCP joints — the earliest site of rheumatoid arthritis erosion.",
+    oe:[
+      "Carpal tunnel syndrome is evaluated by the carpal canal (tangential) projection — not the Norgaard method.",
+      "Correct. Norgaard (ball-catcher) = bilateral AP oblique hands → demonstrates MCP joint radial surfaces → early RA erosion detection.",
+      "Scaphoid fractures are evaluated by PA with ulnar deviation and multiple oblique views — not the Norgaard.",
+      "Radial head fractures are evaluated with the radial head–capitellum (lateral oblique elbow) view — not the Norgaard."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"For a PA projection of the wrist, the central ray is directed:",
+    opts:["15° proximally toward the elbow","Perpendicular to the midcarpal area","10° toward the ulnar styloid","Perpendicular to the distal radius"],
+    a:1,
+    exp:"PA wrist: patient's hand pronated (palm down), wrist centered on the IR. CR perpendicular to the midcarpal area (center of the carpals). Demonstrates the eight carpal bones, distal radius and ulna, and bases of the metacarpals.",
+    oe:[
+      "A 15° proximal angle is used for some carpal-specific views — not the standard PA wrist.",
+      "Correct. PA wrist: CR perpendicular to the midcarpal area. The standard projection for wrist evaluation.",
+      "Angling toward the ulnar styloid is not standard for the PA wrist projection.",
+      "Centering to the distal radius would not adequately demonstrate the carpals, which are the primary focus."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"To best demonstrate a suspected scaphoid fracture, the recommended additional view beyond routine wrist projections is:",
+    opts:["Lateral wrist in flexion","PA wrist with ulnar deviation","AP wrist in supination","Carpal canal (tangential) view"],
+    a:1,
+    exp:"PA with ulnar deviation (radial deviation of the wrist moves the scaphoid into a more elongated, profile position — actually ulnar deviation opens the scaphoid). Ulnar deviation opens the scaphoid waist and removes adjacent carpal superimposition for better visualization.",
+    oe:[
+      "Lateral wrist in flexion is not a standard scaphoid-specific view — the lateral is routine but not optimized for scaphoid.",
+      "Correct. PA wrist with ULNAR deviation elongates the scaphoid and reduces superimposition — the dedicated scaphoid projection. Additional oblique and angled views may supplement.",
+      "AP wrist in supination would overlap carpal bones — not helpful for scaphoid evaluation.",
+      "Carpal canal (tangential) projects the carpal tunnel — it demonstrates the palmar surfaces of carpals, not the scaphoid specifically."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"For a lateral projection of the elbow, the elbow must be flexed to:",
+    opts:["45°","90°","135°","Full extension (0°)"],
+    a:1,
+    exp:"Lateral elbow: flexed 90° with the thumb up (lateral position). The olecranon, trochlea, and radial head are demonstrated. Flexing to exactly 90° prevents rotation and separates the condyles.",
+    oe:[
+      "45° flexion is insufficient — the elbow must be at 90° for the true lateral projection.",
+      "Correct. Lateral elbow = 90° flexion. Thumb pointing up (lateral position). CR perpendicular to the elbow joint.",
+      "135° flexion does not achieve a true lateral — the joint would be partially flexed with the arm overlapping.",
+      "Full extension (0°) is used for the AP elbow projection — not the lateral."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"For an AP projection of the elbow, the patient's arm is:",
+    opts:["Flexed 90° with the thumb up","Fully extended with the forearm supinated (palm up)","Pronated with the elbow on the table","Flexed 45° with the humerus parallel to the IR"],
+    a:1,
+    exp:"AP elbow: arm fully extended, forearm SUPINATED (palm up) to place the radius and ulna parallel and avoid superimposition. CR perpendicular to the elbow joint. Demonstrates the distal humerus, radial head, and olecranon in AP projection.",
+    oe:[
+      "Flexed 90° with thumb up is the LATERAL elbow position — not the AP.",
+      "Correct. AP elbow = arm fully extended + forearm supinated. This unwinds the radius and ulna for a true AP without superimposition.",
+      "Pronated forearm is used for the PA forearm — pronation causes radius and ulna to cross, creating superimposition on the AP elbow.",
+      "45° flexion with humerus parallel is a modified position used when the patient cannot extend — not the standard AP."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"External rotation of the shoulder for an AP projection demonstrates:",
+    opts:["The lesser tubercle in profile","The greater tubercle in profile on the lateral aspect of the humerus","The glenoid cavity en face","The acromioclavicular (AC) joint space"],
+    a:1,
+    exp:"AP shoulder external rotation: the humerus is laterally rotated so the greater tubercle projects in profile on the lateral humerus. The greater tubercle is the most common site of rotator cuff calcific tendinitis (supraspinatus). This is the standard AP shoulder.",
+    oe:[
+      "The lesser tubercle is profiled in the INTERNAL rotation AP shoulder — not external rotation.",
+      "Correct. External rotation AP shoulder = greater tubercle in profile (lateral side). Used to evaluate calcific deposits in the supraspinatus tendon.",
+      "The glenoid cavity is best demonstrated on the oblique (Grashey) AP shoulder — not standard external rotation.",
+      "The AC joint space is evaluated on a separate AP projection with the CR centered between the clavicle and acromion — not the standard AP shoulder."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"Internal rotation of the shoulder for an AP projection demonstrates:",
+    opts:["The greater tubercle in profile","The lesser tubercle in profile on the medial aspect of the humerus","The acromioclavicular joint","The coracoid process in profile"],
+    a:1,
+    exp:"AP shoulder internal rotation: the humerus is medially rotated so the lesser tubercle projects in profile medially. The humerus appears as if viewed from the back of the shoulder — like a 'light bulb' shape. Used as a complementary view to external rotation.",
+    oe:[
+      "The greater tubercle in profile is seen on EXTERNAL rotation — not internal.",
+      "Correct. Internal rotation AP shoulder = lesser tubercle in profile (medial side). Humerus appears 'light-bulb' shaped. Evaluates the lesser tubercle for subscapularis calcification.",
+      "The AC joint is demonstrated on a dedicated AP AC joint projection — not the standard internal rotation shoulder.",
+      "The coracoid process is demonstrated on special axial projections or tangential views — not the standard internal rotation AP."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The inferosuperior axial (Lawrence) shoulder projection requires:",
+    opts:["The arm elevated to 90° abduction, IR placed superior to the shoulder, CR horizontal through the axilla","The patient in the prone position with the arm extended","The arm in internal rotation and the IR against the chest","The patient erect with the arm hanging at the side"],
+    a:0,
+    exp:"Lawrence method (inferosuperior axial): arm abducted 90°, IR placed on top of the shoulder, CR directed horizontally through the axilla from below-medially. Demonstrates the glenohumeral joint, Hill-Sachs deformity, and subscapularis tendon. Used when the patient cannot internally rotate.",
+    oe:[
+      "Correct. Lawrence = arm abducted 90°, IR on top of shoulder, CR horizontal through axilla. Demonstrates glenoid, humeral head, and coracoid from below.",
+      "Prone position is not used for shoulder projections — shoulder studies are done erect or supine.",
+      "Internal rotation with IR against the chest describes the Clements-Nakayama modification, not the Lawrence.",
+      "Arm hanging at the side with erect patient is the standard AP shoulder setup — not the axial Lawrence view."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The scapular Y (true lateral shoulder) projection is used to evaluate:",
+    opts:["Acromioclavicular separation","The relationship between the humeral head and glenoid cavity (dislocation)","Rotator cuff calcification","Clavicular fractures"],
+    a:1,
+    exp:"Scapular Y (lateral shoulder): patient in 45–60° RAO or LAO, shoulder against IR. The scapula projects as a Y-shape (body + spine + coracoid). The humeral head should be centered over the Y junction. Anterior or posterior dislocation is diagnosed by where the head lies relative to the glenoid.",
+    oe:[
+      "AC separation is evaluated on AP bilateral AC joints with weight-bearing — not the scapular Y.",
+      "Correct. Scapular Y = dislocation assessment. Anterior dislocation: head projects anterior (below coracoid); posterior dislocation: head projects posterior (behind spine). The glenoid is at the center of the Y.",
+      "Rotator cuff calcification is evaluated on AP shoulder (external rotation) — not the scapular Y.",
+      "Clavicular fractures are evaluated on AP clavicle projections — not the shoulder scapular Y."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Upper Extremity",
+    q:"The transthoracic lateral projection (Lawrence method for humerus) is performed when:",
+    opts:["Evaluating the shoulder in routine cases","The patient cannot abduct the injured arm and a lateral humerus is needed","Demonstrating the scapula in profile","Evaluating the acromioclavicular joints bilaterally"],
+    a:1,
+    exp:"Transthoracic lateral humerus: patient erect or supine, injured arm at the side, opposite arm raised over the head. CR directed horizontally through the thorax to produce a lateral image of the proximal humerus projected through the chest. Used for suspected proximal humerus fractures when arm movement is contraindicated.",
+    oe:[
+      "Routine shoulder evaluation uses standard AP (external/internal rotation) and scapular Y projections — not the transthoracic.",
+      "Correct. Transthoracic lateral = lateral view of the proximal humerus WITHOUT moving the injured arm. Opposite arm elevated to clear the shoulder; CR goes through the thorax.",
+      "Scapula in profile is the lateral scapula projection — a different procedure.",
+      "Bilateral AC joints are evaluated on a dedicated AP bilateral projection — not the transthoracic lateral."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – LOWER EXTREMITY ────────────────────────
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"For an AP projection of the foot, the central ray is angled:",
+    opts:["0° (perpendicular)","10° toward the heel (proximally)","15° toward the toes (distally)","15° toward the heel (proximally)"],
+    a:1,
+    exp:"AP foot: CR angled 10° toward the heel (posteriorly/proximally). This angle compensates for the normal longitudinal arch, projecting the metatarsal bases without superimposition and demonstrating the tarsometatarsal joints more clearly.",
+    oe:[
+      "0° (perpendicular) is used for some toe projections — for the AP foot, a 10° proximal (heel) angle is standard.",
+      "Correct. AP foot: 10° angle toward the heel (posteriorly). This reduces superimposition at the tarsometatarsal joints.",
+      "15° toward the toes (distally) is the direction for some oblique views — not the standard AP foot.",
+      "15° toward the heel is too steep — the standard is 10° proximal."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The medial oblique projection of the foot is obtained by rotating the foot:",
+    opts:["30–40° laterally (foot turned outward)","30–40° medially (foot turned inward)","90° into a lateral position","15° with the plantar surface perpendicular to the IR"],
+    a:1,
+    exp:"Medial oblique foot: the foot is rotated 30–40° MEDIALLY (turned inward, dorsal surface rotated toward the table). This is the most commonly requested oblique — demonstrates the 3rd–5th metatarsals, cuboid, lateral cuneiforms, and sinus tarsi free of superimposition.",
+    oe:[
+      "Rotating 30–40° laterally (outward) produces a LATERAL oblique foot — this is less commonly requested.",
+      "Correct. Medial oblique foot = 30–40° medial (inward) rotation. Demonstrates the lateral metatarsals and cuboid. Most common oblique foot projection.",
+      "90° rotation produces a lateral foot projection — not an oblique.",
+      "15° perpendicular plantar surface is not a standard oblique position."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The axial (plantodorsal) projection of the calcaneus requires the central ray to be directed:",
+    opts:["Perpendicular to the plantar surface of the heel","40° anteriorly (cranially) from the vertical, toward the ankle joint","15° toward the knee","Perpendicular to the IR with the foot in dorsiflexion"],
+    a:1,
+    exp:"Plantodorsal (axial) calcaneus: CR directed 40° cranially (anteriorly) from the vertical, entering the heel pad and exiting the ankle joint. The IR is placed posterior to the heel. Demonstrates the body and tuberosity of the calcaneus.",
+    oe:[
+      "Perpendicular to the plantar surface would not demonstrate the calcaneus in profile — a 40° angle is needed.",
+      "Correct. Plantodorsal calcaneus: 40° cranial CR angle. Demonstrates the calcaneus in axial profile, showing the sustentaculum tali and calcaneal body.",
+      "15° toward the knee is too shallow — the standard is 40° for the axial calcaneus.",
+      "Perpendicular with dorsiflexion is the lateral calcaneus position — not the axial."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The mortise projection of the ankle is obtained by rotating the leg and foot:",
+    opts:["15–20° externally (outward)","15–20° internally (inward)","45° externally into an oblique","Into full lateral position (90°)"],
+    a:1,
+    exp:"Mortise ankle: the entire leg and foot are internally rotated 15–20° to place both malleoli parallel to the IR. This opens the ankle mortise (talocrural joint space) so all three joint space components (medial, superior, lateral) are demonstrated without overlap.",
+    oe:[
+      "External rotation 15–20° opens the medial malleolus away from the tibia — it does NOT produce the mortise view.",
+      "Correct. Mortise = 15–20° internal rotation of the entire leg/foot. Both malleoli become parallel to the IR, demonstrating the full mortise joint space without fibular overlap.",
+      "45° external rotation produces an oblique ankle projection — not the mortise.",
+      "Full lateral (90°) produces a lateral ankle projection — not the mortise."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"For an AP projection of the knee, the central ray is angled:",
+    opts:["0° (perpendicular) for all patients","5–7° caudally (toward the feet) for patients with a 180° femur-tibia angle","3–5° cranially for patients with a large abdomen","Angled until parallel to the tibial plateau"],
+    a:3,
+    exp:"AP knee CR angle depends on patient anatomy and the slope of the tibial plateau. Standard: 3–5° cranial for routine patients; 3–5° caudal if the ASIS-to-table distance is <19 cm (thin patient). Goal: CR parallel to the tibial plateau for true joint space demonstration.",
+    oe:[
+      "0° is not always appropriate — the angle must compensate for the tibial plateau slope to open the knee joint space.",
+      "Caudal angles are used for thin patients (<19 cm ASIS-table distance) — large/thick patients require cranial angulation.",
+      "Cranial angulation is used for large/thick patients — not specifically for large abdomens. The ASIS-to-table measurement guides the angle.",
+      "Correct. The CR must be parallel to the tibial plateau — the angle varies from 3–5° caudal (thin) to 3–5° cranial (thick) based on patient build."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The PA oblique knee projection in INTERNAL rotation (medial oblique) best demonstrates:",
+    opts:["Fibular head and neck free of superimposition","Medial femoral and tibial condyles","Tibial spine and intercondylar eminence","Proximal tibiofibular articulation"],
+    a:0,
+    exp:"PA oblique knee (internal rotation) = medial oblique: the knee is rotated 45° medially. This projects the FIBULAR HEAD AND NECK free of tibial superimposition and demonstrates the proximal tibiofibular joint. The lateral tibial plateau is also well demonstrated.",
+    oe:[
+      "Correct. Internal rotation oblique = fibular head/neck free from tibia superimposition. Best view for proximal fibula evaluation.",
+      "Medial condyles are better visualized on the external rotation oblique, not internal.",
+      "Tibial spine and intercondylar eminence are seen on the tunnel (Camp-Coventry) projection — not the routine oblique.",
+      "The proximal tibiofibular articulation is a component but the primary purpose is demonstrating the fibular head/neck."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The tunnel view (Camp-Coventry method) of the knee is performed with the patient prone and the knee flexed to approximately 40–50°. Its primary purpose is to demonstrate:",
+    opts:["The patella tangentially","The medial and lateral condyles in AP","The intercondylar fossa and tibial spines","The proximal fibula"],
+    a:2,
+    exp:"Tunnel (Camp-Coventry): prone patient, knee flexed 40–50°, CR angled 40–50° caudally. This opens the intercondylar fossa, demonstrating the tibial spines, intercondylar eminence, and posterior femoral condyles. Detects osteochondral defects and loose bodies in the fossa.",
+    oe:[
+      "Tangential patella views (Merchant, Settegast, Hughston) demonstrate the patellofemoral joint — not the tunnel view.",
+      "Medial and lateral condyles in AP are seen on the routine AP knee — the tunnel opens the intercondylar fossa specifically.",
+      "Correct. Tunnel = intercondylar fossa and tibial spines. Knee flexion + caudal CR angle opens the fossa to show osteochondral defects and loose bodies.",
+      "The proximal fibula is evaluated on the AP knee or the internal rotation oblique — not the tunnel view."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"For a lateral projection of the knee, the knee is flexed to approximately:",
+    opts:["10–15°","20–30°","45°","90°"],
+    a:1,
+    exp:"Lateral knee: 20–30° flexion with the lateral (affected) side against the IR. This slight flexion relaxes the joint and opens the anterior joint space for demonstration. The patella is seen in lateral projection and the joint space is open.",
+    oe:[
+      "10–15° flexion is too slight — the joint space may not open adequately.",
+      "Correct. Lateral knee = 20–30° flexion. Slight flexion is needed to relax the joint and demonstrate the patellofemoral and tibiofemoral joint spaces.",
+      "45° flexion is used for some specific studies (e.g., Settegast for patella) — excessive for the routine lateral knee.",
+      "90° flexion is used for the tunnel view (Camp-Coventry) — too much flexion for a routine lateral knee."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"For an AP projection of the hip, the lower extremity is positioned with the foot:",
+    opts:["In neutral (toes pointing up)","Rotated externally 15–20°","Rotated internally 15–20° (toes pointing inward)","Dorsiflexed at 90°"],
+    a:2,
+    exp:"AP hip: internal rotation of 15–20° (toes pointing medially/inward) places the femoral neck parallel to the IR in a true AP projection, demonstrating the neck in its greatest length without foreshortening. The greater trochanter is seen in profile on the lateral side.",
+    oe:[
+      "Neutral position (toes pointing up) produces a slight external rotation of the femur — the femoral neck appears partially foreshortened.",
+      "External rotation shows the lesser trochanter in profile and foreshortens the femoral neck — not a true AP hip.",
+      "Correct. Internal rotation 15–20° = true AP hip. Femoral neck becomes parallel to IR → full length demonstrated. External rotation foreshortens the neck.",
+      "Dorsiflexion refers to ankle movement — it has no relevance to hip positioning."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"The modified Cleaves (bilateral frog-leg) projection of the hips requires the patient to:",
+    opts:["Lie supine with both hips and knees flexed and thighs abducted 40–45°","Lie supine with legs straight and feet in internal rotation","Lie on one side in lateral position","Stand erect with legs apart"],
+    a:0,
+    exp:"Modified Cleaves (frog-leg lateral): supine, hips and knees flexed, soles of feet together, thighs abducted 40–45°. Demonstrates both femoral heads and necks simultaneously in lateral projection. CONTRAINDICATED with suspected hip fracture.",
+    oe:[
+      "Correct. Modified Cleaves = supine, hips/knees flexed, thighs abducted 40–45°, soles together. Bilateral frog-leg lateral for routine hip evaluation.",
+      "Supine with straight legs and internal rotation is the AP pelvis/hip setup — not the frog-leg.",
+      "Side-lying lateral is a different projection — the frog-leg is performed supine.",
+      "Standing is used for weight-bearing joint studies — not the frog-leg hip projection."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Lower Extremity",
+    q:"For an AP projection of the femur, the leg is positioned with:",
+    opts:["15–20° external rotation to profile the lesser trochanter","15–20° internal rotation to profile the greater trochanter and show the neck without foreshortening","90° abduction","Neutral rotation with no adjustment"],
+    a:1,
+    exp:"AP femur: 15–20° internal rotation to align the femoral neck parallel to the IR, demonstrating the shaft and proximal femur similarly to the AP hip. This reduces foreshortening and profiles the greater trochanter laterally.",
+    oe:[
+      "External rotation profiles the lesser trochanter but foreshortens the femoral neck — not correct for a true AP femur.",
+      "Correct. Internal rotation 15–20° = femoral neck parallel to IR → true AP projection. Greater trochanter in profile on lateral side.",
+      "90° abduction is not achievable in a standard femur projection.",
+      "Neutral rotation leaves the femoral neck partially foreshortened — internal rotation is specifically required."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – SPINE ────────────────────────
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The open-mouth AP projection is used to demonstrate:",
+    opts:["C5–C7 and the cervicothoracic junction","The atlas (C1) and the odontoid process (dens) of C2","The intervertebral foramina of the cervical spine","The facet joints of the upper cervical spine"],
+    a:1,
+    exp:"AP open-mouth (odontoid): patient's mouth open wide, CR perpendicular through the open mouth. Demonstrates C1 (atlas) and the odontoid process (dens) of C2 — structures otherwise hidden by the teeth. Essential for evaluating atlantoaxial instability and odontoid fractures.",
+    oe:[
+      "C5–C7 and the cervicothoracic junction are demonstrated by the swimmer's lateral projection.",
+      "Correct. Open-mouth AP = C1 and odontoid (dens of C2). The patient's open mouth creates a window through which C1–C2 can be seen without tooth superimposition.",
+      "Cervical intervertebral foramina are demonstrated on oblique cervical projections.",
+      "Facet joints are demonstrated on lateral and oblique projections — the open-mouth specifically targets C1–C2."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The AP axial projection of the cervical spine uses a central ray angled:",
+    opts:["10° caudally","15–20° cranially (cephalad)","5° caudally","Perpendicular to the IR"],
+    a:1,
+    exp:"AP axial cervical: CR angled 15–20° cranially (cephalad). This angle aligns the CR parallel to the intervertebral disc spaces, opening the joint spaces for visualization. Without the cranial angle, the mandible and cervical bodies superimpose.",
+    oe:[
+      "A caudal angle is used for other AP axial projections (e.g., sacrum, Towne skull) — the cervical AP uses a CRANIAL angle.",
+      "Correct. AP axial cervical: 15–20° cranially. Opens the cervical intervertebral disc spaces for better C3–C7 visualization.",
+      "5° caudal is in the wrong direction for AP cervical spine.",
+      "Perpendicular CR does not adequately open the disc spaces — the cranial angle is necessary."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"Oblique projections of the cervical spine demonstrate:",
+    opts:["The odontoid process","The intervertebral (neural) foramina","The spinous processes","The atlantoaxial joint"],
+    a:1,
+    exp:"Cervical obliques (RAO/LAO or RPO/LPO): 45° rotation demonstrates the intervertebral foramina of the opposite side. RAO shows the LEFT foramina; LAO shows the RIGHT foramina. Foraminal narrowing causes cervical radiculopathy.",
+    oe:[
+      "The odontoid process is demonstrated on the open-mouth AP projection — not the obliques.",
+      "Correct. Cervical obliques = intervertebral foramina on the OPPOSITE side from the rotation. RAO = left foramina; LAO = right foramina.",
+      "Spinous processes are best seen on the lateral projection.",
+      "The atlantoaxial joint (C1–C2) is evaluated on the open-mouth and lateral projections."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The swimmer's lateral projection is used to demonstrate:",
+    opts:["C1–C2 (atlas and axis)","The cervicothoracic junction (C6–T3) when shoulders obscure the lateral view","The lumbar facet joints","The sacrococcygeal junction"],
+    a:1,
+    exp:"Swimmer's lateral (Twining method): one arm raised over the head, opposite arm pulled down. CR directed horizontally at C7–T1 level. Demonstrates the cervicothoracic junction (C6–T3) — the area most difficult to visualize on a routine lateral due to shoulder superimposition.",
+    oe:[
+      "C1–C2 are demonstrated on the open-mouth AP and lateral cervical projections — not the swimmer's.",
+      "Correct. Swimmer's = cervicothoracic junction (C6–T3). Shoulder interference prevents routine visualization of this area — the swimmer's position separates the shoulders.",
+      "Lumbar facet joints are evaluated on lateral and oblique lumbar projections.",
+      "Sacrococcygeal junction is evaluated on lateral sacrum/coccyx projections."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"For an AP projection of the lumbar spine, the patient's knees and hips are flexed with feet flat on the table primarily to:",
+    opts:["Prevent patient movement","Flatten the lumbar lordosis and reduce OID between the spine and IR","Demonstrate the sacroiliac joints","Allow the spinous processes to separate"],
+    a:1,
+    exp:"AP lumbar: knees/hips flexed, feet flat → flattens the lumbar lordotic curve → places the lumbar vertebral bodies more parallel to the IR → reduces obliquity of the disc spaces → better AP projection with open disc spaces.",
+    oe:[
+      "Patient movement prevention is not the primary reason — the technique modification affects image geometry.",
+      "Correct. Knee/hip flexion flattens lumbar lordosis → vertebral bodies closer to IR → better AP projection with open disc spaces.",
+      "Sacroiliac joints are demonstrated on dedicated AP and oblique SI joint projections.",
+      "Spinous process separation on flexion/extension views is for dynamic lumbar studies."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"In the oblique lumbar spine 'Scotty dog' image, the 'eye' of the dog represents:",
+    opts:["The pedicle","The superior articular process","The inferior articular process","The transverse process"],
+    a:0,
+    exp:"Scotty dog (oblique lumbar): pedicle = 'eye,' transverse process = 'nose,' superior articular process = 'ear,' inferior articular process = 'front leg,' pars interarticularis = 'neck.' A collar/fracture through the neck = spondylolysis.",
+    oe:[
+      "Correct. Scotty dog 'eye' = pedicle. A spondylolysis fracture appears as a 'collar' on the dog's neck (pars interarticularis).",
+      "The superior articular process forms the 'ear' of the Scotty dog.",
+      "The inferior articular process forms the 'front leg' of the Scotty dog.",
+      "The transverse process forms the 'nose' of the Scotty dog."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"For an AP projection of the sacrum, the central ray is angled:",
+    opts:["Perpendicular to the sacrum","15° caudally","15° cranially","30° caudally"],
+    a:2,
+    exp:"AP sacrum: CR angled 15° cranially (cephalad). The sacrum angles posteriorly from superior to inferior — the 15° cranial angle opens the sacral foramina and aligns the CR perpendicular to the anterior surface of the sacrum.",
+    oe:[
+      "Perpendicular CR does not compensate for the sacral angle — the foramina would appear closed.",
+      "15° caudal is used for the AP COCCYX projection — not the sacrum.",
+      "Correct. AP sacrum: 15° cranial angle. Opens the sacral foramina and demonstrates the sacrum without foreshortening.",
+      "30° caudal is the angle used for the AP axial Towne skull — not the sacrum."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"For an AP projection of the coccyx, the central ray is angled:",
+    opts:["15° cranially","10° caudally","10° cranially","Perpendicular"],
+    a:1,
+    exp:"AP coccyx: CR angled 10° caudally (toward the feet). The coccyx angles posteriorly — the 10° caudal angle aligns the CR with the coccygeal segments. Compare with the sacrum (15° cranial).",
+    oe:[
+      "15° cranial is the angle for the AP SACRUM — the coccyx requires a CAUDAL angle.",
+      "Correct. AP coccyx: 10° caudally. The caudal angle opens the coccygeal segments for visualization.",
+      "10° cranial is used for the sacrum approximately — not the coccyx.",
+      "Perpendicular CR does not compensate for the coccygeal curve — the caudal angle is needed."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Spine",
+    q:"The L5–S1 lateral spot projection requires the central ray angled:",
+    opts:["Perpendicular","5–8° caudally","8° cranially","15° caudally"],
+    a:1,
+    exp:"L5–S1 lateral spot: CR angled 5–8° caudally to parallel the sacral base and open the L5–S1 intervertebral disc space. Without this angle, the iliac crests often superimpose the L5–S1 joint.",
+    oe:[
+      "Perpendicular CR does not adequately open the L5–S1 disc space — a caudal angle is required.",
+      "Correct. L5–S1 lateral: 5–8° caudal angle opens the disc space. Critical for evaluating the most common disc herniation site.",
+      "Cranial angle would close, not open, the L5–S1 disc space.",
+      "15–20° is used for the AP sacrum — too steep for the lateral L5–S1 spot."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – SKULL/FACIAL ────────────────────────
+
+  { cat:"Procedures", sub:"Skull",
+    q:"The Caldwell method (PA axial skull) uses a central ray angled:",
+    opts:["Perpendicular to the IR","15° caudally","25–30° caudally","15° cranially"],
+    a:1,
+    exp:"Caldwell method: PA projection with CR angled 15° caudally through the nasion. Demonstrates the frontal bone, frontal sinuses, ethmoid sinuses, and superior orbital rims. The petrous ridges are projected into the lower one-third of the orbits.",
+    oe:[
+      "Perpendicular CR produces the standard PA skull — the Caldwell uses a 15° caudal angle.",
+      "Correct. Caldwell: 15° caudal through nasion. Petrous ridges project into the lower orbits.",
+      "25–30° caudal is used for the Towne (AP axial) projection.",
+      "15° cranial angle is not the Caldwell — it uses 15° CAUDAL."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Skull",
+    q:"The Towne method (AP axial skull) uses a central ray angled:",
+    opts:["15° cranially","30° caudally","Perpendicular to the IOML","15° caudally"],
+    a:1,
+    exp:"Towne (AP axial): OML perpendicular to IR. CR angled 30° caudally (or 37° if IOML is perpendicular). Demonstrates the occipital bone, posterior clinoid processes, dorsum sella, and foramen magnum.",
+    oe:[
+      "15° cranially is not the Towne angle — the CR must be angled caudally.",
+      "Correct. Towne = 30° caudal (OML perpendicular to IR) or 37° caudal (IOML perpendicular). Shows occipital bone and posterior fossa.",
+      "Perpendicular to IOML is the baseline positioning — the CR is then angled 30–37° caudally.",
+      "15° caudal is the Caldwell angle — the Towne requires 30° caudal."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Skull",
+    q:"The parietoacanthial (Waters method) projection demonstrates primarily:",
+    opts:["The posterior cranial fossa","The frontal and ethmoid sinuses","The maxillary sinuses free of petrous bone superimposition","The internal auditory canals"],
+    a:2,
+    exp:"Waters method: OML 37° from the IR. CR perpendicular through the acanthion. The petrous ridges drop below the maxillary sinuses — the classic view for maxillary sinus evaluation.",
+    oe:[
+      "The posterior cranial fossa is seen on the Towne projection.",
+      "Frontal and ethmoid sinuses are demonstrated on the Caldwell projection.",
+      "Correct. Waters (parietoacanthial): 37° OML angle → petrous ridges drop below maxillary sinuses → maxillary sinuses clearly visible.",
+      "Internal auditory canals are demonstrated on specific skull base projections."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Skull",
+    q:"All paranasal sinus projections must be performed with the patient ERECT because:",
+    opts:["It reduces radiation dose","Air-fluid levels can only be demonstrated when the patient is upright","It improves image sharpness","It is required for proper CR alignment"],
+    a:1,
+    exp:"Sinus radiography MUST be erect. Gravity allows fluid to settle in the dependent portion of air-containing sinuses — creating visible air-fluid levels that indicate sinusitis or hemorrhage. Supine positioning eliminates these diagnostic levels.",
+    oe:[
+      "Dose reduction is not the reason for erect positioning in sinus radiography.",
+      "Correct. Erect = gravity allows fluid to settle → air-fluid levels visible. Supine destroys air-fluid levels. All sinus views must be performed erect.",
+      "OID/sharpness is not significantly different between erect and supine sinus positioning.",
+      "CR alignment is achievable in either position — the clinical reason is air-fluid level demonstration."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – ABDOMEN ────────────────────────
+
+  { cat:"Procedures", sub:"Abdomen",
+    q:"A KUB (AP abdomen) projection is performed with the patient:",
+    opts:["Erect with the IR below the iliac crests","Supine, CR perpendicular at the level of the iliac crests","Prone with the CR at the umbilicus","Lateral recumbent"],
+    a:1,
+    exp:"KUB (Kidneys, Ureters, Bladder): supine AP. CR perpendicular, centered at the level of the iliac crests (approximately L3). Must include the pubic symphysis at the bottom and diaphragm at the top if possible.",
+    oe:[
+      "Erect position is used for the upright abdomen to detect free air — the KUB is supine.",
+      "Correct. KUB = supine, CR perpendicular to the IR, centered at the iliac crest (L3 level). Standard preliminary abdominal film.",
+      "Prone positioning is used for specific studies — not the KUB.",
+      "Lateral recumbent (decubitus) is used for cross-table or decubitus abdomen — not the KUB."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Abdomen",
+    q:"The LEFT lateral decubitus projection of the abdomen is preferred for detecting free intraperitoneal air because:",
+    opts:["The left lateral decubitus is easier to position","Free air rises to the right side (above the liver) where it is more easily seen against the homogeneous liver density","The right side is easier to collimate","The spleen is on the right"],
+    a:1,
+    exp:"Left lateral decubitus (LLD): patient on left side → right side is non-dependent (up). Free intraperitoneal air rises to the right subphrenic space — where the liver's uniform density provides excellent contrast to visualize even small amounts of free air.",
+    oe:[
+      "Positioning ease is not the clinical rationale.",
+      "Correct. LLD → right side up → free air rises to right subphrenic space → visible against the homogeneous liver density.",
+      "Collimation is not the reason.",
+      "The spleen is on the LEFT — the liver is on the RIGHT, which is why LLD (right side up) is preferred."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Abdomen",
+    q:"An acute abdominal series (three-way abdomen) typically includes:",
+    opts:["PA chest, AP supine abdomen, AP erect abdomen","AP supine abdomen, AP erect abdomen, PA erect chest","Lateral decubitus, lateral abdomen, AP supine","KUB, IVP scout, post-void film"],
+    a:1,
+    exp:"Three-way acute abdomen: (1) AP supine abdomen — organ positions and masses, (2) AP erect abdomen — air-fluid levels in bowel, (3) PA erect chest — free air under the diaphragm (pneumoperitoneum) and pulmonary pathology.",
+    oe:[
+      "The sequence listed is correct but the description in option A lists the chest first — a minor order issue; the content of B is most precisely stated.",
+      "Correct. Three-way = AP supine abdomen + AP erect abdomen + PA erect chest. Evaluates for obstruction, free air, and pulmonary causes of abdominal pain.",
+      "Lateral decubitus replaces the erect abdomen when the patient cannot stand — not part of the routine three-way.",
+      "KUB + IVP scout is urography preparation — not the acute abdominal series."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – GI STUDIES ────────────────────────
+
+  { cat:"Procedures", sub:"GI Studies",
+    q:"For a barium esophagram, the initial projection is usually:",
+    opts:["AP projection with the patient supine","RAO (right anterior oblique) with the patient erect or recumbent","PA projection with full inspiration","Lateral with the patient supine"],
+    a:1,
+    exp:"Esophagram initial position: RAO erect or recumbent. In RAO, the esophagus is projected between the spine and the heart — free of superimposition. Barium column visible in the esophageal lumen without cardiac or vertebral overlap.",
+    oe:[
+      "AP supine is used for specific phases but is not the primary initial projection.",
+      "Correct. RAO = esophagus projects between the vertebral column and heart → optimal visualization free of superimposition.",
+      "PA with full inspiration collapses the esophagus — poor demonstration.",
+      "Lateral supine is used for specific evaluations — the RAO is the primary initial projection."
+    ]
+  },
+
+  { cat:"Procedures", sub:"GI Studies",
+    q:"For a double-contrast barium enema, the barium is followed by:",
+    opts:["Water to dilute the barium","Air or carbon dioxide to coat and distend the colon","A second barium injection","Glucagon to relax the bowel"],
+    a:1,
+    exp:"Double-contrast barium enema: (1) dilute barium coats the mucosal lining, (2) barium drained, (3) air or CO₂ insufflated to distend the colon → demonstrates mucosal pattern in detail. Best technique for polyp and early cancer detection.",
+    oe:[
+      "Water washes out the barium coating — not used in double-contrast.",
+      "Correct. Double contrast = barium coating + air/CO₂ distension → excellent mucosal detail.",
+      "A second barium injection is used in single-contrast studies — not double contrast.",
+      "Glucagon may be given to reduce peristalsis but is not the primary second contrast agent."
+    ]
+  },
+
+  { cat:"Procedures", sub:"GI Studies",
+    q:"For an upper GI (UGI) series, the RAO position demonstrates:",
+    opts:["The fundus of the stomach filled with barium","The pyloric canal, duodenal bulb, and C-loop free of spine superimposition","The rugal folds of the gastric body","The esophagogastric junction"],
+    a:1,
+    exp:"RAO UGI: standard position for the stomach. The stomach rotates to project the pyloric canal and duodenal bulb anterior to the spine — no vertebral superimposition. The C-loop of the duodenum is well demonstrated.",
+    oe:[
+      "The fundus fills with air in the RAO — an LPO or PA projection fills the fundus with barium.",
+      "Correct. RAO = pyloric canal, duodenal bulb, and C-loop demonstrated free of vertebral superimposition. The most important position in the UGI series.",
+      "Rugal folds are best demonstrated with the fundus filled — LPO or PA projection.",
+      "The esophagogastric junction is best shown on a PA or LAO — not the RAO."
+    ]
+  },
+
+  // ──────────────────────── PROCEDURES – SPECIAL ────────────────────────
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"Before an intravenous urogram (IVU/IVP), a scout radiograph is obtained to:",
+    opts:["Assess the patient's respiratory rate","Establish correct exposure factors and identify pre-existing calcifications before contrast administration","Check cardiac rhythm","Evaluate blood pressure"],
+    a:1,
+    exp:"IVU scout: AP abdomen without contrast. Establishes: (1) correct exposure factors, (2) baseline image to show calcifications (renal calculi) that may be obscured by contrast, (3) masses or anatomical variants, (4) appropriate field coverage.",
+    oe:[
+      "Respiratory rate is a clinical assessment — not the purpose of the scout radiograph.",
+      "Correct. IVU scout = baseline image. Identifies calcifications before contrast injection — contrast may obscure small stones.",
+      "Cardiac rhythm is assessed by ECG — not radiography.",
+      "Blood pressure is measured clinically — not by the scout radiograph."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"In a hysterosalpingogram (HSG), contrast injected through the cervix evaluates:",
+    opts:["Uterine cavity shape and fallopian tube patency","Ovarian cyst morphology","Bladder volume and voiding","Renal parenchymal thickness"],
+    a:0,
+    exp:"HSG: water-soluble contrast injected via cervical cannula. Demonstrates: (1) uterine cavity shape and contour, (2) tubal patency (spill of contrast into peritoneal cavity confirms open tubes). Primary indication: infertility evaluation.",
+    oe:[
+      "Correct. HSG = uterine cavity + tubal patency. Free peritoneal spill of contrast confirms patent fallopian tubes.",
+      "Ovarian cysts are evaluated by ultrasound or CT — HSG does not fill the ovaries.",
+      "Bladder voiding function is evaluated by VCUG — a different procedure.",
+      "Renal parenchymal thickness is evaluated by IVU, ultrasound, or CT — not HSG."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"The craniocaudal (CC) mammographic projection demonstrates:",
+    opts:["The breast in true lateral profile","Maximum breast tissue compressed from cranial to caudal direction","The axillary tail preferentially","The breast from medial to lateral"],
+    a:1,
+    exp:"CC mammogram: the breast is placed on the IR, lifted forward, and compressed from above (cranially) to below (caudally). Demonstrates medial and lateral breast tissue including the subareolar and posterior breast tissue in the AP direction.",
+    oe:[
+      "True lateral profile describes the ML or MLO projection — not the CC.",
+      "Correct. CC = cranial-to-caudal compression. Demonstrates medial and lateral breast tissue and retroglandular fat.",
+      "The axillary tail is best demonstrated on the MLO projection — the CC shows less of the axillary tail.",
+      "Medial-to-lateral compression describes the MLO oblique direction — not the CC."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Procedures",
+    q:"The mediolateral oblique (MLO) mammographic projection is the single most important view because:",
+    opts:["It uses the least radiation dose","It demonstrates the greatest amount of breast tissue including axillary tail and pectoral muscle","It is the easiest to perform","It demonstrates the breast in true lateral profile"],
+    a:1,
+    exp:"MLO is the most complete single mammographic view — it demonstrates: (1) maximum breast tissue, (2) axillary tail, (3) pectoral muscle to the nipple level. The MLO angle follows the pectoralis major muscle orientation.",
+    oe:[
+      "Dose is not the reason MLO is the most important view.",
+      "Correct. MLO = greatest tissue coverage. It is the only view that includes the axillary tail and pectoral muscle.",
+      "MLO is technically one of the more challenging projections — not chosen for ease.",
+      "True lateral profile is the ML (mediolateral) view — the MLO is oblique."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Trauma",
+    q:"For a trauma patient with suspected cervical spine injury, the FIRST radiographic projection obtained is:",
+    opts:["AP open-mouth odontoid","AP axial cervical","Cross-table lateral cervical spine (horizontal beam)","Swimmer's lateral"],
+    a:2,
+    exp:"Trauma cervical spine protocol: the FIRST view is the cross-table lateral (horizontal beam, patient supine, NO neck movement). This single view can identify >90% of significant cervical injuries. All seven cervical vertebrae must be demonstrated.",
+    oe:[
+      "AP open-mouth is performed AFTER the lateral has been evaluated — not as the first film.",
+      "AP axial is obtained after the lateral — the lateral is always the first trauma cervical projection.",
+      "Correct. Cross-table lateral = first trauma cervical projection. Horizontal beam, patient supine, no movement. Must show all 7 cervical vertebrae.",
+      "Swimmer's is supplemental if C7 is not visible on the lateral — not the primary first film."
+    ]
+  },
+
+  { cat:"Procedures", sub:"Pediatrics",
+    q:"When performing radiography on pediatric patients, the BEST approach to immobilization is:",
+    opts:["Chemical sedation for all children under age 5","Explanation, reassurance, and the least restrictive restraint necessary","Physical restraint is required for all pediatric patients","Parents must never be in the room during exposure"],
+    a:1,
+    exp:"Pediatric immobilization: use non-forceful techniques first — age-appropriate explanation, distraction, reassurance. Use the least restrictive method necessary. Parents may assist (wearing lead aprons). The goal is to minimize repeat exposures while minimizing distress.",
+    oe:[
+      "Chemical sedation is reserved for procedures requiring prolonged immobility — not a first-line approach for routine radiography.",
+      "Correct. Least restrictive first: explanation → positioning aids → parental assistance → restraint as last resort. Minimize dose through proper immobilization.",
+      "Not all pediatric patients require physical restraint — many cooperate with age-appropriate communication.",
+      "Parents are encouraged to assist with immobilization while wearing lead aprons — their presence calms children."
+    ]
+  },
 
 ];
+
+
+
+
+
